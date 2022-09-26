@@ -1,0 +1,22 @@
+Timestamp                     Simulation t   % complete   Est. completion
+Tue Sep 13 02:10:22 2022       0.00*year              0   TBD
+Tue Sep 13 02:11:09 2022       0.00*year              5   Tue Sep 13 02:26:01 2022
+Tue Sep 13 02:11:57 2022       0.00*year             10   Tue Sep 13 02:26:11 2022
+Tue Sep 13 02:12:46 2022       0.00*year             15   Tue Sep 13 02:26:21 2022
+Tue Sep 13 02:13:34 2022       0.00*year             20   Tue Sep 13 02:26:21 2022
+Tue Sep 13 02:14:22 2022       0.00*year             25   Tue Sep 13 02:26:21 2022
+Tue Sep 13 02:15:10 2022       0.00*year             30   Tue Sep 13 02:26:21 2022
+Tue Sep 13 02:15:58 2022       0.00*year             35   Tue Sep 13 02:26:21 2022
+Tue Sep 13 02:16:47 2022       0.00*year             40   Tue Sep 13 02:26:24 2022
+Tue Sep 13 02:17:35 2022       0.00*year             45   Tue Sep 13 02:26:23 2022
+Tue Sep 13 02:18:24 2022       0.00*year             50   Tue Sep 13 02:26:25 2022
+Tue Sep 13 02:19:12 2022       0.00*year             55   Tue Sep 13 02:26:25 2022
+Tue Sep 13 02:20:01 2022       0.00*year             60   Tue Sep 13 02:26:26 2022
+Tue Sep 13 02:20:50 2022       0.00*year             65   Tue Sep 13 02:26:28 2022
+Tue Sep 13 02:21:40 2022       0.00*year             70   Tue Sep 13 02:26:30 2022
+Tue Sep 13 02:22:32 2022       0.00*year             75   Tue Sep 13 02:26:35 2022
+Tue Sep 13 02:23:22 2022       0.00*year             80   Tue Sep 13 02:26:36 2022
+Tue Sep 13 02:24:12 2022       0.00*year             85   Tue Sep 13 02:26:38 2022
+Tue Sep 13 02:25:01 2022       0.00*year             90   Tue Sep 13 02:26:38 2022
+Tue Sep 13 02:25:52 2022       0.00*year             95   Tue Sep 13 02:26:40 2022
+Tue Sep 13 02:26:44 2022       0.00*year            100   Tue Sep 13 02:26:43 2022
