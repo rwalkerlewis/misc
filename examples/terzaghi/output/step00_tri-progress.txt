@@ -1,0 +1,22 @@
+Timestamp                     Simulation t   % complete   Est. completion
+Sun Sep 12 18:32:43 2021       0.00*year              0   TBD
+Sun Sep 12 18:32:46 2021       0.00*year              5   Sun Sep 12 18:34:02 2021
+Sun Sep 12 18:32:49 2021       0.00*year             10   Sun Sep 12 18:33:52 2021
+Sun Sep 12 18:32:52 2021       0.00*year             15   Sun Sep 12 18:33:48 2021
+Sun Sep 12 18:32:55 2021       0.00*year             20   Sun Sep 12 18:33:46 2021
+Sun Sep 12 18:32:58 2021       0.00*year             25   Sun Sep 12 18:33:45 2021
+Sun Sep 12 18:33:01 2021       0.00*year             30   Sun Sep 12 18:33:45 2021
+Sun Sep 12 18:33:04 2021       0.00*year             36   Sun Sep 12 18:33:43 2021
+Sun Sep 12 18:33:07 2021       0.00*year             41   Sun Sep 12 18:33:43 2021
+Sun Sep 12 18:33:10 2021       0.00*year             46   Sun Sep 12 18:33:43 2021
+Sun Sep 12 18:33:13 2021       0.00*year             51   Sun Sep 12 18:33:43 2021
+Sun Sep 12 18:33:16 2021       0.00*year             56   Sun Sep 12 18:33:43 2021
+Sun Sep 12 18:33:19 2021       0.00*year             61   Sun Sep 12 18:33:42 2021
+Sun Sep 12 18:33:21 2021       0.00*year             66   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:24 2021       0.00*year             71   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:27 2021       0.00*year             76   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:30 2021       0.00*year             81   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:33 2021       0.00*year             86   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:36 2021       0.00*year             91   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:39 2021       0.00*year             96   Sun Sep 12 18:33:41 2021
+Sun Sep 12 18:33:42 2021       0.00*year            101   Sun Sep 12 18:33:41 2021

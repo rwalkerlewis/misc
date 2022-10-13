@@ -10,7 +10,7 @@ np.set_printoptions(suppress=True)
 # Computational Values
 ITERATIONS = 50
 EPS = 1e-20
-plt.rcParams.update({'font.size': 10})
+plt.rcParams.update({'font.size': 18})
 # ==============================================================================
 # Physical Values
 
@@ -301,20 +301,17 @@ t_step_array[0] = 0
 t_step_array = t_step_array.astype(np.int)    
 
 
-
-
-cm_numeric = ['red','orange','green','blue','indigo', 'violet']
-cm_analytic = ['red','orange','green','blue','indigo', 'violet']
-
+cm_numeric = ['red','black','green','blue','indigo', 'violet']
+cm_analytic = ['red','black','green','blue','indigo', 'violet']
 
 # Pore Pressure at Center
 fig, ax = plt.subplots()
 fig.set_size_inches(15,10)
-ax.semilogx(t_N[:], P_N[:,center,0], color=cm_numeric[1], label='Numerical')
-ax.semilogx(t_N[::50], P_exact_N[::50,center,0], cm_analytic[1],marker='^', linestyle=' ', label='Analytical')
+ax.semilogx(t_N[:], P_N[:,center,0], color=cm_numeric[0], label='Numerical')
+ax.semilogx(t_N[::50], P_exact_N[::50,center,0], color=cm_analytic[0],marker='^', linestyle=' ', label='Analytical')
 
 ax.grid()
-ax.legend(loc='best')
+ax.legend(loc='lower left')
 ax.set(xlabel='Normalized Time, t*', ylabel='Normalized Pressure, P*', title="Cryer's Problem: Normalized Pressure at Center")
 fig.tight_layout()
 fig.savefig('output/cryer_pressure_at_center_hex.png',dpi = 300)
@@ -325,8 +322,12 @@ fig.show()
 fig, ax = plt.subplots()
 fig.set_size_inches(15,10)
 
-#t0 t_N = 0.01
+
 tstep = 71
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[-1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+#t0 t_N = 0.01
+tstep = 179
 ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[0], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
 ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
 
@@ -352,7 +353,7 @@ ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[5], marker='^
 
 
 ax.grid()
-ax.legend(loc='center left')
+ax.legend(loc='lower left')
 ax.set(xlabel='Normalized Radial Distance, R*', ylabel='Normalized Pressure, P*', title="Cryer's Problem: Normalized Pressure Along Radial Axis")
 fig.tight_layout()
 fig.savefig('output/cryer_pressure_along_x_axis_norm_hex.png',dpi = 300)

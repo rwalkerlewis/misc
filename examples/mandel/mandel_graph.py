@@ -377,8 +377,8 @@ P_initial[:] = 1/(3*a) * B * (1 + nu_u) * F
 P_final = P[-1,:].copy()
 P_final[:] = 1./(3.*a) * B * (1. + nu) * F
 
-cm_numeric = ['red','orange','green','blue','indigo', 'violet']
-cm_analytic = ['red','orange','green','blue','indigo', 'violet']
+cm_numeric = ['red','black','green','blue','indigo', 'violet']
+cm_analytic = ['red','black','green','blue','indigo', 'violet']
 
 # Y Displacement at ypos
 ypos_loc = np.flatnonzero(pos[:,1]==ymax)
@@ -395,33 +395,33 @@ fig.set_size_inches(15,10)
 
 #t0
 tstep = 0
-ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[-1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
-ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[-1], label='Numerical, t* = ' + str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],5) ) )
 
 #t1
 tstep = t_step_array[0]
-ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[0], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[0], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t5
 tstep = t_step_array[1]
-ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[1], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t10
 tstep = t_step_array[2]
-ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[2], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[2], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t15
 tstep = t_step_array[3]
-ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[3], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[3], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t20
 tstep = t_step_array[4]
-ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[4], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_N[tstep, z_zero_pos], color=cm_numeric[4], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], P_exact_N[tstep, z_zero_pos], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 
 ax.grid()
@@ -438,33 +438,33 @@ fig.set_size_inches(15,10)
 
 #t0
 tstep = 0
-ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[-1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
-ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[-1], label='Numerical, t* = ' + str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],5) ) )
 
 #t1
 tstep = t_step_array[0]
-ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[0], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[0], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t5
 tstep = t_step_array[1]
-ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[1], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t10
 tstep = t_step_array[2]
-ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[2], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[2], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t15
 tstep = t_step_array[3]
-ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[3], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[3], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t20
 tstep = t_step_array[4]
-ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[4], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_N[tstep, x_zero_pos], color=cm_numeric[4], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], P_exact_N[tstep, x_zero_pos], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 
 ax.grid()
@@ -482,33 +482,33 @@ fig.set_size_inches(15,10)
 
 #t0
 tstep = 0
-ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[-1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
-ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[-1], label='Numerical, t* = ' + str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],5) ) )
 
 #t1
 tstep = t_step_array[0]
-ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[0], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[0], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t5
 tstep = t_step_array[1]
-ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[1], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t10
 tstep = t_step_array[2]
-ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[2], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[2], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t15
 tstep = t_step_array[3]
-ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[3], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[3], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t20
 tstep = t_step_array[4]
-ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[4], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_N[tstep, z_zero_pos,0], color=cm_numeric[4], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[z_zero_pos,0], U_exact_N[tstep, z_zero_pos,0], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 ax.grid()
 ax.legend(loc='upper left')
@@ -524,33 +524,33 @@ fig.set_size_inches(15,10)
 
 #t0
 tstep = 0
-ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[-1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
-ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[-1], label='Numerical, t* = ' + str(np.around(t_N[tstep],5) ) )
+ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],5) ) )
 
 #t1
 tstep = t_step_array[0]
-ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[0], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[0], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t5
 tstep = t_step_array[1]
-ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[1], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t10
 tstep = t_step_array[2]
-ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[2], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[2], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t15
 tstep = t_step_array[3]
-ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[3], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[3], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[3], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 #t20
 tstep = t_step_array[4]
-ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[4], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
-ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_N[tstep, x_zero_pos,1], color=cm_numeric[4], label='Numerical, t* = ' + str(np.around(t_N[tstep],3) ) )
+ax.plot(pos_N[x_zero_pos,1], U_exact_N[tstep, x_zero_pos,1], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + str(np.around(t_N[tstep],3) ) )
 
 ax.grid()
 ax.legend(loc='lower left')
