@@ -1,0 +1,2595 @@
+=======================================================================
+   PyLith 3.0.1: tests/fullscale/poroelasticity/cryer/test-suite.log
+=======================================================================
+
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: test_pylith.py
+====================
+
+test_output (TestCryerRefState.TestHex) ... 0 TS dt 0.00286667 time 0.
+    0 SNES Function norm 1.448560206359e-02 
+    Linear solve converged due to CONVERGED_ATOL iterations 1
+    1 SNES Function norm 9.300398884243e-16 
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 1
+1 TS dt 0.00286667 time 0.00286667
+    0 SNES Function norm 5.304497810583e-02 
+    Linear solve converged due to CONVERGED_ATOL iterations 1
+    1 SNES Function norm 4.760396887565e-16 
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 1
+2 TS dt 0.00286667 time 0.00573333
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/utils/.libs/petsc_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/meshio/.libs/meshio_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/topology/.libs/topology_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/problems/.libs/problems_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/materials/.libs/materials_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/utils/.libs/utils_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/bc/.libs/bc_wrap.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/TestDriver.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/MMSTest.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/FaultCohesiveStub.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/ObserverSolnStub.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/ObserverPhysicsStub.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/ProgressMonitorStub.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/PhysicsImplementationStub.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/PhysicsStub.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/FieldTester.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/testing/.libs/StubMethodTracker.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/MeshIOCubit.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/ExodusII.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/TestArray.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/DependenciesVersion.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/PetscVersion.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/PylithVersion.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/PetscOptions.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/GenericComponent.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/PyreComponent.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/utils/.libs/EventLogger.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/RefineUniform.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/ReverseCuthillMcKee.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/Distributor.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/FieldQuery.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/FieldOps.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/FieldFactory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/Field.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/FieldBase.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/MeshOps.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/topology/.libs/Mesh.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ProgressMonitorStep.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ProgressMonitorTime.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ProgressMonitor.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/InitialConditionPatch.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/InitialConditionDomain.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/InitialCondition.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ObserversPhysics.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ObserverPhysics.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/Physics.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ObserversSoln.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/ObserverSoln.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/SolutionFactory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/GreensFns.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/TimeDependent.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/problems/.libs/Problem.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputTriggerTime.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputTriggerStep.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputTrigger.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputPhysics.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputSolnPoints.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputSolnBoundary.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputSolnDomain.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputSoln.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputSubfield.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/OutputObserver.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/DataWriterVTK.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/DataWriterHDF5Ext.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/DataWriterHDF5.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/Xdmf.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/HDF5.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/DataWriter.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/PsetFileBinary.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/PsetFileAscii.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/PsetFile.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/MeshIOLagrit.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/MeshIOPetsc.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/MeshIOAscii.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/MeshIO.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/MeshBuilder.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/GMVFileBinary.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/GMVFileAscii.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/GMVFile.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/meshio/.libs/BinaryIO.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/Query.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IsotropicLinearPoroelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/RheologyPoroelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/Poroelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IsotropicLinearIncompElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/RheologyIncompressibleElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IncompressibleElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/AuxiliaryFactoryPoroelastic.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/AuxiliaryFactoryPoroelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/AuxiliaryFactoryViscoelastic.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/AuxiliaryFactoryElastic.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IsotropicPowerLaw.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IsotropicLinearGenMaxwell.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IsotropicLinearMaxwell.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/IsotropicLinearElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/DerivedFactoryElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/AuxiliaryFactoryElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/RheologyElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/Elasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/materials/.libs/Material.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/FaultCohesiveKin.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/AbsorbingDampers.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/NeumannTimeDependent.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/TimeDependentFn.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/DispVel.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/Solution.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IsotropicLinearPoroelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/Poroelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IsotropicLinearIncompElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IncompressibleElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IsotropicPowerLaw.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IsotropicLinearGenMaxwell.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IsotropicLinearMaxwell.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/Viscoelasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/IsotropicLinearElasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/Elasticity.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/fekernels/.libs/BoundaryDirections.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/AuxiliaryFactory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/ConstraintSimple.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/ConstraintUserFn.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/ConstraintSpatialDB.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/Constraint.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/UpdateStateVars.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/InterfacePatches.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/IntegrationData.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/IntegratorInterface.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/IntegratorBoundary.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/IntegratorDomain.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/Integrator.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/feassemble/.libs/PhysicsImplementation.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/TopologyOps.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcAuxiliaryFactory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcTimeHistory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcLiuCos.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcBrune.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcConstRate.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcRamp.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrcStep.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/KinSrc.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/AuxiliaryFactoryKinematic.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/FaultCohesiveImpulses.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/FaultCohesiveKin.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/faults/.libs/FaultCohesive.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/AbsorbingDampersAuxiliaryFactory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/AbsorbingDampers.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/NeumannUserFn.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/NeumannTimeDependent.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/DirichletUserFn.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/DirichletTimeDependent.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/TimeDependentAuxiliaryFactory.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/libsrc/pylith/bc/.libs/BoundaryCondition.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/opt/pylith/build/debug/pylith/modulesrc/mpi/.libs/mpi_wrap.gcda:overwriting an existing profile data with a different timestamp
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:238: RuntimeWarning: divide by zero encountered in true_divide
+  theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(locs[:,0]**2 + locs[:,1]**2) / locs[:,2] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:238: RuntimeWarning: invalid value encountered in true_divide
+  theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(locs[:,0]**2 + locs[:,1]**2) / locs[:,2] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:239: RuntimeWarning: divide by zero encountered in true_divide
+  phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( locs[:,1] / locs[:,0] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:239: RuntimeWarning: invalid value encountered in true_divide
+  phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( locs[:,1] / locs[:,0] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:250: RuntimeWarning: divide by zero encountered in true_divide
+  r_exact_N =  R_star.ravel() - numpy.nan_to_num(numpy.sum(((12*(1 + nu)*(nu_u - nu)) / \
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:250: RuntimeWarning: invalid value encountered in multiply
+  r_exact_N =  R_star.ravel() - numpy.nan_to_num(numpy.sum(((12*(1 + nu)*(nu_u - nu)) / \
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:287: RuntimeWarning: invalid value encountered in true_divide
+  ( (numpy.sin(R_star*numpy.sqrt(x_n))) / (R_star*numpy.sin(numpy.sqrt(x_n)) ) - 1 ) * \
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:400: RuntimeWarning: divide by zero encountered in true_divide
+  theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(locs[:,0]**2 + locs[:,1]**2) / locs[:,2] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:400: RuntimeWarning: invalid value encountered in true_divide
+  theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(locs[:,0]**2 + locs[:,1]**2) / locs[:,2] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:401: RuntimeWarning: divide by zero encountered in true_divide
+  phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( locs[:,1] / locs[:,0] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:401: RuntimeWarning: invalid value encountered in true_divide
+  phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( locs[:,1] / locs[:,0] ) ) )
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:411: RuntimeWarning: divide by zero encountered in true_divide
+  sigma_RR =  -1.0 - numpy.nan_to_num(numpy.sum(((12*(1 + nu)*(nu_u - nu)) / \
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:411: RuntimeWarning: invalid value encountered in multiply
+  sigma_RR =  -1.0 - numpy.nan_to_num(numpy.sum(((12*(1 + nu)*(nu_u - nu)) / \
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:418: RuntimeWarning: divide by zero encountered in true_divide
+  sigma_phiphi =  -1.0 - numpy.nan_to_num(numpy.sum(((12*(1 + nu)*(nu_u - nu)) / \
+/opt/pylith/src/pylith/tests/fullscale/poroelasticity/cryer/cryer_refstate_soln.py:418: RuntimeWarning: invalid value encountered in multiply
+  sigma_phiphi =  -1.0 - numpy.nan_to_num(numpy.sum(((12*(1 + nu)*(nu_u - nu)) / \
+test_output (TestCryerRefState.TestTet) ... 0 TS dt 0.00286667 time 0.
+    0 SNES Function norm 1.633227223774e-02 
+    Linear solve converged due to CONVERGED_ATOL iterations 1
+    1 SNES Function norm 2.021396207707e-15 
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 1
+1 TS dt 0.00286667 time 0.00286667
+    0 SNES Function norm 6.082835068307e-02 
+    Linear solve converged due to CONVERGED_ATOL iterations 1
+    1 SNES Function norm 1.098613060077e-15 
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 1
+2 TS dt 0.00286667 time 0.00573333
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='displacement', filename='output/cryer_refstate_hex-domain.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 6978 != 2266 : 
+Expected values (not okay): [-0.01318569 -0.01249631 -0.01190072 ... -0.03350164 -0.03349765
+ -0.03357818]
+Computed values (not okay): [-0.00097884 -0.00123916 -0.00178481 ...  0.00023391  0.00036795
+  0.00038082]
+Tolerance: 0.008581787049693881
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='pressure', filename='output/cryer_refstate_hex-domain.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 2326 != 630 : 
+Expected values (not okay): [1.15901647 1.1561255  1.15361483 ... 0.35440336 0.35444875 0.34396144]
+Computed values (not okay): [ 0.14435956  0.12263188  0.10983854 ... -0.0292676  -0.02927672
+ -0.02854506]
+Tolerance: 0.23771449070125122
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='displacement', filename='output/cryer_refstate_hex-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 6978 != 2266 : 
+Expected values (not okay): [-0.01318569 -0.01249631 -0.01190072 ... -0.03350164 -0.03349765
+ -0.03357818]
+Computed values (not okay): [-0.00097884 -0.00123916 -0.00178481 ...  0.00023391  0.00036795
+  0.00038082]
+Tolerance: 0.008581787049693881
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='pressure', filename='output/cryer_refstate_hex-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 2326 != 630 : 
+Expected values (not okay): [1.15901647 1.1561255  1.15361483 ... 0.35440336 0.35444875 0.34396144]
+Computed values (not okay): [ 0.14435956  0.12263188  0.10983854 ... -0.0292676  -0.02927672
+ -0.02854506]
+Tolerance: 0.23771449070125122
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='cauchy_strain', filename='output/cryer_refstate_hex-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 231, in _checkField
+    self.testcase.assertEqual(nstepsE, nsteps, msg="Mismatch in number of time steps")
+AssertionError: 1 != 2 : Mismatch in number of time steps
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='cauchy_stress', filename='output/cryer_refstate_hex-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 13956 != 11561 : 
+Expected values (not okay): [-1.         -1.         -1.         ... -0.92052292 -0.92378589
+ -0.93658043]
+Computed values (not okay): [-1.53281651e+00 -1.41177446e+00 -2.42075611e-59 ... -2.42075611e-59
+ -2.42075611e-59 -2.42075611e-59]
+Tolerance: 0.2903375152664031
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='displacement', filename='output/cryer_refstate_hex-x_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 690 != 352 : 
+Expected values (not okay): [-0.00972516 -0.00923522 -0.00924397 -0.00972516 -0.01318569 -0.01249631
+ -0.00879782 -0.00880074 -0.01250976 -0.01318569 -0.01694201 -0.01609236
+ -0.01197999 -0.01194469 -0.01605093 -0.01694201 -0.02119223 -0.02008556
+ -0.0153984  -0.01153469 -0.01151452 -0.01539015 -0.02015037 -0.02119223
+ -0.02617844 -0.02492483 -0.0193096  -0.00826876 -0.01490949 -0.01129517
+ -0.01129429 -0.01478527 -0.00813653 -0.01928408 -0.02487667 -0.02617844
+ -0.03213776 -0.03076744 -0.03923013 -0.03806533 -0.02387677 -0.00844242
+ -0.01864106 -0.01124586 -0.01456018 -0.01444791 -0.01113164 -0.01860709
+ -0.00840989 -0.02391696 -0.03077288 -0.03213776 -0.03923013 -0.03806498
+ -0.02954924 -0.00764373 -0.03691417 -0.04747109 -0.0472425  -0.00897344
+ -0.02309394 -0.01155685 -0.01828782 -0.01452993 -0.01452818 -0.01823306
+ -0.0115002  -0.02313117 -0.00900657 -0.02955531 -0.03691535 -0.00764413
+ -0.04747109 -0.0472425  -0.00987787 -0.02857206 -0.01140155 -0.03573369
+ -0.00926115 -0.04655894 -0.01213149 -0.02251081 -0.01477203 -0.01810152
+ -0.01811693 -0.01478288 -0.02254184 -0.01215805 -0.02858242 -0.00988491
+ -0.03573668 -0.01140346 -0.04655894 -0.00926115 -0.01324064 -0.02771534
+ -0.01520707 -0.03458958 -0.01378013 -0.045427   -0.01551278 -0.0222538
+ -0.01834984 -0.01834704 -0.02227375 -0.01552801 -0.02772862 -0.0132497
+ -0.03459461 -0.01521029 -0.045427   -0.01378013 -0.01674009 -0.0270871
+ -0.01894127 -0.03334223 -0.0181664  -0.04385757 -0.01903752 -0.02227524
+ -0.02228668 -0.01904376 -0.02710281 -0.01675136 -0.03334804 -0.01894519
+ -0.04385757 -0.0181664  -0.02036706 -0.02672456 -0.02266865 -0.03210348
+ -0.02237772 -0.04186576 -0.02269087 -0.02268833 -0.02673609 -0.02037517
+ -0.03210911 -0.02267266 -0.04186576 -0.02237772 -0.02366401 -0.02639628
+ -0.02627123 -0.0308533  -0.02637352 -0.03947077 -0.02640228 -0.02366668
+ -0.03085654 -0.02627334 -0.03947077 -0.02637352 -0.02623583 -0.02623459
+ -0.02916827 -0.02916783 -0.03011534 -0.03669565 -0.03669565 -0.03011534
+ -0.03356713 -0.03356713 -0.0128858  -0.01223299 -0.01224503 -0.0128858
+ -0.01766385 -0.01672053 -0.01168358 -0.01168762 -0.0167393  -0.01766385
+ -0.02286814 -0.02170375 -0.01604711 -0.0112977  -0.01129981 -0.01599765
+ -0.02164633 -0.02286814 -0.02860543 -0.02713313 -0.0207679  -0.01108623
+ -0.01549242 -0.01546431 -0.0110607  -0.02075648 -0.02721939 -0.02860543
+ -0.03496364 -0.03339155 -0.00752613 -0.02608746 -0.01116239 -0.02012703
+ -0.01522591 -0.01522473 -0.01995551 -0.01098179 -0.02605343 -0.00748881
+ -0.03333183 -0.03496364 -0.04199704 -0.04040166 -0.04971362 -0.04844449
+ -0.00792619 -0.03202913 -0.01140315 -0.02517841 -0.01519581 -0.01967423
+ -0.01952131 -0.01504053 -0.02513333 -0.01135957 -0.03207924 -0.0079714
+ -0.04040785 -0.04199704 -0.04971362 -0.04844412 -0.00861471 -0.03890597
+ -0.00975208 -0.0470961  -0.05806847 -0.05778885 -0.01203183 -0.03096497
+ -0.01559136 -0.02467214 -0.01962431 -0.01962195 -0.02460065 -0.01551645
+ -0.03101117 -0.01207481 -0.03891294 -0.0086194  -0.04709735 -0.00975254
+ -0.05806847 -0.05778885 -0.01300738 -0.03762428 -0.01455851 -0.04562794
+ -0.0113286  -0.0569527  -0.01623138 -0.03011844 -0.01987137 -0.0243502
+ -0.02437    -0.01988519 -0.03015655 -0.01626508 -0.03763615 -0.01301604
+ -0.04563108 -0.01456073 -0.0569527  -0.0113286  -0.01740247 -0.03642688
+ -0.0193941  -0.04411329 -0.01685639 -0.05556806 -0.02065713 -0.02963361
+ -0.02452459 -0.02452084 -0.02965774 -0.02067572 -0.03644205 -0.01741328
+ -0.04411855 -0.0193977  -0.05556806 -0.01685639 -0.02190222 -0.03543993
+ -0.02409666 -0.04241723 -0.02222184 -0.05364827 -0.02515793 -0.02943654
+ -0.02945027 -0.02516497 -0.03545769 -0.02191524 -0.04242332 -0.0241009
+ -0.05364827 -0.02222184 -0.02645243 -0.03470945 -0.02871755 -0.04066997
+ -0.02737328 -0.05121181 -0.02965811 -0.02965479 -0.03472234 -0.02646138
+ -0.04067586 -0.02872176 -0.05121181 -0.02737328 -0.03049034 -0.03401078
+ -0.03310288 -0.03887649 -0.03226111 -0.04828216 -0.03401758 -0.03049294
+ -0.03887991 -0.03310498 -0.04828216 -0.03226111 -0.03356025 -0.03355867
+ -0.03663639 -0.03663585 -0.03683824 -0.04488753 -0.04488753 -0.03683824
+ -0.04106061 -0.04106061]
+Computed values (not okay): [-1.59971332e-03 -1.83377815e-03 -1.83064234e-03 -1.59748649e-03
+ -9.78835687e-04 -1.23915566e-03 -2.10371163e-03 -2.09955367e-03
+ -1.23114141e-03 -9.73001077e-04  7.77572932e-06 -3.16919351e-04
+ -1.55640164e-03 -1.55696837e-03 -3.18384756e-04  1.69551280e-05
+  1.31258622e-03  8.90880919e-04 -6.93577274e-04 -1.72471524e-03
+ -1.72629040e-03 -6.89699325e-04  9.15332625e-04  1.32072849e-03
+  2.90416347e-03  2.42135556e-03  4.59053724e-04 -1.37520806e-03
+ -9.83681593e-04 -1.63549291e-03 -1.63067734e-03 -1.00843936e-03
+ -1.38095678e-03  4.58034224e-04  2.41564743e-03  2.91193100e-03
+  4.77666062e-03  4.24705318e-03  6.96776477e-03  6.46339486e-03
+  1.87390283e-03 -1.01335182e-03  4.23417539e-05 -1.37707259e-03
+ -1.09756751e-03 -1.12565291e-03 -1.39115618e-03  3.59841619e-05
+ -1.01250893e-03  1.88821272e-03  4.25394279e-03  4.78261303e-03
+  6.97252914e-03  6.46861786e-03  3.59645724e-03 -7.89767985e-04
+  5.72241790e-03  9.59025368e-03  9.29845391e-03 -7.26416661e-04
+  1.34144765e-03 -1.04943712e-03 -2.24786369e-04 -1.01767925e-03
+ -1.01538965e-03 -2.40374339e-04 -1.05214964e-03  1.35016765e-03
+ -7.26807282e-04  3.60111528e-03  5.72702645e-03 -7.88850106e-04
+  9.59453976e-03  9.30088073e-03 -6.01996664e-04  2.90675623e-03
+ -9.90797023e-04  4.81060712e-03 -2.72007318e-03  8.50626009e-03
+ -7.59114444e-04  8.79989506e-04 -8.25743636e-04 -3.55015300e-04
+ -3.55080732e-04 -8.19732298e-04  8.82652426e-04 -7.56199550e-04
+  2.90822299e-03 -6.05169418e-04  4.81095350e-03 -9.91546766e-04
+  8.51301518e-03 -2.71535989e-03 -5.99545603e-04  2.22144342e-03
+ -1.03597664e-03  3.81575182e-03 -3.61315439e-03  7.30673074e-03
+ -5.85247986e-04  5.56048864e-04 -3.30527731e-04 -3.26628267e-04
+  5.56250443e-04 -5.80002712e-04  2.21931774e-03 -6.01539975e-04
+  3.81132493e-03 -1.03772831e-03  7.30831811e-03 -3.60891485e-03
+ -4.33886642e-04  1.62256639e-03 -8.85442148e-04  2.81132229e-03
+ -4.03076902e-03  5.79943856e-03 -2.17031079e-04  3.63002772e-04
+  3.61898628e-04 -2.10883708e-04  1.62005855e-03 -4.31881967e-04
+  2.80468387e-03 -8.85503351e-04  5.79534723e-03 -4.03011287e-03
+ -1.07093110e-04  1.15562177e-03 -5.46692196e-04  1.90347743e-03
+ -3.91691112e-03  4.12134096e-03  2.85221642e-04  2.88698319e-04
+  1.15579962e-03 -9.98936601e-05  1.90609824e-03 -5.38629555e-04
+  4.11597174e-03 -3.91976802e-03  2.86256452e-04  8.20258031e-04
+ -4.65535096e-05  1.17350240e-03 -3.27362467e-03  2.44465997e-03
+  8.19496334e-04  2.94168748e-04  1.17353999e-03 -3.61480060e-05
+  2.44823489e-03 -3.28632789e-03  6.14862809e-04  6.21537383e-04
+  5.51502959e-04  5.62371779e-04 -2.14733554e-03  9.36975978e-04
+  9.52969638e-04 -2.10524262e-03 -4.67740743e-04 -4.70265191e-04
+ -1.97123092e-03 -2.18990001e-03 -2.18670995e-03 -1.96901996e-03
+ -1.30080101e-03 -1.56328278e-03 -2.41480235e-03 -2.41068079e-03
+ -1.55484046e-03 -1.29490231e-03 -1.93760038e-04 -5.38749792e-04
+ -1.84928905e-03 -2.30878317e-03 -2.31090906e-03 -1.85115470e-03
+ -5.41943809e-04 -1.84432917e-04  1.29027191e-03  8.28086266e-04
+ -9.04817743e-04 -1.93631294e-03 -1.96314852e-03 -1.96546975e-03
+ -1.93357289e-03 -9.01219078e-04  8.55946550e-04  1.29861579e-03
+  3.10456539e-03  2.57278717e-03 -7.73237448e-04  3.91311032e-04
+ -1.46977196e-03 -1.15429958e-03 -1.80122837e-03 -1.79630847e-03
+ -1.18512979e-03 -1.47818542e-03  3.89080925e-04 -7.70884771e-04
+  2.56499467e-03  3.11257425e-03  5.21581890e-03  4.63914144e-03
+  7.60642899e-03  7.07662882e-03 -5.07071128e-04  1.99932906e-03
+ -1.03315227e-03 -6.91280632e-06 -1.46198924e-03 -1.20847230e-03
+ -1.24183908e-03 -1.47988876e-03 -1.49551674e-05 -1.03300219e-03
+  2.01579710e-03 -5.09084998e-04  4.64645653e-03  5.22199684e-03
+  7.61140557e-03  7.08205944e-03 -3.88642410e-04  3.95364545e-03
+ -6.59891562e-04  6.30760400e-03  1.02844654e-02  9.98428292e-03
+ -6.72030921e-04  1.46814333e-03 -1.04740562e-03 -2.26587505e-04
+ -1.05112978e-03 -1.04878722e-03 -2.44991130e-04 -1.05184435e-03
+  1.47883819e-03 -6.71477297e-04  3.95875228e-03 -3.90919345e-04
+  6.31243378e-03 -6.58873301e-04  1.02889529e-02  9.98690945e-03
+ -4.76399347e-04  3.24780802e-03 -8.02513613e-04  5.36789719e-03
+ -2.57198872e-03  9.17170683e-03 -6.72951687e-04  1.02912990e-03
+ -7.75946381e-04 -2.96912003e-04 -2.96368056e-04 -7.69332954e-04
+  1.03332320e-03 -6.69054958e-04  3.24986964e-03 -4.79268761e-04
+  5.36846271e-03 -8.03090573e-04  9.17864664e-03 -2.56716616e-03
+ -4.29667853e-04  2.56002975e-03 -7.91138789e-04  4.34900143e-03
+ -3.40187334e-03  7.94461424e-03 -4.46334336e-04  7.48186076e-04
+ -1.97736140e-04 -1.93778222e-04  7.49228175e-04 -4.40387331e-04
+  2.55854751e-03 -4.31255851e-04  4.34478663e-03 -7.92678703e-04
+  7.94633434e-03 -3.39747170e-03 -2.10328333e-04  1.97316869e-03
+ -5.86720357e-04  3.32207842e-03 -3.76296084e-03  6.40580829e-03
+ -6.12588750e-06  6.06685091e-04  6.05904896e-04  4.21829416e-07
+  1.97128166e-03 -2.07845197e-04  3.31562968e-03 -5.86567936e-04
+  6.40178951e-03 -3.76212871e-03  1.80478657e-04  1.52732124e-03
+ -1.94413026e-04  2.39453183e-03 -3.59771191e-03  4.69413747e-03
+  5.82731658e-04  5.86295014e-04  1.52783309e-03  1.88056515e-04
+  2.39728919e-03 -1.86119896e-04  4.68881440e-03 -3.60040154e-03
+  6.34739993e-04  1.20720146e-03  3.57046447e-04  1.64469975e-03
+ -2.90622187e-03  2.98265609e-03  1.20648542e-03  6.42894164e-04
+  1.64473716e-03  3.67689871e-04  2.98628209e-03 -2.91872429e-03
+  1.01083063e-03  1.01763713e-03  9.96124649e-04  1.00715105e-03
+ -1.73307751e-03  1.43798014e-03  1.45393122e-03 -1.69071248e-03
+ -8.21260127e-06 -1.05116908e-05]
+Tolerance: 0.006532947250863536
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='pressure', filename='output/cryer_refstate_hex-x_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 230 != 57 : 
+Expected values (not okay): [1.15901647 1.1561255  1.15361483 1.1561255  1.14586036 1.14424
+ 1.14420828 1.14586036 1.12324819 1.12406282 1.13540327 1.12396347
+ 1.12324819 1.07971806 1.08622227 1.11655368 1.11651104 1.08598207
+ 1.07971806 1.00384518 1.01871105 1.08027636 1.09771424 1.0810534
+ 1.01982958 1.00384518 0.88412532 0.91280756 1.0186422  1.06256278
+ 1.06305827 1.01886765 0.91056107 0.88412532 0.71393233 0.75238232
+ 0.91786986 1.00124288 1.02634067 1.00543452 0.91883496 0.75428671
+ 0.71393233 0.4969714  0.54036739 0.24998973 0.28230874 0.77008386
+ 0.90676886 0.96645931 0.97073415 0.90812282 0.76842652 0.54015336
+ 0.4969714  0.24998973 0.28232289 0.56516335 0.30128224 0.76380138
+ 0.8700609  0.90421275 0.87251916 0.76215868 0.56491737 0.30124011
+ 0.56639105 0.30768781 0.73563945 0.81269345 0.81205338 0.73421698
+ 0.56594916 0.30757101 0.54870057 0.29831531 0.6796904  0.72217501
+ 0.67878127 0.54812052 0.29811567 0.50768031 0.27938325 0.60037411
+ 0.5999077  0.50697988 0.27914874 0.44427318 0.24767959 0.49877641
+ 0.44376902 0.24745172 0.37874687 0.37852804 0.32154785 1.04353386
+ 1.03254387 1.02366567 1.03254387 0.99913037 0.99443614 0.99434551
+ 0.99913037 0.94220127 0.94400356 0.97077327 0.94378299 0.94220127
+ 0.86067837 0.87146476 0.92789498 0.92780655 0.87105967 0.86067837
+ 0.75442649 0.77310883 0.86158981 0.89151755 0.86286276 0.77454785
+ 0.75442649 0.62519759 0.65351786 0.77302041 0.83383961 0.83458565
+ 0.77331    0.6512513  0.62519759 0.47728788 0.50836841 0.65865761
+ 0.75123605 0.78302425 0.75638627 0.65964263 0.50993696 0.47728788
+ 0.3176391  0.34789714 0.52306258 0.64744471 0.71055641 0.71537601
+ 0.64880102 0.52167573 0.34774622 0.3176391  0.36550296 0.51781776
+ 0.61176481 0.6448925  0.61409268 0.51645184 0.36532709 0.36638109
+ 0.49469992 0.55957297 0.55901155 0.49354847 0.36606495 0.35378682
+ 0.45046897 0.48386009 0.44976699 0.35337598 0.32504422 0.3909449
+ 0.39060428 0.32455869 0.28173208 0.31888454 0.28139257]
+Computed values (not okay): [ 1.44359558e-01  1.22631883e-01  1.09838541e-01  1.22245634e-01
+  8.58854013e-02  8.12931521e-02  8.11670526e-02  8.58475540e-02
+  4.72870738e-02  4.77258318e-02  6.30209143e-02  4.75624106e-02
+  4.72424157e-02  1.05847496e-02  1.43528090e-02  3.81767542e-02
+  3.81178545e-02  1.41632550e-02  1.05377439e-02 -2.11989959e-02
+ -1.66573444e-02  9.98642136e-03  2.10006698e-02  1.04149737e-02
+ -1.63089440e-02 -2.12291902e-02 -4.58280034e-02 -4.14681043e-02
+ -1.69487696e-02 -6.12261463e-05  1.76129242e-04 -1.68843070e-02
+ -4.18699245e-02 -4.58403656e-02 -6.05558248e-02 -5.85064024e-02
+ -4.05360511e-02 -2.24386153e-02 -1.48401053e-02 -2.12542773e-02
+ -4.04226922e-02 -5.83783151e-02 -6.05768537e-02 -6.17181470e-02
+ -6.26788845e-02 -4.38439765e-02 -4.74189031e-02 -5.69983151e-02
+ -4.21061441e-02 -3.10680606e-02 -3.01409193e-02 -4.19557351e-02
+ -5.71077108e-02 -6.27093932e-02 -6.17206922e-02 -4.38491023e-02
+ -4.74240730e-02 -6.24296791e-02 -4.83931421e-02 -5.68050870e-02
+ -4.66827405e-02 -4.19784130e-02 -4.64378595e-02 -5.69225544e-02
+ -6.24367459e-02 -4.83992742e-02 -6.13655696e-02 -4.74489489e-02
+ -5.75093546e-02 -5.19193755e-02 -5.19808713e-02 -5.76020990e-02
+ -6.13678232e-02 -4.74374386e-02 -5.98545462e-02 -4.46780902e-02
+ -5.86124722e-02 -5.68478374e-02 -5.86421894e-02 -5.98518457e-02
+ -4.46479724e-02 -5.75054455e-02 -4.10173553e-02 -5.86088341e-02
+ -5.86163905e-02 -5.74973305e-02 -4.09822697e-02 -5.37576209e-02
+ -3.61726050e-02 -5.59722331e-02 -5.37573640e-02 -3.61701051e-02
+ -4.89051550e-02 -4.89141112e-02 -4.33650101e-02  2.92940099e-02
+  2.51845401e-02  2.21089649e-02  2.51767538e-02  1.46389627e-02
+  1.32860737e-02  1.32560811e-02  1.46302761e-02  7.96785777e-04
+  1.14166215e-03  7.14312498e-03  1.08340164e-03  7.85812458e-04
+ -1.33804817e-02 -1.18145611e-02 -2.17609738e-03 -2.19701233e-03
+ -1.18827961e-02 -1.33958638e-02 -2.53103527e-02 -2.36362545e-02
+ -1.32586919e-02 -8.68908539e-03 -1.30960652e-02 -2.35187729e-02
+ -2.53264768e-02 -3.28637368e-02 -3.17414736e-02 -2.36013684e-02
+ -1.69583402e-02 -1.68678357e-02 -2.35815747e-02 -3.18631588e-02
+ -3.28779412e-02 -3.43027060e-02 -3.45658495e-02 -3.14116990e-02
+ -2.54132498e-02 -2.25156863e-02 -2.50015881e-02 -3.13943347e-02
+ -3.45720477e-02 -3.43246968e-02 -2.86698686e-02 -3.02469224e-02
+ -3.44514398e-02 -3.17401574e-02 -2.82886345e-02 -2.79849091e-02
+ -3.17152699e-02 -3.44622974e-02 -3.02652094e-02 -2.86794791e-02
+ -3.09068145e-02 -3.42373757e-02 -3.27617813e-02 -3.15571623e-02
+ -3.27210979e-02 -3.42515822e-02 -3.09103622e-02 -3.06618643e-02
+ -3.38391780e-02 -3.35728573e-02 -3.35827749e-02 -3.38465213e-02
+ -3.06579081e-02 -2.97747234e-02 -3.29159042e-02 -3.33679938e-02
+ -3.29049059e-02 -2.97636761e-02 -2.80094735e-02 -3.09489054e-02
+ -3.09384618e-02 -2.79906450e-02 -2.52174564e-02 -2.74300124e-02
+ -2.52008560e-02]
+Tolerance: 0.27876171161530394
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='displacement', filename='output/cryer_refstate_hex-y_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 690 != 354 : 
+Expected values (not okay): [-0.00972516 -0.00924397 -0.01318569 -0.01250976 -0.01318569 -0.01249631
+ -0.01694201 -0.01605149 -0.01189451 -0.01188827 -0.01694201 -0.01603395
+ -0.02119223 -0.02009478 -0.01524262 -0.01132587 -0.01140859 -0.01528702
+ -0.02119223 -0.02008546 -0.02617844 -0.02488033 -0.01920172 -0.01469217
+ -0.01107707 -0.01107843 -0.01477656 -0.00812667 -0.01924486 -0.02617844
+ -0.02486906 -0.03213776 -0.03077327 -0.03923013 -0.03806593 -0.02386814
+ -0.00831326 -0.01851167 -0.01108704 -0.01440236 -0.01448377 -0.01116915
+ -0.01864381 -0.00844616 -0.02385865 -0.03213776 -0.03076586 -0.0065459
+ -0.02955432 -0.0076446  -0.03691622 -0.04747109 -0.0472425  -0.00892822
+ -0.02304668 -0.01144776 -0.01817874 -0.01444614 -0.01444489 -0.01824768
+ -0.01151547 -0.02310569 -0.00898139 -0.02954531 -0.00653813 -0.03923013
+ -0.0380647  -0.00988146 -0.02857642 -0.01140405 -0.03573703 -0.00926115
+ -0.04655894 -0.01211645 -0.0224958  -0.01476672 -0.01809659 -0.01812008
+ -0.01478656 -0.02252896 -0.01214499 -0.02857379 -0.0098764  -0.03691351
+ -0.00764329 -0.04747109 -0.0472425  -0.01324373 -0.0277181  -0.01520934
+ -0.03459178 -0.01378013 -0.045427   -0.01550561 -0.02224676 -0.01834811
+ -0.01834554 -0.02226705 -0.01552137 -0.0277226  -0.01324273 -0.03573239
+ -0.01139986 -0.04655894 -0.00926115 -0.01674153 -0.02708772 -0.01894267
+ -0.03334294 -0.0181664  -0.04385757 -0.01903681 -0.02227466 -0.0222821
+ -0.01903918 -0.02709848 -0.01674606 -0.03459048 -0.01520588 -0.045427
+ -0.01378013 -0.02036745 -0.02672448 -0.02266916 -0.0321032  -0.02237772
+ -0.04186576 -0.02268951 -0.02268682 -0.02673318 -0.02037141 -0.03334505
+ -0.01894125 -0.04385757 -0.0181664  -0.0236648  -0.02639651 -0.0262716
+ -0.03085302 -0.02637352 -0.03947077 -0.0264013  -0.02366494 -0.03210741
+ -0.02266992 -0.04186576 -0.02237772 -0.02623577 -0.02623368 -0.02916825
+ -0.02916699 -0.03011534 -0.03669565 -0.030856   -0.02627186 -0.03947077
+ -0.02637352 -0.03356713 -0.03356713 -0.03669565 -0.03011534 -0.0128858
+ -0.01224503 -0.0128858  -0.01223299 -0.01766385 -0.0167393  -0.01168762
+ -0.01168358 -0.01766385 -0.01672053 -0.02286814 -0.02164711 -0.01592698
+ -0.01119487 -0.01119467 -0.01591825 -0.02286814 -0.0216228  -0.02860543
+ -0.02714542 -0.02055137 -0.01075788 -0.01520032 -0.01531618 -0.01089689
+ -0.0206132  -0.02860543 -0.02713301 -0.03496364 -0.03333637 -0.00737117
+ -0.02594348 -0.01084047 -0.01982677 -0.01492419 -0.01492602 -0.01994347
+ -0.01096831 -0.02600109 -0.00743525 -0.03496364 -0.03332235 -0.04199704
+ -0.04040831 -0.04971362 -0.04844512 -0.00791133 -0.03201844 -0.01123001
+ -0.02500656 -0.01497985 -0.01945921 -0.01957019 -0.01509154 -0.02518206
+ -0.01140817 -0.03200663 -0.00789859 -0.04199704 -0.04039986 -0.00861846
+ -0.03891181 -0.0097531  -0.04709827 -0.05806847 -0.0056917  -0.05778885
+ -0.01197304 -0.03090637 -0.0154471  -0.0245296  -0.01951284 -0.01951115
+ -0.02461974 -0.01553666 -0.03097963 -0.01204206 -0.03890153 -0.00860859
+ -0.04971362 -0.04844382 -0.01301184 -0.03762925 -0.01456145 -0.04563142
+ -0.0113286  -0.0569527  -0.01621219 -0.03010008 -0.01986452 -0.02434393
+ -0.024374   -0.01988995 -0.03014081 -0.01624841 -0.03762639 -0.01300539
+ -0.04709541 -0.00975155 -0.05806847 -0.05778885 -0.01740626 -0.03642996
+ -0.01939674 -0.04411553 -0.01685639 -0.05556806 -0.02064825 -0.02962519
+ -0.02452244 -0.02451901 -0.02964973 -0.0206675  -0.03643535 -0.0174047
+ -0.04562663 -0.01455646 -0.0569527  -0.0113286  -0.021904   -0.03544056
+ -0.0240983  -0.04241789 -0.02222184 -0.05364827 -0.02515707 -0.02943588
+ -0.02944492 -0.02515953 -0.03545296 -0.02190888 -0.04411436 -0.01939256
+ -0.05556806 -0.01685639 -0.02645292 -0.03470933 -0.02871819 -0.04066959
+ -0.02737328 -0.05121181 -0.02965658 -0.02965306 -0.03471925 -0.02645701
+ -0.04242036 -0.02409637 -0.05364827 -0.02222184 -0.03049126 -0.03401097
+ -0.03310335 -0.03887612 -0.03226111 -0.04828216 -0.0340166  -0.03049095
+ -0.04067424 -0.02871865 -0.05121181 -0.02737328 -0.03356027 -0.03355761
+ -0.03663648 -0.03663488 -0.03683824 -0.04488753 -0.03887946 -0.03310332
+ -0.04828216 -0.03226111 -0.04106061 -0.04106061 -0.04488753 -0.03683824]
+Computed values (not okay): [-1.59971332e-03 -2.23048516e-03 -9.78835687e-04 -1.63537936e-03
+ -3.99229665e-03 -3.99606609e-03  7.77572932e-06 -7.17851943e-04
+ -2.10094707e-03 -3.70623819e-03 -3.05317066e-03 -3.20809937e-03
+  1.31258622e-03  4.94920134e-04 -1.34464108e-03 -2.11538748e-03
+ -3.16611497e-03 -3.11762637e-03 -1.81897386e-03 -2.08582118e-03
+  2.90416347e-03  1.98698678e-03 -2.54146304e-04 -1.55529360e-03
+ -2.49691706e-03 -1.80863755e-03 -2.76683877e-03 -1.28972011e-03
+ -2.12427179e-03 -3.20089208e-04 -6.70546024e-04  4.77666062e-03
+  3.78415234e-03  6.96776477e-03  5.96538906e-03  1.12289734e-03
+ -9.14027294e-04 -6.37434363e-04 -1.76428343e-03 -1.42934966e-03
+ -2.23127830e-03 -1.34833400e-03 -1.93802200e-03 -8.17928806e-04
+ -8.26085075e-04  1.44985654e-03  1.07447094e-03  4.22214531e-04
+  2.80139036e-03  1.22418529e-03  4.91896180e-03  9.59025368e-03
+  8.75201938e-03 -2.50547204e-04  5.99015825e-04 -1.01931145e-03
+ -6.73201788e-04 -1.58648921e-03 -1.07840178e-03 -1.57134544e-03
+ -8.43027274e-04 -7.85753784e-04 -3.56479143e-04  8.14990529e-04
+  8.31838195e-05  3.54256184e-03  3.21302120e-03  4.96947911e-04
+  2.14678052e-03  1.47902082e-03  4.13277777e-03  2.52810591e-03
+  7.73048510e-03 -2.61577108e-04  3.82140800e-04 -8.66698719e-04
+ -4.75045865e-04 -1.05802774e-03 -6.14578262e-04 -5.86474985e-04
+ -3.16226787e-04  7.18184647e-04  1.38027237e-04  2.93971395e-03
+  5.18158113e-04  6.08403279e-03  6.00189039e-03  5.82702427e-04
+  1.74539772e-03  1.68415175e-03  3.56295521e-03  2.97681580e-03
+  6.86668992e-03 -8.57458642e-05  4.22505101e-04 -4.28834910e-04
+ -1.11686137e-04 -2.10188117e-04 -7.35383253e-05  7.48956956e-04
+  2.71394063e-04  2.72733182e-03  7.58716545e-04  5.81762710e-03
+  1.15115003e-03  7.81623734e-04  1.58576934e-03  1.89983512e-03
+  3.15491607e-03  3.29098124e-03  6.09758707e-03  2.98589703e-04
+  6.46624327e-04  2.86562062e-04  3.76634043e-04  9.38068288e-04
+  5.47166906e-04  2.60905274e-03  1.03902602e-03  5.56407914e-03
+  1.68126546e-03  1.14598619e-03  1.64219251e-03  2.20791650e-03
+  2.93587278e-03  3.52726752e-03  5.41429473e-03  8.84925590e-04
+  1.01330204e-03  1.27828779e-03  9.93320690e-04  2.55640979e-03
+  1.37161203e-03  5.25768018e-03  2.16749576e-03  1.57511323e-03
+  1.78931181e-03  2.61035426e-03  2.87899195e-03  3.72081933e-03
+  4.84372203e-03  1.64598256e-03  1.50382362e-03  2.62154420e-03
+  1.80414550e-03  4.93432352e-03  2.60637057e-03  1.97406752e-03
+  1.96142331e-03  2.90577187e-03  2.78249234e-03  3.98106695e-03
+  4.42883306e-03  2.80631085e-03  2.34114342e-03  4.64888754e-03
+  3.01874440e-03  4.36776317e-03  4.09408368e-03  4.45804601e-03
+  3.43403180e-03 -1.97123092e-03 -2.58649072e-03 -4.92170136e-03
+ -4.73327162e-03 -1.30080101e-03 -1.95931254e-03 -2.79146249e-03
+ -4.12295008e-03 -4.30911542e-03 -4.31538252e-03 -1.93760038e-04
+ -9.41739082e-04 -2.39781280e-03 -3.29785999e-03 -2.46644721e-03
+ -3.99860589e-03 -3.24982937e-03 -3.42796796e-03  1.29027191e-03
+  4.32464231e-04 -1.56443133e-03 -2.45545659e-03 -2.36225808e-03
+ -3.40547872e-03 -1.94435765e-03 -3.33064876e-03 -1.83670387e-03
+ -2.14431288e-03  3.10456539e-03  2.13649189e-03 -6.39211498e-04
+ -3.28039821e-04 -1.66556358e-03 -1.73787223e-03 -2.66683188e-03
+ -1.98192480e-03 -2.94131866e-03 -1.38520148e-03 -2.19188988e-03
+ -6.19678758e-04 -1.14421134e-04 -5.16836915e-04  5.21581890e-03
+  4.17739156e-03  7.60642899e-03  6.58115916e-03 -1.07890459e-04
+  1.24855382e-03 -9.35807446e-04 -6.94242051e-04 -1.85227636e-03
+ -1.54877501e-03 -2.34384066e-03 -1.43559138e-03 -1.98446599e-03
+ -8.36738192e-04 -6.96977457e-04 -2.33547431e-04  1.89677597e-03
+  1.47399588e-03  5.01841425e-04  3.16191166e-03  1.34614247e-03
+  5.51297170e-03  1.02844654e-02  1.85272576e-03  9.44137223e-03
+ -1.99480029e-04  7.24791316e-04 -1.02040054e-03 -6.80971997e-04
+ -1.62230888e-03 -1.11608237e-03 -1.57311763e-03 -8.42189866e-04
+ -6.54044776e-04 -3.02082042e-04  1.18000533e-03  1.66692219e-04
+  4.19312637e-03  3.83887884e-03  6.17442777e-04  2.49427127e-03
+  1.66049180e-03  4.70686604e-03  2.66237668e-03  8.40827958e-03
+ -1.77464421e-04  5.33484827e-04 -8.16498661e-04 -4.16417511e-04
+ -9.97020427e-04 -5.63798286e-04 -4.31728077e-04 -2.29439781e-04
+  1.06850045e-03  2.62796771e-04  3.54047888e-03  6.46590616e-04
+  6.79162281e-03  6.70275436e-03  7.49629257e-04  2.09403450e-03
+  1.92675915e-03  4.12124327e-03  3.17457155e-03  7.52801594e-03
+  5.32647036e-05  6.19736632e-04 -2.93296231e-04  2.39087361e-05
+ -1.15288160e-05  6.76629399e-05  1.09888125e-03  4.42359676e-04
+  3.30462165e-03  9.47178266e-04  6.50278711e-03  1.29526389e-03
+  1.00645193e-03  1.95062929e-03  2.20374892e-03  3.69767540e-03
+  3.55046542e-03  6.73828179e-03  5.13905453e-04  8.99037082e-04
+  5.38477248e-04  5.93749532e-04  1.30288313e-03  7.75732601e-04
+  3.16770753e-03  1.28815965e-03  6.22842142e-03  1.88978844e-03
+  1.44141009e-03  2.03293272e-03  2.57497540e-03  3.46414636e-03
+  3.84732404e-03  6.03026435e-03  1.19349080e-03  1.32383610e-03
+  1.66760398e-03  1.29218092e-03  3.09760283e-03  1.68122918e-03
+  5.89799596e-03  2.43690887e-03  1.93914149e-03  2.19914876e-03
+  3.03928952e-03  3.38997386e-03  4.10109704e-03  5.43037145e-03
+  2.05331020e-03  1.87108828e-03  3.14702519e-03  2.17615900e-03
+  5.54771709e-03  2.93479638e-03  2.39237647e-03  2.38297620e-03
+  3.38407909e-03  3.26486082e-03  4.42170077e-03  4.97911512e-03
+  3.31370820e-03  2.77448982e-03  5.23173130e-03  3.40579626e-03
+  4.86594401e-03  4.59703564e-03  5.00393801e-03  3.88017633e-03]
+Tolerance: 0.006525227783983857
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='pressure', filename='output/cryer_refstate_hex-y_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 230 != 57 : 
+Expected values (not okay): [1.15901647 1.1561255  1.1561255  1.15361483 1.14586036 1.14420828
+ 1.14586036 1.14424    1.12324819 1.12396347 1.13540327 1.12324819
+ 1.12406282 1.07971806 1.08598207 1.11651104 1.11655368 1.07971806
+ 1.08622227 1.00384518 1.0198167  1.08227428 1.09914183 1.08240427
+ 1.00384518 1.02028748 0.88412532 0.91250065 1.02339261 1.0680946
+ 1.06586081 1.02199312 0.88412532 0.91281344 0.71393233 0.75414528
+ 0.92191736 1.00858224 1.03304863 1.0057328  0.92029054 0.71393233
+ 0.75458008 0.4969714  0.54013968 0.24998973 0.28228886 0.77047167
+ 0.91197386 0.97242638 0.96935703 0.90664513 0.77087556 0.4969714
+ 0.54042979 0.56495842 0.30120793 0.76592392 0.8748856  0.90782727
+ 0.87186106 0.76331518 0.56534126 0.24998973 0.2823314  0.56619764
+ 0.30755348 0.73636417 0.81293753 0.81189097 0.73484201 0.56634888
+ 0.30130712 0.54856101 0.29821616 0.68004842 0.72225666 0.67911811
+ 0.54842839 0.30774738 0.50763343 0.27933917 0.60040701 0.60014376
+ 0.50721488 0.29830373 0.4442667  0.24767763 0.49885022 0.44393332
+ 0.2793012  0.37872254 0.37859428 0.24754978 0.32157155 1.04353386
+ 1.03254387 1.03254387 1.02366567 0.99913037 0.99434551 0.99913037
+ 0.99443614 0.94220127 0.94378299 0.97077327 0.94220127 0.94400356
+ 0.86067837 0.87105967 0.92780655 0.92789498 0.86067837 0.87146476
+ 0.75442649 0.77453126 0.86487321 0.89410834 0.86508803 0.75442649
+ 0.77513837 0.62519759 0.65320769 0.77916493 0.84226153 0.83883582
+ 0.77734536 0.62519759 0.65352381 0.47728788 0.50982037 0.6627999
+ 0.76029339 0.79194387 0.75675504 0.66113142 0.47728788 0.51017885
+ 0.3176391  0.34773657 0.52338743 0.65267569 0.71729677 0.71381836
+ 0.64732092 0.52372589 0.3176391  0.34794114 0.36535644 0.519586
+ 0.61634146 0.64850469 0.61346867 0.51741325 0.36563017 0.36624271
+ 0.49528714 0.55978717 0.55886917 0.49405423 0.36635092 0.35368796
+ 0.45074554 0.48392543 0.45002702 0.35359402 0.32501172 0.39096893
+ 0.39077666 0.32472157 0.28172772 0.31893549 0.28150321]
+Computed values (not okay): [ 0.14435956  0.12263188  0.12237306  0.11015126  0.0858854   0.08171368
+  0.08540324  0.08154549  0.04728707  0.04794966  0.06421685  0.04666508
+  0.04770234  0.01058475  0.014401    0.03931552  0.03929431  0.01011291
+  0.01421771 -0.021199   -0.01618059  0.0120332   0.02371829  0.01199648
+ -0.02149916 -0.01625931 -0.045828   -0.04150811 -0.0149131   0.00408818
+  0.00294736 -0.01548891 -0.04606907 -0.04165262 -0.06055582 -0.05846429
+ -0.03982065 -0.0195324  -0.01114538 -0.02039188 -0.04019017 -0.06103827
+ -0.05882886 -0.06171815 -0.06293984 -0.04384398 -0.0478974  -0.0572967
+ -0.04125265 -0.0290096  -0.02970879 -0.04211747 -0.0575244  -0.06253573
+ -0.0636101  -0.06330148 -0.05004511 -0.05744547 -0.04638731 -0.04137152
+ -0.04674516 -0.05769763 -0.06373359 -0.04481993 -0.04871952 -0.06317105
+ -0.0506332  -0.05894327 -0.0529812  -0.05305211 -0.05901906 -0.06332781
+ -0.05052444 -0.062746   -0.04950336 -0.06110046 -0.05913768 -0.06108411
+ -0.06273242 -0.0508195  -0.06164647 -0.04733553 -0.06240747 -0.0623736
+ -0.06155157 -0.04949357 -0.05921436 -0.04363875 -0.0611386  -0.05911537
+ -0.04724008 -0.05540446 -0.05535093 -0.04351102 -0.05048186  0.02929401
+  0.02518454  0.02518441  0.02212829  0.01463896  0.01329741  0.01462507
+  0.01331415  0.00079679  0.00112627  0.0072311   0.00074485  0.00113542
+ -0.01338048 -0.01185611 -0.00209479 -0.00209048 -0.01349629 -0.01188751
+ -0.02531035 -0.02350649 -0.01272862 -0.00814978 -0.01276179 -0.0255106
+ -0.02361394 -0.03286374 -0.03178408 -0.02303743 -0.01582739 -0.01629544
+ -0.02333094 -0.03315357 -0.0320229  -0.03430271 -0.03460949 -0.03134891
+ -0.02472874 -0.02168133 -0.02510763 -0.0316107  -0.0346947  -0.0349683
+ -0.02866987 -0.03031727 -0.03464399 -0.03176627 -0.02804309 -0.02831261
+ -0.03211732 -0.03491845 -0.02905021 -0.03068737 -0.03115466 -0.03464657
+ -0.03306066 -0.03182581 -0.03321093 -0.03481296 -0.03145391 -0.03117851
+ -0.03449596 -0.03423893 -0.03427817 -0.03458697 -0.03136177 -0.03056872
+ -0.03382882 -0.03429736 -0.03386145 -0.03066098 -0.02905822 -0.03209291
+ -0.0321014  -0.02908436 -0.02643693 -0.02871425 -0.02643496]
+Tolerance: 0.27910473740236463
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='displacement', filename='output/cryer_refstate_hex-z_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 690 != 353 : 
+Expected values (not okay): [-0.00972516 -0.00923522 -0.01318569 -0.01249631 -0.01318569 -0.01250976
+ -0.01694201 -0.01609236 -0.01197999 -0.01194469 -0.01694201 -0.01605093
+ -0.02119223 -0.02008556 -0.0153984  -0.01153469 -0.01151452 -0.01539015
+ -0.02119223 -0.02015037 -0.02617844 -0.02492483 -0.0193096  -0.00826876
+ -0.01490949 -0.01129517 -0.01129429 -0.01478527 -0.00813653 -0.01928408
+ -0.02617844 -0.02487667 -0.03213776 -0.03076744 -0.03923013 -0.03806533
+ -0.02387677 -0.00844242 -0.01864106 -0.01124586 -0.01456018 -0.01444791
+ -0.01113164 -0.01860709 -0.00840989 -0.02391696 -0.03213776 -0.03077288
+ -0.0065429  -0.02954924 -0.00764373 -0.03691417 -0.04747109 -0.0472425
+ -0.00897344 -0.02309394 -0.01155685 -0.01828782 -0.01452993 -0.01452818
+ -0.01823306 -0.0115002  -0.02313117 -0.00900657 -0.02955531 -0.00654664
+ -0.03923013 -0.03806498 -0.00987787 -0.02857206 -0.01140155 -0.03573369
+ -0.00926115 -0.04655894 -0.01213149 -0.02251081 -0.01477203 -0.01810152
+ -0.01811693 -0.01478288 -0.02254184 -0.01215805 -0.02858242 -0.00988491
+ -0.03691535 -0.00764413 -0.04747109 -0.0472425  -0.01324064 -0.02771534
+ -0.01520707 -0.03458958 -0.01378013 -0.045427   -0.01551278 -0.0222538
+ -0.01834984 -0.01834704 -0.02227375 -0.01552801 -0.02772862 -0.0132497
+ -0.03573668 -0.01140346 -0.04655894 -0.00926115 -0.01674009 -0.0270871
+ -0.01894127 -0.03334223 -0.0181664  -0.04385757 -0.01903752 -0.02227524
+ -0.02228668 -0.01904376 -0.02710281 -0.01675136 -0.03459461 -0.01521029
+ -0.045427   -0.01378013 -0.02036706 -0.02672456 -0.02266865 -0.03210348
+ -0.02237772 -0.04186576 -0.02269087 -0.02268833 -0.02673609 -0.02037517
+ -0.03334804 -0.01894519 -0.04385757 -0.0181664  -0.02366401 -0.02639628
+ -0.02627123 -0.0308533  -0.02637352 -0.03947077 -0.02640228 -0.02366668
+ -0.03210911 -0.02267266 -0.04186576 -0.02237772 -0.02623583 -0.02623459
+ -0.02916827 -0.02916783 -0.03011534 -0.03669565 -0.03085654 -0.02627334
+ -0.03947077 -0.02637352 -0.03356713 -0.03356713 -0.03669565 -0.03011534
+ -0.0128858  -0.01223299 -0.0128858  -0.01224503 -0.01766385 -0.01672053
+ -0.01168358 -0.01168762 -0.01766385 -0.0167393  -0.02286814 -0.02170375
+ -0.01604711 -0.0112977  -0.01129981 -0.01599765 -0.02286814 -0.02164633
+ -0.02860543 -0.02713313 -0.0207679  -0.01108623 -0.01549242 -0.01546431
+ -0.0110607  -0.02075648 -0.02860543 -0.02721939 -0.03496364 -0.03339155
+ -0.00752613 -0.02608746 -0.01116239 -0.02012703 -0.01522591 -0.01522473
+ -0.01995551 -0.01098179 -0.02605343 -0.00748881 -0.03496364 -0.03333183
+ -0.04199704 -0.04040166 -0.04971362 -0.04844449 -0.00792619 -0.03202913
+ -0.01140315 -0.02517841 -0.01519581 -0.01967423 -0.01952131 -0.01504053
+ -0.02513333 -0.01135957 -0.03207924 -0.0079714  -0.04199704 -0.04040785
+ -0.00861471 -0.03890597 -0.00975208 -0.0470961  -0.05806847 -0.0056917
+ -0.05778885 -0.01203183 -0.03096497 -0.01559136 -0.02467214 -0.01962431
+ -0.01962195 -0.02460065 -0.01551645 -0.03101117 -0.01207481 -0.03891294
+ -0.0086194  -0.04971362 -0.04844412 -0.01300738 -0.03762428 -0.01455851
+ -0.04562794 -0.0113286  -0.0569527  -0.01623138 -0.03011844 -0.01987137
+ -0.0243502  -0.02437    -0.01988519 -0.03015655 -0.01626508 -0.03763615
+ -0.01301604 -0.04709735 -0.00975254 -0.05806847 -0.05778885 -0.01740247
+ -0.03642688 -0.0193941  -0.04411329 -0.01685639 -0.05556806 -0.02065713
+ -0.02963361 -0.02452459 -0.02452084 -0.02965774 -0.02067572 -0.03644205
+ -0.01741328 -0.04563108 -0.01456073 -0.0569527  -0.0113286  -0.02190222
+ -0.03543993 -0.02409666 -0.04241723 -0.02222184 -0.05364827 -0.02515793
+ -0.02943654 -0.02945027 -0.02516497 -0.03545769 -0.02191524 -0.04411855
+ -0.0193977  -0.05556806 -0.01685639 -0.02645243 -0.03470945 -0.02871755
+ -0.04066997 -0.02737328 -0.05121181 -0.02965811 -0.02965479 -0.03472234
+ -0.02646138 -0.04242332 -0.0241009  -0.05364827 -0.02222184 -0.03049034
+ -0.03401078 -0.03310288 -0.03887649 -0.03226111 -0.04828216 -0.03401758
+ -0.03049294 -0.04067586 -0.02872176 -0.05121181 -0.02737328 -0.03356025
+ -0.03355867 -0.03663639 -0.03663585 -0.03683824 -0.04488753 -0.03887991
+ -0.03310498 -0.04828216 -0.03226111 -0.04106061 -0.04106061 -0.04488753
+ -0.03683824]
+Computed values (not okay): [-1.59748649e-03 -2.22621068e-03 -9.73001077e-04 -1.62905951e-03
+ -3.99229665e-03 -3.99207673e-03  1.69551280e-05 -7.09359375e-04
+ -2.08426065e-03 -3.68424817e-03 -3.05317066e-03 -3.20270631e-03
+  1.32072849e-03  5.01906449e-04 -1.31455186e-03 -2.06749720e-03
+ -3.13293233e-03 -3.08019142e-03 -1.81897386e-03 -2.06385512e-03
+  2.91193100e-03  1.99734719e-03 -2.28941847e-04 -1.54932376e-03
+ -1.49813363e-03 -2.44418001e-03 -1.76160600e-03 -2.76407563e-03
+ -1.28595459e-03 -2.11128301e-03 -3.20089208e-04 -6.68309462e-04
+  4.78261303e-03  3.78925437e-03  6.97252914e-03  5.96904806e-03
+  1.12996644e-03 -8.98593202e-04 -5.99855676e-04 -1.73076820e-03
+ -1.38411008e-03 -2.24368813e-03 -1.35030547e-03 -1.95237459e-03
+ -8.18538483e-04 -8.07078589e-04  1.44985654e-03  1.07662485e-03
+  4.23138661e-04  2.80587752e-03  1.22366712e-03  4.92204531e-03
+  9.59453976e-03  8.75778522e-03 -2.42807992e-04  6.16788812e-04
+ -9.97363843e-04 -6.37431437e-04 -1.56313162e-03 -1.05299784e-03
+ -1.57809322e-03 -8.41425094e-04 -7.78793467e-04 -3.51544161e-04
+  8.17352918e-04  8.50512729e-05  3.54256184e-03  3.21393562e-03
+  4.97836055e-04  2.15268899e-03  1.47915744e-03  4.13833703e-03
+  2.52453317e-03  7.73113312e-03 -2.58372280e-04  3.93639058e-04
+ -8.66233288e-04 -4.66956367e-04 -1.06075536e-03 -6.09834063e-04
+ -5.84969323e-04 -3.10339546e-04  7.18355881e-04  1.40643993e-04
+  2.94104330e-03  5.20549506e-04  6.08403279e-03  6.00032340e-03
+  5.82809064e-04  1.75352466e-03  1.68450423e-03  3.57224094e-03
+  2.97244198e-03  6.87118141e-03 -8.51950755e-05  4.32180863e-04
+ -4.30202937e-04 -1.04643752e-04 -2.10993468e-04 -6.63962684e-05
+  7.46401909e-04  2.75443669e-04  2.72632617e-03  7.61155813e-04
+  5.82098987e-03  1.15642929e-03  7.79684916e-04  1.59452949e-03
+  1.89814307e-03  3.16604087e-03  3.28808703e-03  6.10656181e-03
+  2.96443566e-04  6.53784062e-04  2.85665924e-04  3.84670234e-04
+  9.34919551e-04  5.53909925e-04  2.60446786e-03  1.04195509e-03
+  5.56337697e-03  1.68780103e-03  1.14200108e-03  1.64834898e-03
+  2.19916082e-03  2.93877397e-03  3.52564874e-03  5.42417175e-03
+  8.83406236e-04  1.02010603e-03  1.27750092e-03  1.00226895e-03
+  2.55012028e-03  1.37711921e-03  5.25247100e-03  2.17279352e-03
+  1.57220529e-03  1.79380838e-03  2.60490492e-03  2.87851024e-03
+  3.72850366e-03  4.84587211e-03  1.64608124e-03  1.51115746e-03
+  2.62346343e-03  1.81703037e-03  4.92837347e-03  2.61063814e-03
+  1.97305468e-03  1.96692140e-03  2.90571891e-03  2.78684183e-03
+  3.93273653e-03  4.40429613e-03  2.81126219e-03  2.35070410e-03
+  4.65085839e-03  3.01407240e-03  4.37815134e-03  4.08757888e-03
+  4.48670590e-03  3.48583037e-03 -1.96901996e-03 -2.58234962e-03
+ -4.92170136e-03 -4.73089919e-03 -1.29490231e-03 -1.95335855e-03
+ -2.78649389e-03 -4.12063404e-03 -4.30911542e-03 -4.31099986e-03
+ -1.84432917e-04 -9.31297272e-04 -2.37767835e-03 -3.28400015e-03
+ -2.45226131e-03 -3.97423578e-03 -3.24982937e-03 -3.42180397e-03
+  1.29861579e-03  4.39198570e-04 -1.52650973e-03 -2.43103845e-03
+ -2.30637460e-03 -3.36826634e-03 -1.92871408e-03 -3.28813580e-03
+ -1.83670387e-03 -2.11909937e-03  3.11257425e-03  2.14924934e-03
+ -6.34731144e-04 -2.96940256e-04 -1.64027144e-03 -1.66995063e-03
+ -2.60651552e-03 -1.92728456e-03 -2.93805953e-03 -1.38127435e-03
+ -2.17680103e-03 -6.17336914e-04 -1.14421134e-04 -5.14236372e-04
+  5.22199684e-03  4.18251333e-03  7.61140557e-03  6.58503036e-03
+ -1.05964814e-04  1.25633075e-03 -9.17410714e-04 -6.49652627e-04
+ -1.81334381e-03 -1.49616967e-03 -2.35783814e-03 -1.43882686e-03
+ -2.00068511e-03 -8.38196533e-04 -6.75021341e-04 -2.28494770e-04
+  1.89677597e-03  1.47642150e-03  5.02703824e-04  3.16646195e-03
+  1.34561707e-03  5.51627893e-03  1.02889529e-02  1.85320066e-03
+  9.44735073e-03 -1.90597613e-04  7.45227969e-04 -9.94827424e-04
+ -6.39458786e-04 -1.59519761e-03 -1.08703339e-03 -1.58053001e-03
+ -8.41094180e-04 -6.45742039e-04 -2.96540584e-04  1.18278466e-03
+  1.68750458e-04  4.19312637e-03  3.83979537e-03  6.18289548e-04
+  2.50027489e-03  1.66063202e-03  4.71267129e-03  2.65877641e-03
+  8.40918091e-03 -1.73693172e-04  5.45932951e-04 -8.15675355e-04
+ -4.08026969e-04 -9.99758516e-04 -5.59214771e-04 -4.29495431e-04
+ -2.23176073e-04  1.06905996e-03  2.65616869e-04  3.54182748e-03
+  6.48998625e-04  6.79162281e-03  6.70118492e-03  7.49779981e-04
+  2.10229996e-03  1.92721150e-03  4.13082767e-03  3.17020151e-03
+  7.53283206e-03  5.42485734e-05  6.29889599e-04 -2.94408506e-04
+  3.10451617e-05 -1.18954175e-05  7.50082054e-05  1.09664043e-03
+  4.46557884e-04  3.30367670e-03  9.49667591e-04  6.50613399e-03
+  1.30054752e-03  1.00469256e-03  1.95957803e-03  2.20228135e-03
+  3.70908708e-03  3.54767743e-03  6.74762841e-03  5.12004226e-04
+  9.06325399e-04  5.37945518e-04  6.01950439e-04  1.30001676e-03
+  7.82558296e-04  3.16319194e-03  1.29110531e-03  6.22767713e-03
+  1.89630577e-03  1.43768032e-03  2.03926304e-03  2.56650451e-03
+  3.46725733e-03  3.84595036e-03  6.04046706e-03  1.19223501e-03
+  1.33075363e-03  1.66707676e-03  1.30118432e-03  3.09142603e-03
+  1.68669504e-03  5.89274453e-03  2.44212250e-03  1.93646455e-03
+  2.20375582e-03  3.03409589e-03  3.38961034e-03  4.10910258e-03
+  5.43269904e-03  2.05363735e-03  1.87848318e-03  3.14912858e-03
+  2.18899992e-03  5.54180266e-03  2.93890232e-03  2.39159458e-03
+  2.38856740e-03  3.38426766e-03  3.26928472e-03  4.37366085e-03
+  4.95463953e-03  3.31889151e-03  2.78407186e-03  5.23389040e-03
+  3.40096138e-03  4.87659724e-03  4.59056062e-03  5.03287787e-03
+  3.93191657e-03]
+Tolerance: 0.006532947250863536
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='pressure', filename='output/cryer_refstate_hex-z_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 230 != 57 : 
+Expected values (not okay): [1.15901647 1.1561255  1.1561255  1.15361483 1.14586036 1.14424
+ 1.14586036 1.14420828 1.12324819 1.12406282 1.13540327 1.12324819
+ 1.12396347 1.07971806 1.08622227 1.11655368 1.11651104 1.07971806
+ 1.08598207 1.00384518 1.01871105 1.08027636 1.09771424 1.0810534
+ 1.00384518 1.01982958 0.88412532 0.91280756 1.0186422  1.06256278
+ 1.06305827 1.01886765 0.88412532 0.91056107 0.71393233 0.75238232
+ 0.91786986 1.00124288 1.02634067 1.00543452 0.91883496 0.71393233
+ 0.75428671 0.4969714  0.54036739 0.24998973 0.28230874 0.77008386
+ 0.90676886 0.96645931 0.97073415 0.90812282 0.76842652 0.4969714
+ 0.54015336 0.56516335 0.30128224 0.76380138 0.8700609  0.90421275
+ 0.87251916 0.76215868 0.56491737 0.24998973 0.28232289 0.56639105
+ 0.30768781 0.73563945 0.81269345 0.81205338 0.73421698 0.56594916
+ 0.30124011 0.54870057 0.29831531 0.6796904  0.72217501 0.67878127
+ 0.54812052 0.30757101 0.50768031 0.27938325 0.60037411 0.5999077
+ 0.50697988 0.29811567 0.44427318 0.24767959 0.49877641 0.44376902
+ 0.27914874 0.37874687 0.37852804 0.24745172 0.32154785 1.04353386
+ 1.03254387 1.03254387 1.02366567 0.99913037 0.99443614 0.99913037
+ 0.99434551 0.94220127 0.94400356 0.97077327 0.94220127 0.94378299
+ 0.86067837 0.87146476 0.92789498 0.92780655 0.86067837 0.87105967
+ 0.75442649 0.77310883 0.86158981 0.89151755 0.86286276 0.75442649
+ 0.77454785 0.62519759 0.65351786 0.77302041 0.83383961 0.83458565
+ 0.77331    0.62519759 0.6512513  0.47728788 0.50836841 0.65865761
+ 0.75123605 0.78302425 0.75638627 0.65964263 0.47728788 0.50993696
+ 0.3176391  0.34789714 0.52306258 0.64744471 0.71055641 0.71537601
+ 0.64880102 0.52167573 0.3176391  0.34774622 0.36550296 0.51781776
+ 0.61176481 0.6448925  0.61409268 0.51645184 0.36532709 0.36638109
+ 0.49469992 0.55957297 0.55901155 0.49354847 0.36606495 0.35378682
+ 0.45046897 0.48386009 0.44976699 0.35337598 0.32504422 0.3909449
+ 0.39060428 0.32455869 0.28173208 0.31888454 0.28139257]
+Computed values (not okay): [ 0.14435956  0.12224563  0.12237306  0.11032515  0.08584755  0.08174944
+  0.08540324  0.08148511  0.04724242  0.04804727  0.06424987  0.04666508
+  0.04758124  0.01053774  0.01450931  0.03933685  0.03923714  0.01011291
+  0.01406807 -0.02122919 -0.01658735  0.01077494  0.02261344  0.01115354
+ -0.02149916 -0.01641838 -0.04584037 -0.04146684 -0.01654407  0.00128728
+  0.00154604 -0.01652211 -0.04606907 -0.04202736 -0.06057685 -0.05861734
+ -0.04048488 -0.021699   -0.01352055 -0.02046634 -0.04043089 -0.06103827
+ -0.05881891 -0.06172069 -0.06292777 -0.0438491  -0.0479071  -0.05735116
+ -0.04207395 -0.0303901  -0.02938506 -0.04188751 -0.05766511 -0.06253573
+ -0.06360773 -0.06331086 -0.05005812 -0.05759902 -0.04701015 -0.04195001
+ -0.04667243 -0.05777329 -0.06370872 -0.04481993 -0.04871755 -0.06318078
+ -0.05066599 -0.05900304 -0.05301747 -0.05303318 -0.05904437 -0.06330343
+ -0.05051645 -0.06277502 -0.04954285 -0.06115093 -0.05916381 -0.06109407
+ -0.06271012 -0.05078924 -0.06167367 -0.04736865 -0.06243273 -0.06238069
+ -0.0615357  -0.04945419 -0.05923093 -0.04363188 -0.06115173 -0.05911442
+ -0.04720802 -0.05541206 -0.05536163 -0.0435197  -0.05048946  0.02929401
+  0.02517675  0.02518441  0.02212885  0.01463028  0.0133161   0.01462507
+  0.01328952  0.00078581  0.0011643   0.00723053  0.00074485  0.00108772
+ -0.01339586 -0.01181301 -0.00208734 -0.00211628 -0.01349629 -0.01194617
+ -0.02532648 -0.02365658 -0.01321966 -0.00858409 -0.01309533 -0.0255106
+ -0.02367499 -0.03287794 -0.03178137 -0.02363618 -0.01691539 -0.01684266
+ -0.02371022 -0.03315357 -0.0321268  -0.0343247  -0.03463869 -0.03153124
+ -0.02549954 -0.02256285 -0.02513282 -0.0316749  -0.0346947  -0.03495135
+ -0.02867948 -0.03032438 -0.03466026 -0.03198339 -0.02849768 -0.02820418
+ -0.03205525 -0.03490589 -0.02905021 -0.03067944 -0.03116814 -0.03465041
+ -0.03319731 -0.03198242 -0.03319903 -0.03481412 -0.03143097 -0.03118577
+ -0.03449789 -0.03424578 -0.03427322 -0.03458127 -0.03134263 -0.03058138
+ -0.03384122 -0.03430742 -0.03385729 -0.03064771 -0.02906931 -0.03210384
+ -0.03209821 -0.0290746  -0.02644636 -0.02871889 -0.02643053]
+Tolerance: 0.27876171161530394
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestHex) (vertex_field='displacement', filename='output/cryer_refstate_hex-surface_pressure.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 1302 != 307 : 
+Expected values (not okay): [-0.04747109 -0.0472425  -0.0472425  -0.04701951 -0.04747109 -0.0472425
+ -0.0472425  -0.04701951 -0.04655894 -0.04634688 -0.04655894 -0.04634497
+ -0.04655894 -0.04634497 -0.04655894 -0.04634688 -0.04747109 -0.0472425
+ -0.0472425  -0.04701951 -0.045427   -0.01372782 -0.04522458 -0.04569704
+ -0.01378013 -0.045427   -0.01373756 -0.04522127 -0.045427   -0.04522127
+ -0.01373756 -0.04569704 -0.04655894 -0.04634688 -0.01378013 -0.045427
+ -0.01372782 -0.04522458 -0.04655894 -0.04634497 -0.0181664  -0.04385757
+ -0.01812399 -0.0436622  -0.01357422 -0.0446078  -0.01358396 -0.04460684
+ -0.0181664  -0.04385757 -0.01813152 -0.04365852 -0.04385757 -0.0181664
+ -0.04365852 -0.01813152 -0.04460684 -0.01358396 -0.045427   -0.01378013
+ -0.04522458 -0.01372782 -0.01357422 -0.0446078  -0.04569704 -0.0181664
+ -0.04385757 -0.01812399 -0.0436622  -0.045427   -0.01378013 -0.04522127
+ -0.01373756 -0.02237772 -0.04186576 -0.02234221 -0.04167784 -0.01794865
+ -0.04308508 -0.01333245 -0.0133194  -0.04356998 -0.01795607 -0.04308451
+ -0.02237772 -0.04186576 -0.02234603 -0.04167512 -0.04186576 -0.02237772
+ -0.04167512 -0.02234603 -0.04308451 -0.01795607 -0.04385757 -0.0181664
+ -0.0436622  -0.01812399 -0.0133194  -0.04356998 -0.01333245 -0.0446078
+ -0.01357422 -0.01794865 -0.04308508 -0.04460684 -0.01358396 -0.02237772
+ -0.04186576 -0.02234221 -0.04167784 -0.04385757 -0.0181664  -0.04365852
+ -0.01813152 -0.02637352 -0.03947077 -0.02633321 -0.03929706 -0.02214705
+ -0.04114854 -0.01298325 -0.01763885 -0.04211663 -0.01765034 -0.01296524
+ -0.04211736 -0.02215058 -0.04115001 -0.02637352 -0.03947077 -0.02633247
+ -0.03929703 -0.03947077 -0.02637352 -0.03929703 -0.02633247 -0.04115001
+ -0.02215058 -0.04186576 -0.02237772 -0.04167784 -0.02234221 -0.01296524
+ -0.04211736 -0.01765034 -0.04308508 -0.01794865 -0.01763885 -0.04211663
+ -0.01298325 -0.04356998 -0.01333245 -0.0133194  -0.02214705 -0.04114854
+ -0.04308451 -0.01795607 -0.02637352 -0.03947077 -0.02633321 -0.03929706
+ -0.04186576 -0.02237772 -0.04167512 -0.02234603 -0.03011534 -0.03669565
+ -0.0300538  -0.03655072 -0.02611253 -0.0388277  -0.01254465 -0.02178855
+ -0.04026655 -0.01721419 -0.01719596 -0.04076119 -0.02179661 -0.01251831
+ -0.04027038 -0.02611161 -0.03883395 -0.03011534 -0.03669565 -0.03004497
+ -0.03655269 -0.03669565 -0.03011534 -0.03655269 -0.03004497 -0.03883395
+ -0.02611161 -0.03947077 -0.02637352 -0.03929706 -0.02633321 -0.01251831
+ -0.04027038 -0.02179661 -0.04114854 -0.02214705 -0.01719596 -0.04076119
+ -0.01721419 -0.04211663 -0.01298325 -0.01763885 -0.02178855 -0.04026655
+ -0.01254465 -0.04211736 -0.01765034 -0.01296524 -0.02611253 -0.0388277
+ -0.04115001 -0.02215058 -0.03011534 -0.03669565 -0.0300538  -0.03655072
+ -0.03947077 -0.02637352 -0.03929703 -0.02633247 -0.03356713 -0.03356713
+ -0.03345849 -0.03345409 -0.02976469 -0.03614045 -0.02570543 -0.03805031
+ -0.01665889 -0.02126729 -0.03903445 -0.02128375 -0.01662817 -0.03903857
+ -0.02570982 -0.01199026 -0.03806236 -0.02975876 -0.03614428 -0.03356713
+ -0.03356713 -0.03345409 -0.03345849 -0.03614428 -0.02975876 -0.03669565
+ -0.03011534 -0.03655072 -0.0300538  -0.03806236 -0.02570982 -0.0388277
+ -0.02611253 -0.01662817 -0.03903857 -0.02128375 -0.04026655 -0.01254465
+ -0.02178855 -0.02126729 -0.03903445 -0.01665889 -0.04076119 -0.01721419
+ -0.01719596 -0.02570543 -0.03805031 -0.01203783 -0.04027038 -0.02179661
+ -0.01251831 -0.02976469 -0.03614045 -0.03883395 -0.02611161 -0.03356713
+ -0.03356713 -0.03345849 -0.03345409 -0.03669565 -0.03011534 -0.03655269
+ -0.03004497 -0.03312319 -0.03311692 -0.02928113 -0.03547174 -0.01601418
+ -0.02511147 -0.03696571 -0.02062589 -0.02059241 -0.03747038 -0.02512687
+ -0.01595081 -0.03698265 -0.0292774  -0.01173145 -0.03547832 -0.03311692
+ -0.03312319 -0.03547832 -0.0292774  -0.03614045 -0.02976469 -0.01595081
+ -0.03698265 -0.02512687 -0.03805031 -0.01203783 -0.02570543 -0.02059241
+ -0.03747038 -0.02062589 -0.03903445 -0.01665889 -0.02126729 -0.02511147
+ -0.03696571 -0.01601418 -0.03903857 -0.02128375 -0.01662817 -0.02928113
+ -0.03547174 -0.01174202 -0.03806236 -0.02570982 -0.01199026 -0.03312319
+ -0.03311692 -0.03614428 -0.02975876 -0.03253667 -0.03253154 -0.01575118
+ -0.02854832 -0.03450214 -0.01997765 -0.02429277 -0.03555642 -0.02437887
+ -0.0197821  -0.03560679 -0.02856351 -0.01571982 -0.03450387 -0.03253154
+ -0.01168624 -0.03253667 -0.01572    -0.0345037  -0.02856362 -0.03547174
+ -0.01174202 -0.02928113 -0.0197821  -0.03560679 -0.02437887 -0.03696571
+ -0.01601418 -0.02511147 -0.02429311 -0.03555613 -0.01997774 -0.03747038
+ -0.02062589 -0.02059241 -0.0285484  -0.03450207 -0.01575119 -0.03698265
+ -0.02512687 -0.01595081 -0.03253667 -0.03253154 -0.01168624 -0.03547832
+ -0.0292774  -0.01173145 -0.0155806  -0.03170615 -0.03170913 -0.01955515
+ -0.02763597 -0.03327692 -0.02358545 -0.0234584  -0.03386641 -0.02769117
+ -0.01948826 -0.03327027 -0.03170915 -0.0155806  -0.03170613 -0.01948968
+ -0.03326543 -0.02769599 -0.0345008  -0.0157508  -0.02855015 -0.02346077
+ -0.03386436 -0.02358605 -0.03554942 -0.01997412 -0.0243059  -0.02763882
+ -0.03327449 -0.01955525 -0.03560679 -0.02437887 -0.0197821  -0.03170616
+ -0.03170912 -0.0155806  -0.03450476 -0.02856254 -0.01571964 -0.01931056
+ -0.0306504  -0.03067832 -0.02300261 -0.02667153 -0.03182788 -0.02675185
+ -0.02293166 -0.03181166 -0.0306721  -0.01930993 -0.03065702 -0.02293618
+ -0.03179517 -0.02676757 -0.03326262 -0.01955197 -0.02765542 -0.02668192
+ -0.03181332 -0.02301069 -0.03387181 -0.02353431 -0.02350194 -0.03065448
+ -0.03067453 -0.0193101  -0.03327635 -0.02768155 -0.01949156 -0.0226969
+ -0.02944514 -0.02951845 -0.0259305  -0.02584    -0.03022264 -0.0294875
+ -0.02269359 -0.02947868 -0.0258503  -0.03019729 -0.02594975 -0.03180892
+ -0.02297366 -0.02671905 -0.02946625 -0.02949121 -0.02270491 -0.03180846
+ -0.02672409 -0.02296844 -0.0254732  -0.02828631 -0.0283638  -0.02832183
+ -0.02545915 -0.02834095 -0.02829914 -0.02831145 -0.02551714 -0.03019972
+ -0.02587567 -0.02592163 -0.02738765 -0.0273844  -0.02745023 -0.05806847
+ -0.05778885 -0.05778885 -0.05751608 -0.05806847 -0.05778885 -0.05778885
+ -0.05751608 -0.0569527  -0.05669329 -0.0113286  -0.0569527  -0.01127368
+ -0.05669096 -0.0569527  -0.05669096 -0.0113286  -0.0569527  -0.01126256
+ -0.05669329 -0.05806847 -0.05778885 -0.05778885 -0.05751608 -0.01685639
+ -0.05556806 -0.0167924  -0.05532045 -0.01112538 -0.05589838 -0.01685639
+ -0.05556806 -0.01680432 -0.0553164  -0.05556806 -0.01685639 -0.0553164
+ -0.01680432 -0.01111504 -0.05589838 -0.0569527  -0.05669329 -0.01685639
+ -0.05556806 -0.0167924  -0.05532045 -0.0569527  -0.05669096 -0.02222184
+ -0.05364827 -0.02216996 -0.05340929 -0.01660451 -0.05456598 -0.01661642
+ -0.05456481 -0.02222184 -0.05364827 -0.02217918 -0.05340479 -0.05364827
+ -0.02222184 -0.05340479 -0.02217918 -0.05456481 -0.01661642 -0.05556806
+ -0.01685639 -0.05532045 -0.0167924  -0.01660451 -0.05456598 -0.05589838
+ -0.02222184 -0.05364827 -0.02216996 -0.05340929 -0.05556806 -0.01685639
+ -0.0553164  -0.01680432 -0.02737328 -0.05121181 -0.02732986 -0.05098194
+ -0.02195548 -0.05270334 -0.01630877 -0.01629281 -0.05329648 -0.02196456
+ -0.05270263 -0.02737328 -0.05121181 -0.02733452 -0.05097862 -0.05121181
+ -0.02737328 -0.05097862 -0.02733452 -0.05270263 -0.02196456 -0.05364827
+ -0.02222184 -0.05340929 -0.02216996 -0.01629281 -0.05329648 -0.01630877
+ -0.05456598 -0.01660451 -0.02195548 -0.05270334 -0.05456481 -0.01661642
+ -0.02737328 -0.05121181 -0.02732986 -0.05098194 -0.05364827 -0.02222184
+ -0.05340479 -0.02217918 -0.03226111 -0.04828216 -0.0322118  -0.04806969
+ -0.02709113 -0.05033449 -0.01588161 -0.02157652 -0.05151869 -0.02159057
+ -0.01585958 -0.05151958 -0.02709544 -0.05033628 -0.03226111 -0.04828216
+ -0.0322109  -0.04806964 -0.04828216 -0.03226111 -0.04806964 -0.0322109
+ -0.05033628 -0.02709544 -0.05121181 -0.02737328 -0.05098194 -0.02732986
+ -0.01585958 -0.05151958 -0.02159057 -0.05270334 -0.02195548 -0.02157652
+ -0.05151869 -0.01588161 -0.05329648 -0.01630877 -0.01629281 -0.02709113
+ -0.05033449 -0.05270263 -0.02196456 -0.03226111 -0.04828216 -0.0322118
+ -0.04806969 -0.05121181 -0.02737328 -0.05097862 -0.02733452 -0.03683824
+ -0.04488753 -0.03676297 -0.04471025 -0.03194185 -0.04749554 -0.01534509
+ -0.0266526  -0.04925559 -0.02105706 -0.02103476 -0.04986066 -0.02666245
+ -0.01531288 -0.04926029 -0.03194072 -0.04750319 -0.03683824 -0.04488753
+ -0.03675217 -0.04471266 -0.04488753 -0.03683824 -0.04471266 -0.03675217
+ -0.04750319 -0.03194072 -0.04828216 -0.03226111 -0.04806969 -0.0322118
+ -0.01531288 -0.04926029 -0.02666245 -0.05033449 -0.02709113 -0.02103476
+ -0.04986066 -0.02105706 -0.05151869 -0.01588161 -0.02157652 -0.0266526
+ -0.04925559 -0.01534509 -0.05151958 -0.02159057 -0.01585958 -0.03194185
+ -0.04749554 -0.05033628 -0.02709544 -0.03683824 -0.04488753 -0.03676297
+ -0.04471025 -0.04828216 -0.03226111 -0.04806964 -0.0322109  -0.04106061
+ -0.04106061 -0.04092772 -0.04092233 -0.03640932 -0.04420839 -0.01472513
+ -0.03144387 -0.0465446  -0.02037779 -0.02601497 -0.04774844 -0.02603511
+ -0.02034022 -0.04775349 -0.03144924 -0.01466695 -0.04655934 -0.03640206
+ -0.04421308 -0.04106061 -0.04106061 -0.04092233 -0.04092772 -0.04421308
+ -0.03640206 -0.04488753 -0.03683824 -0.04471025 -0.03676297 -0.01466695
+ -0.04655934 -0.03144924 -0.04749554 -0.03194185 -0.02034022 -0.04775349
+ -0.02603511 -0.04925559 -0.01534509 -0.0266526  -0.02601497 -0.04774844
+ -0.02037779 -0.04986066 -0.02105706 -0.02103476 -0.03144387 -0.0465446
+ -0.01472513 -0.04926029 -0.02666245 -0.01531288 -0.03640932 -0.04420839
+ -0.04750319 -0.03194072 -0.04106061 -0.04106061 -0.04092772 -0.04092233
+ -0.04488753 -0.03683824 -0.04471266 -0.03675217 -0.04051756 -0.04050989
+ -0.0143633  -0.03581781 -0.0433904  -0.01958917 -0.03071732 -0.04521789
+ -0.02523038 -0.02518944 -0.04583521 -0.03073615 -0.01951165 -0.0452386
+ -0.03581324 -0.01435037 -0.04339845 -0.04050989 -0.04051756 -0.01435037
+ -0.04339845 -0.03581324 -0.04420839 -0.03640932 -0.01951165 -0.0452386
+ -0.03073615 -0.0465446  -0.01472513 -0.03144387 -0.02518944 -0.04583521
+ -0.02523038 -0.04774844 -0.02037779 -0.02601497 -0.03071732 -0.04521789
+ -0.01958917 -0.04775349 -0.02603511 -0.02034022 -0.03581781 -0.0433904
+ -0.0143633  -0.04655934 -0.03144924 -0.01466695 -0.04051756 -0.04050989
+ -0.04421308 -0.03640206 -0.01429506 -0.03980011 -0.03979383 -0.01926745
+ -0.03492141 -0.04220435 -0.02443743 -0.02971586 -0.04349398 -0.02982117
+ -0.02419823 -0.0435556  -0.03493999 -0.01922909 -0.04220646 -0.03979383
+ -0.01429506 -0.03980011 -0.01922931 -0.04220625 -0.03494013 -0.0433904
+ -0.0143633  -0.03581781 -0.02419823 -0.0435556  -0.02982117 -0.04521789
+ -0.01958917 -0.03071732 -0.02971627 -0.04349363 -0.02443754 -0.04583521
+ -0.02523038 -0.02518944 -0.0349215  -0.04220427 -0.01926746 -0.0452386
+ -0.03073615 -0.01951165 -0.03980011 -0.03979383 -0.01429506 -0.04339845
+ -0.03581324 -0.01435037 -0.01905879 -0.03878419 -0.03878783 -0.02392061
+ -0.03380538 -0.04070562 -0.02885064 -0.02869523 -0.0414267  -0.03387291
+ -0.0238388  -0.04069747 -0.03878785 -0.0190588  -0.03878417 -0.02384052
+ -0.04069156 -0.0338788  -0.04220271 -0.01926699 -0.03492364 -0.02869812
+ -0.04142419 -0.02885136 -0.04348543 -0.02443312 -0.02973192 -0.03380887
+ -0.04070264 -0.02392074 -0.0435556  -0.02982117 -0.02419823 -0.0387842
+ -0.03878782 -0.01905879 -0.04220755 -0.0349388  -0.01922887 -0.02362143
+ -0.03749275 -0.03752691 -0.02813768 -0.03262564 -0.03893309 -0.03272389
+ -0.0280509  -0.03891325 -0.0375193  -0.02362065 -0.03750085 -0.02805642
+ -0.03889308 -0.03274312 -0.04068812 -0.02391673 -0.03382918 -0.03263836
+ -0.03891528 -0.02814757 -0.0414333  -0.02878807 -0.02874848 -0.03749775
+ -0.03752227 -0.02362086 -0.04070491 -0.03386113 -0.02384282 -0.02776372
+ -0.03601843 -0.03610811 -0.03171918 -0.03160849 -0.0369695  -0.03607024
+ -0.02775967 -0.03605946 -0.03162109 -0.03693849 -0.03174274 -0.0389099
+ -0.02810226 -0.03268377 -0.03604425 -0.03607478 -0.02777352 -0.03890933
+ -0.03268993 -0.02809589 -0.03115981 -0.0346009  -0.03469569 -0.03464435
+ -0.03114262 -0.03466775 -0.0346166  -0.03463166 -0.03121355 -0.03694146
+ -0.03165211 -0.03170834 -0.03350164 -0.03349765 -0.03357818]
+Computed values (not okay): [ 9.59025368e-03  8.75201938e-03  9.29845391e-03  8.56593573e-03
+  9.59453976e-03  9.30088073e-03  8.75778522e-03  8.57032808e-03
+  8.50626009e-03  8.05062544e-03  7.73048510e-03  7.61393092e-03
+  8.51301518e-03  8.05455966e-03  7.73113312e-03  7.61739684e-03
+  6.08403279e-03  6.00032340e-03  6.00189039e-03  5.93512427e-03
+  7.30673074e-03 -3.07313066e-04  7.26665248e-03  7.26103448e-03
+  2.97681580e-03  6.86668992e-03  2.88433075e-03  6.78413857e-03
+  7.30831811e-03  7.26146500e-03 -3.00337460e-04  7.26467868e-03
+  5.81762710e-03  5.76902442e-03  2.97244198e-03  6.87118141e-03
+  2.87932070e-03  6.79478767e-03  5.82098987e-03  5.77067780e-03
+ -4.03076902e-03  5.79943856e-03 -2.08285142e-04  6.27798203e-03
+  1.06053753e-03  6.71787584e-03  2.61344611e-03  6.51606668e-03
+  3.29098124e-03  6.09758707e-03  3.21455828e-03  6.02843534e-03
+  5.79534723e-03 -4.03011287e-03  6.26597127e-03 -2.03231932e-04
+  6.71424098e-03  1.06428434e-03  5.56407914e-03  1.68126546e-03
+  5.52589917e-03  1.66051297e-03  2.60896944e-03  6.52595765e-03
+  5.61092013e-03  3.28808703e-03  6.10656181e-03  3.21250294e-03
+  6.04501689e-03  5.56337697e-03  1.68780103e-03  5.52006874e-03
+  1.66794836e-03 -3.91691112e-03  4.12134096e-03  5.93102229e-05
+  5.18419716e-03  1.37615527e-03  6.02997993e-03  2.22225529e-03
+  1.43762866e-03  6.09833132e-03  2.97804316e-03  5.81082176e-03
+  3.52726752e-03  5.41429473e-03  3.45910994e-03  5.34787689e-03
+  4.11597174e-03 -3.91976802e-03  5.17031499e-03  6.03226580e-05
+  6.01959216e-03  1.37696276e-03  5.25768018e-03  2.16749576e-03
+  5.21878490e-03  2.14672678e-03  2.21527114e-03  6.10156537e-03
+  1.44459623e-03  5.36966669e-03  1.59867213e-03  2.97573281e-03
+  5.82667165e-03  5.36366111e-03  1.60438404e-03  3.52564874e-03
+  5.42417175e-03  3.46103945e-03  5.36696616e-03  5.25247100e-03
+  2.17279352e-03  5.20671247e-03  2.15154359e-03 -3.27362467e-03
+  2.44465997e-03  5.16620860e-04  4.11588989e-03  1.69018252e-03
+  5.27092716e-03  1.77163318e-03  1.81880409e-03  5.56530608e-03
+  2.63246790e-03  1.51248040e-03  5.46822875e-03  3.24736575e-03
+  5.16378906e-03  3.72081933e-03  4.84372203e-03  3.64798606e-03
+  4.78083730e-03  2.44823489e-03 -3.28632789e-03  4.10896201e-03
+  5.07523149e-04  5.25575849e-03  1.68593197e-03  4.93432352e-03
+  2.60637057e-03  4.88871379e-03  2.58275716e-03  1.76223312e-03
+  5.56057212e-03  1.82449237e-03  5.06317922e-03  2.06749079e-03
+  2.62685406e-03  5.47990232e-03  1.52212653e-03  5.12232175e-03
+  1.52534426e-03  1.51823021e-03  3.24906487e-03  5.18390482e-03
+  5.05142309e-03  2.07144091e-03  3.72850366e-03  4.84587211e-03
+  3.65671621e-03  4.79534089e-03  4.92837347e-03  2.61063814e-03
+  4.87399048e-03  2.58375308e-03 -2.14733554e-03  9.36975978e-04
+  1.27432313e-03  3.19845004e-03  2.03809690e-03  4.53015446e-03
+  1.33765359e-03  2.14884623e-03  4.97678055e-03  2.22830010e-03
+  1.90386283e-03  5.02747601e-03  2.93513223e-03  1.47291370e-03
+  4.87120940e-03  3.45953571e-03  4.61740853e-03  3.98106695e-03
+  4.42883306e-03  3.95183215e-03  4.38265972e-03  9.52969638e-04
+ -2.10524262e-03  3.22240065e-03  1.32010165e-03  4.51732378e-03
+  2.02842517e-03  4.64888754e-03  3.01874440e-03  4.60147679e-03
+  2.97649482e-03  1.32709350e-03  4.96317023e-03  2.14978705e-03
+  4.73355252e-03  2.48694834e-03  2.21890780e-03  5.03210642e-03
+  1.91451111e-03  4.81491254e-03  1.44043720e-03  1.95887271e-03
+  2.93431683e-03  4.89223955e-03  1.48323534e-03  4.80739087e-03
+  1.96514075e-03  1.43173829e-03  3.46484668e-03  4.63370407e-03
+  4.71786148e-03  2.48721864e-03  3.93273653e-03  4.40429613e-03
+  3.93849178e-03  4.37725271e-03  4.65085839e-03  3.01407240e-03
+  4.59121241e-03  2.97083125e-03 -4.67740743e-04 -4.70265191e-04
+  2.29388047e-03  2.30049896e-03  2.62163681e-03  3.91924208e-03
+  2.46876086e-03  4.40361004e-03  1.83484774e-03  2.21961386e-03
+  4.54126330e-03  2.56213284e-03  1.85018623e-03  4.48328854e-03
+  3.17609803e-03  1.40792614e-03  4.35826980e-03  3.76862948e-03
+  4.23014880e-03  4.36776317e-03  4.09408368e-03  4.18346496e-03
+  3.91256952e-03  3.91683982e-03  2.62215886e-03  4.45804601e-03
+  3.43403180e-03  4.42686076e-03  3.45942085e-03  4.38918331e-03
+  2.45889839e-03  4.44252551e-03  2.86703850e-03  1.81803117e-03
+  4.52844168e-03  2.23206459e-03  4.48495120e-03  1.36524384e-03
+  2.35140033e-03  2.55270654e-03  4.50825735e-03  1.86840489e-03
+  4.49433602e-03  1.84802737e-03  1.83870158e-03  3.18493039e-03
+  4.37924003e-03  1.42147012e-03  4.46913066e-03  2.35336456e-03
+  1.35598722e-03  3.77272179e-03  4.23652598e-03  4.43099451e-03
+  2.86399852e-03  4.37815134e-03  4.08757888e-03  4.18430324e-03
+  3.91555368e-03  4.48670590e-03  3.48583037e-03  4.43605171e-03
+  3.47646577e-03  3.23353497e-03  3.24145374e-03  2.92729054e-03
+  3.92351224e-03  1.52699855e-03  2.53766269e-03  4.07324881e-03
+  2.18368190e-03  2.14036475e-03  4.02482856e-03  2.81945737e-03
+  1.77754531e-03  3.99176381e-03  3.49374130e-03  1.43138526e-03
+  3.98533820e-03  4.01665713e-03  3.77591845e-03  3.92381277e-03
+  2.93548398e-03  4.26738982e-03  3.35186609e-03  1.50730378e-03
+  4.03981217e-03  2.50629913e-03  4.19104335e-03  1.32508907e-03
+  2.71565735e-03  2.17210366e-03  4.03482694e-03  2.15778672e-03
+  4.15775836e-03  1.74542975e-03  2.18915074e-03  2.85533814e-03
+  4.03892505e-03  1.79688486e-03  4.13945977e-03  2.19887527e-03
+  1.72954090e-03  3.48999241e-03  3.98991845e-03  1.42266542e-03
+  4.17595806e-03  2.70817655e-03  1.31190595e-03  4.01169759e-03
+  3.78523855e-03  4.26579564e-03  3.35150556e-03  3.39651994e-03
+  3.40790646e-03  1.43998990e-03  2.83979468e-03  3.59519455e-03
+  1.92364221e-03  2.39083879e-03  3.54290917e-03  2.46931946e-03
+  2.05455768e-03  3.53057116e-03  3.10962954e-03  1.84171935e-03
+  3.59345081e-03  3.73839601e-03  1.47025767e-03  3.55344845e-03
+  1.45229569e-03  3.61763075e-03  2.88601979e-03  3.99125804e-03
+  1.37065852e-03  3.15788979e-03  1.88718238e-03  3.57218500e-03
+  2.41894563e-03  3.85394319e-03  1.68943045e-03  2.54499918e-03
+  2.44979812e-03  3.53215898e-03  2.09535325e-03  3.75433018e-03
+  2.05000721e-03  2.03969078e-03  3.07527008e-03  3.58062176e-03
+  1.82894810e-03  3.81655407e-03  2.51119669e-03  1.67314050e-03
+  3.73108148e-03  3.56699343e-03  1.46951142e-03  3.99373507e-03
+  3.16585038e-03  1.37891993e-03  1.34617232e-03  3.14360746e-03
+  3.16168948e-03  1.75765567e-03  2.51097607e-03  3.04013378e-03
+  2.11062874e-03  2.19159199e-03  2.88511133e-03  2.56339175e-03
+  2.05549241e-03  2.98797189e-03  3.26439121e-03  1.75790595e-03
+  3.15008587e-03  1.78902955e-03  3.03504841e-03  2.54885668e-03
+  3.54203730e-03  1.77217520e-03  2.86021683e-03  2.09902110e-03
+  2.90988148e-03  2.23435347e-03  3.34229095e-03  1.99077877e-03
+  2.30856898e-03  2.55707186e-03  3.01676906e-03  2.03066188e-03
+  3.37539274e-03  2.33609799e-03  1.95675908e-03  3.25436249e-03
+  3.16888621e-03  1.75423949e-03  3.56877567e-03  2.90017943e-03
+  1.78242624e-03  1.71050065e-03  2.70603086e-03  2.73646088e-03
+  1.83385941e-03  2.04800134e-03  2.25742410e-03  1.94077297e-03
+  1.98627951e-03  2.18136748e-03  2.70610088e-03  1.99661012e-03
+  2.66957285e-03  1.81366762e-03  2.22042026e-03  2.05144555e-03
+  2.93494277e-03  1.97286177e-03  2.46650226e-03  1.98442306e-03
+  2.25634203e-03  2.04180997e-03  2.75677071e-03  2.12713488e-03
+  2.12597113e-03  2.69070165e-03  2.68897466e-03  1.99406908e-03
+  2.93510237e-03  2.48206532e-03  1.99844815e-03  1.71701556e-03
+  1.96510038e-03  2.00222398e-03  1.44279689e-03  1.57564919e-03
+  1.36319352e-03  1.89376670e-03  1.92405359e-03  1.94138046e-03
+  1.45181397e-03  1.37801056e-03  1.60914873e-03  2.13592089e-03
+  1.98182293e-03  1.99821205e-03  1.90447755e-03  1.96432441e-03
+  1.92049324e-03  2.12256298e-03  1.99317935e-03  1.96241862e-03
+  1.07808017e-03  8.46618535e-04  8.66429722e-04  7.31923121e-04
+  1.22608636e-03  8.42766296e-04  7.59397376e-04  8.60045896e-04
+  1.25607280e-03  1.26243333e-03  1.55467080e-03  1.56325082e-03
+ -1.35666923e-04 -1.08419893e-05  9.02185531e-07  1.02844654e-02
+  9.44137223e-03  9.98428292e-03  9.24750789e-03  1.02889529e-02
+  9.98690945e-03  9.44735073e-03  9.25210700e-03  9.17170683e-03
+  8.71298148e-03  2.66237668e-03  8.40827958e-03  2.54810414e-03
+  8.28478208e-03  9.17864664e-03  8.71706123e-03  2.65877641e-03
+  8.40918091e-03  2.54222253e-03  8.28853100e-03  6.79162281e-03
+  6.70118492e-03  6.70275436e-03  6.62954919e-03 -3.40187334e-03
+  7.94461424e-03 -9.73335430e-05  7.90275884e-03  2.23427323e-03
+  7.91459904e-03  3.17457155e-03  7.52801594e-03  3.08033072e-03
+  7.43910571e-03  7.94633434e-03 -3.39747170e-03  7.89764399e-03
+ -9.00598172e-05  2.22949623e-03  7.91846098e-03  6.50278711e-03
+  6.44805589e-03  3.17020151e-03  7.53283206e-03  3.07518529e-03
+  7.45013305e-03  6.50613399e-03  6.44965401e-03 -3.76296084e-03
+  6.40580829e-03  5.88760253e-05  6.88383198e-03  1.26742016e-03
+  7.34760009e-03  2.80483098e-03  7.15517619e-03  3.55046542e-03
+  6.73828179e-03  3.47234611e-03  6.66304770e-03  6.40178951e-03
+ -3.76212871e-03  6.87183656e-03  6.42074356e-05  7.34410599e-03
+  1.27148579e-03  6.22842142e-03  1.88978844e-03  6.18427906e-03
+  1.86766893e-03  2.80019848e-03  7.16537678e-03  6.27485437e-03
+  3.54767743e-03  6.74762841e-03  3.47028896e-03  6.68006708e-03
+  6.22767713e-03  1.89630577e-03  6.17834339e-03  1.87522517e-03
+ -3.59771191e-03  4.69413747e-03  3.78731495e-04  5.75762387e-03
+  1.64088011e-03  6.63190254e-03  2.40746132e-03  1.64049573e-03
+  6.71535545e-03  3.23090703e-03  6.43033067e-03  3.84732404e-03
+  6.03026435e-03  3.77734018e-03  5.95794349e-03  4.68881440e-03
+ -3.60040154e-03  5.74374854e-03  3.79966932e-04  6.62158318e-03
+  1.64199172e-03  5.89799596e-03  2.43690887e-03  5.85318155e-03
+  2.41468739e-03  2.40024925e-03  6.71882420e-03  1.64785253e-03
+  6.01313933e-03  1.80277945e-03  3.22856981e-03  6.44655263e-03
+  6.00708918e-03  1.80862427e-03  3.84595036e-03  6.04046706e-03
+  3.77946315e-03  5.97742310e-03  5.89274453e-03  2.44212250e-03
+  5.84099629e-03  2.41952517e-03 -2.90622187e-03  2.98265609e-03
+  8.85194747e-04  4.65555006e-03  2.00829512e-03  5.84269386e-03
+  1.94983221e-03  2.07944042e-03  6.15628389e-03  2.87861496e-03
+  1.71105189e-03  6.06645175e-03  3.55996009e-03  5.75926529e-03
+  4.10109704e-03  5.43037145e-03  4.02601228e-03  5.36188410e-03
+  2.98628209e-03 -2.91872429e-03  4.64865993e-03  8.76292659e-04
+  5.82755953e-03  2.00428424e-03  5.54771709e-03  2.93479638e-03
+  5.49626149e-03  2.90951364e-03  1.94011336e-03  6.15170552e-03
+  2.08553150e-03  5.68273494e-03  2.33158890e-03  2.87287760e-03
+  6.07843835e-03  1.72116918e-03  5.74524626e-03  1.72593926e-03
+  1.71863365e-03  3.56183449e-03  5.77970619e-03  5.67093029e-03
+  2.33557502e-03  4.10910258e-03  5.43269904e-03  4.03509048e-03
+  5.37660390e-03  5.54180266e-03  2.93890232e-03  5.48150957e-03
+  2.91039758e-03 -1.73307751e-03  1.43798014e-03  1.69065113e-03
+  3.70187264e-03  2.40669978e-03  5.07009788e-03  1.50851252e-03
+  2.46302179e-03  5.53925936e-03  2.46676426e-03  2.15934412e-03
+  5.60031150e-03  3.23979846e-03  1.66711890e-03  5.44581531e-03
+  3.83070479e-03  5.18463764e-03  4.42170077e-03  4.97911512e-03
+  4.38932912e-03  4.92787238e-03  1.45393122e-03 -1.69071248e-03
+  3.72589664e-03  1.73663772e-03  5.05731580e-03  2.39720708e-03
+  5.23173130e-03  3.40579626e-03  5.17871456e-03  3.36144403e-03
+  1.49751270e-03  5.52575945e-03  2.46431439e-03  5.32645903e-03
+  2.80872956e-03  2.45710692e-03  5.60518812e-03  2.17052943e-03
+  5.41368871e-03  1.63728178e-03  2.21796293e-03  3.23905979e-03
+  5.46712370e-03  1.67801031e-03  5.40615949e-03  2.22434354e-03
+  1.62831820e-03  3.83635729e-03  5.20104620e-03  5.31081181e-03
+  2.80889755e-03  4.37366085e-03  4.95463953e-03  4.37649464e-03
+  4.92258141e-03  5.23389040e-03  3.40096138e-03  5.16860336e-03
+  3.35559160e-03 -8.21260127e-06 -1.05116908e-05  2.75623593e-03
+  2.76301063e-03  3.03906430e-03  4.42448281e-03  1.16478455e-03
+  2.83352877e-03  4.93586762e-03  2.06522706e-03  2.52755148e-03
+  5.08623396e-03  2.85754183e-03  2.09998417e-03  5.03264949e-03
+  3.53729713e-03  1.59745153e-03  4.90544697e-03  4.19684648e-03
+  4.76224328e-03  4.86594401e-03  4.59703564e-03  4.67718814e-03
+  4.41121600e-03  4.42206468e-03  3.03975574e-03  5.00393801e-03
+  3.88017633e-03  4.96768480e-03  3.90272305e-03  1.14835595e-03
+  4.92159967e-03  2.82395994e-03  5.00573273e-03  3.24554051e-03
+  2.04793803e-03  5.07361543e-03  2.54053807e-03  5.05699826e-03
+  1.55835404e-03  2.66632992e-03  2.84802017e-03  5.05785378e-03
+  2.11891309e-03  5.06841626e-03  2.10194448e-03  2.09239724e-03
+  3.54637471e-03  4.92642369e-03  1.61182379e-03  5.04126972e-03
+  2.66826997e-03  1.54873241e-03  4.20139855e-03  4.76867643e-03
+  4.99447349e-03  3.24231460e-03  4.87659724e-03  4.59056062e-03
+  4.67837852e-03  4.41414730e-03  5.03287787e-03  3.93191657e-03
+  4.97710450e-03  3.91950049e-03  3.69786187e-03  3.70589833e-03
+  1.02099628e-03  3.34030031e-03  4.42234654e-03  1.74923883e-03
+  2.89464551e-03  4.58898016e-03  2.46929414e-03  2.44072087e-03
+  4.54635952e-03  3.16865326e-03  2.02121023e-03  4.51431522e-03
+  3.90883737e-03  1.61986542e-03  4.49885009e-03  4.49911731e-03
+  4.26356626e-03  1.02816449e-03  4.42265147e-03  3.34870206e-03
+  4.79486431e-03  3.78613259e-03  1.72862165e-03  4.55585042e-03
+  2.86380431e-03  4.73392383e-03  1.51433141e-03  3.08484136e-03
+  2.45733095e-03  4.55656997e-03  2.45894583e-03  4.70463659e-03
+  1.99406105e-03  2.49631811e-03  3.20459329e-03  4.56139349e-03
+  2.04162507e-03  4.68644165e-03  2.50615000e-03  1.97779205e-03
+  3.90551990e-03  4.50343387e-03  1.61140076e-03  4.71923808e-03
+  3.07725867e-03  1.50050991e-03  4.49457355e-03  4.27278500e-03
+  4.79357815e-03  3.78555599e-03  1.04468002e-03  3.85537410e-03
+  3.86690323e-03  1.66018270e-03  3.24191181e-03  4.07824777e-03
+  2.20116857e-03  2.73680757e-03  4.03514015e-03  2.80556353e-03
+  2.34667456e-03  4.02573077e-03  3.50800213e-03  2.08512008e-03
+  4.08301477e-03  4.20396237e-03  1.65919943e-03  4.02458228e-03
+  1.67204233e-03  4.10065101e-03  3.28867597e-03  4.49981348e-03
+  1.55880516e-03  3.57951385e-03  2.16207088e-03  4.06538364e-03
+  2.76643457e-03  4.37189852e-03  1.93279757e-03  2.90310931e-03
+  2.78502573e-03  4.02649917e-03  2.39026572e-03  4.27351574e-03
+  2.34949539e-03  2.33885697e-03  3.47377495e-03  4.07021796e-03
+  2.07294602e-03  4.33500410e-03  2.86935851e-03  1.91575362e-03
+  4.19707467e-03  4.03804087e-03  1.65853640e-03  4.50268196e-03
+  3.58729518e-03  1.56698341e-03  1.56481678e-03  3.58897331e-03
+  3.60733662e-03  2.03096476e-03  2.89846048e-03  3.50119395e-03
+  2.43517473e-03  2.52731314e-03  3.35094930e-03  2.94409850e-03
+  2.34608106e-03  3.45126272e-03  3.70909725e-03  2.00057631e-03
+  3.60083111e-03  2.06149235e-03  3.49594639e-03  2.93753941e-03
+  4.02623657e-03  2.01538612e-03  3.26566205e-03  2.42210674e-03
+  3.37574515e-03  2.57203789e-03  3.83178132e-03  2.28420381e-03
+  2.65437396e-03  2.93735428e-03  3.48009131e-03  2.32237438e-03
+  3.86614274e-03  2.68271023e-03  2.24792407e-03  3.69939850e-03
+  3.61965982e-03  1.99706328e-03  4.05339341e-03  3.30569443e-03
+  2.02535477e-03  1.98141722e-03  3.13255197e-03  3.16362265e-03
+  2.15110134e-03  2.42100042e-03  2.69433478e-03  2.30525104e-03
+  2.31635114e-03  2.61857766e-03  3.12788512e-03  2.28589464e-03
+  3.09803433e-03  2.13015930e-03  2.65681756e-03  2.42606483e-03
+  3.39219847e-03  2.26363069e-03  2.85503852e-03  2.34821925e-03
+  2.69349399e-03  2.37321899e-03  3.21768396e-03  2.46299027e-03
+  2.46167495e-03  3.11260822e-03  3.11762498e-03  2.28361692e-03
+  3.39294585e-03  2.87083585e-03  2.28867991e-03  2.03086693e-03
+  2.37154627e-03  2.40990007e-03  1.79533865e-03  1.93769537e-03
+  1.77724183e-03  2.29341742e-03  2.25174199e-03  2.34875645e-03
+  1.80346367e-03  1.79154645e-03  1.97291628e-03  2.56653539e-03
+  2.31191308e-03  2.37183255e-03  2.30411381e-03  2.37171433e-03
+  2.24868148e-03  2.55332721e-03  2.36663196e-03  2.29273879e-03
+  1.42488252e-03  1.23647161e-03  1.25755390e-03  1.11365808e-03
+  1.58363331e-03  1.23354039e-03  1.14093495e-03  1.25017738e-03
+  1.61467576e-03  1.66872486e-03  1.91689372e-03  1.92632708e-03
+  2.33914329e-04  3.67949874e-04  3.80819251e-04]
+Tolerance: 0.013067800763982769
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='displacement', filename='output/cryer_refstate_tet-domain.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 6900 != 2209 : 
+Expected values (not okay): [-0.03923013 -0.04747109 -0.04724244 ... -0.03683799 -0.04286477
+ -0.03884989]
+Computed values (not okay): [0.00669371 0.00921745 0.00857147 ... 0.00439734 0.00538881 0.00466592]
+Tolerance: 0.00893990382284786
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='pressure', filename='output/cryer_refstate_tet-domain.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 2300 != 729 : 
+Expected values (not okay): [0.24998973 0.21629053 0.21629178 ... 0.20616733 0.28138839 0.23073631]
+Computed values (not okay): [-0.0488513  -0.04351522 -0.0434403  ... -0.02532135 -0.03235497
+ -0.02775147]
+Tolerance: 0.21342642946634136
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='displacement', filename='output/cryer_refstate_tet-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 6900 != 2209 : 
+Expected values (not okay): [-0.03923013 -0.04747109 -0.04724244 ... -0.03683799 -0.04286477
+ -0.03884989]
+Computed values (not okay): [0.00669371 0.00921745 0.00857147 ... 0.00439734 0.00538881 0.00466592]
+Tolerance: 0.00893990382284786
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='pressure', filename='output/cryer_refstate_tet-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 2300 != 729 : 
+Expected values (not okay): [0.24998973 0.21629053 0.21629178 ... 0.20616733 0.28138839 0.23073631]
+Computed values (not okay): [-0.0488513  -0.04351522 -0.0434403  ... -0.02532135 -0.03235497
+ -0.02775147]
+Tolerance: 0.21342642946634136
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='cauchy_strain', filename='output/cryer_refstate_tet-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 231, in _checkField
+    self.testcase.assertEqual(nstepsE, nsteps, msg="Mismatch in number of time steps")
+AssertionError: 1 != 2 : Mismatch in number of time steps
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='cauchy_stress', filename='output/cryer_refstate_tet-poroelastic.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 13800 != 11440 : 
+Expected values (not okay): [-1.30067009 -1.24476852 -1.23993937 ... -0.87379417 -0.81840986
+ -0.82105558]
+Computed values (not okay): [-3.0016665e-288 -3.0016665e-288 -3.0016665e-288 ... -3.0016665e-288
+ -3.0016665e-288 -3.0016665e-288]
+Tolerance: 0.2860024725753235
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='displacement', filename='output/cryer_refstate_tet-x_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 666 != 342 : 
+Expected values (not okay): [-0.03923013 -0.04747109 -0.0472425  -0.03985162 -0.04655894 -0.03535016
+ -0.00976172 -0.03897099 -0.01378013 -0.045427   -0.03213776 -0.03262485
+ -0.0181664  -0.04385757 -0.01353454 -0.03782651 -0.02912818 -0.02617844
+ -0.01717702 -0.03631775 -0.009775   -0.03206605 -0.02365582 -0.02237772
+ -0.04186576 -0.02119223 -0.02658713 -0.01296658 -0.03128462 -0.01568913
+ -0.02954919 -0.02065407 -0.03445923 -0.02637352 -0.03947077 -0.01694201
+ -0.01904494 -0.02163572 -0.01044018 -0.02606573 -0.02393221 -0.03226885
+ -0.01505051 -0.01318569 -0.03011534 -0.03669565 -0.01867558 -0.02794998
+ -0.01385188 -0.02384018 -0.01712154 -0.00944441 -0.01991334 -0.02697987
+ -0.0297677  -0.03356713 -0.03356713 -0.00896454 -0.01548869 -0.01144906
+ -0.00972516 -0.01659985 -0.02247774 -0.01329762 -0.01302748 -0.01885479
+ -0.0297677  -0.02697987 -0.02132523 -0.02598486 -0.00878655 -0.01163503
+ -0.03669565 -0.03011534 -0.0237695  -0.0237695  -0.01849604 -0.02059741
+ -0.02598486 -0.02132523 -0.01218814 -0.01479071 -0.00967061 -0.03947077
+ -0.02637352 -0.04186576 -0.02237772 -0.03445923 -0.02065407 -0.02059378
+ -0.01850719 -0.03226885 -0.02393221 -0.01196698 -0.01196814 -0.03631775
+ -0.01717702 -0.01623145 -0.01623145 -0.02244141 -0.01660979 -0.01885697
+ -0.01303084 -0.01478996 -0.01219024 -0.04385757 -0.0181664  -0.02794998
+ -0.01867558 -0.01167936 -0.00878854 -0.02955147 -0.01568975 -0.00979474
+ -0.03897099 -0.00976172 -0.045427   -0.01378013 -0.03782651 -0.01353454
+ -0.03128396 -0.01296272 -0.02386064 -0.01387217 -0.03985162 -0.0326274
+ -0.03535016 -0.03206395 -0.00977431 -0.03923013 -0.03213776 -0.0472425
+ -0.04747109 -0.04655894 -0.00972516 -0.02658262 -0.02606583 -0.01044165
+ -0.02912818 -0.0199195  -0.00946238 -0.01329762 -0.01551117 -0.00896698
+ -0.01144906 -0.01505051 -0.01318569 -0.02365582 -0.02163489 -0.01712154
+ -0.01904494 -0.01694201 -0.02617844 -0.02119223 -0.04971362 -0.05806847
+ -0.05778885 -0.0072208  -0.05027263 -0.0113286  -0.0569527  -0.04553423
+ -0.012319   -0.04918022 -0.01685639 -0.05556806 -0.04199704 -0.00881424
+ -0.04242293 -0.02222184 -0.05364827 -0.01708019 -0.04773593 -0.03848983
+ -0.03496364 -0.02167688 -0.04583192 -0.01269984 -0.04166072 -0.03178783
+ -0.02737329 -0.05121181 -0.02860543 -0.00876453 -0.03537316 -0.01682182
+ -0.04058619 -0.02038935 -0.03840168 -0.02606482 -0.04348652 -0.03226111
+ -0.04828216 -0.02286814 -0.02573683 -0.00856163 -0.02914879 -0.01385773
+ -0.03459825 -0.03020173 -0.04072232 -0.02026494 -0.01766385 -0.03683824
+ -0.04488753 -0.02425408 -0.0362988  -0.01841822 -0.0316992  -0.00801334
+ -0.02313251 -0.01273433 -0.02685005 -0.03404779 -0.03756594 -0.04106061
+ -0.04106061 -0.01211028 -0.0209238  -0.01527386 -0.0128858  -0.02204414
+ -0.02984982 -0.01787316 -0.01753984 -0.02538557 -0.01052798 -0.03756594
+ -0.03404779 -0.0276952  -0.0337467  -0.0118123  -0.01564168 -0.04488753
+ -0.03683824 -0.03086959 -0.03086959 -0.02458412 -0.02737716 -0.0337467
+ -0.0276952  -0.01647089 -0.01998797 -0.01287737 -0.04828216 -0.03226111
+ -0.05121181 -0.02737328 -0.04348652 -0.02606482 -0.02737189 -0.02459854
+ -0.04072232 -0.03020173 -0.01615259 -0.01615416 -0.04583192 -0.02167688
+ -0.02185206 -0.02185206 -0.01130205 -0.01106688 -0.02980398 -0.02205913
+ -0.02538832 -0.01754424 -0.01998696 -0.01647373 -0.05364827 -0.02222184
+ -0.0362988  -0.02425408 -0.01570257 -0.01181594 -0.03840427 -0.02038996
+ -0.01304607 -0.01065312 -0.04918022 -0.012319   -0.05556806 -0.01685639
+ -0.04773593 -0.01708019 -0.04058571 -0.01681696 -0.03172342 -0.01844346
+ -0.05027263 -0.0072208  -0.04242579 -0.0088143  -0.04553423 -0.04165839
+ -0.01269906 -0.04971362 -0.04199704 -0.05778885 -0.05806847 -0.0569527
+ -0.0113286  -0.0128858  -0.0353677  -0.00876346 -0.0345983  -0.01385965
+ -0.03848983 -0.02685784 -0.01275831 -0.01787316 -0.02095444 -0.01211372
+ -0.01527386 -0.02026494 -0.01766385 -0.03178783 -0.02914769 -0.008563
+ -0.02313251 -0.00801334 -0.02573683 -0.02286814 -0.03496364 -0.02860543]
+Computed values (not okay): [ 6.69371188e-03  9.21744562e-03  9.20672374e-03  6.79751110e-03
+  8.66768860e-03  5.51133053e-03 -9.39160522e-04  6.25428797e-03
+ -3.78751125e-03  7.72781084e-03  4.64181086e-03  4.57842564e-03
+ -4.14926741e-03  6.45374765e-03 -1.11793902e-03  5.47875462e-03
+  3.63077384e-03  2.81999853e-03 -1.18636653e-03  4.47975090e-03
+ -6.14285450e-04  4.24095988e-03  1.98233511e-03 -4.04792676e-03
+  4.68696310e-03  1.28940479e-03  2.75009596e-03 -6.35418637e-04
+  3.76129216e-03 -3.68644579e-04  2.89721125e-03 -9.31148540e-04
+  3.29916000e-03 -3.28291010e-03  3.13205091e-03  5.66322848e-05
+  5.73166451e-04  1.26927529e-03 -4.28372389e-04  2.48714966e-03
+ -4.61059568e-04  2.23167053e-03 -5.37452276e-04 -8.77696900e-04
+ -2.14241910e-03  1.14180557e-03 -2.55411231e-05  2.11530895e-03
+ -3.80898601e-04  1.57278793e-03 -5.55530959e-05 -6.07304216e-04
+  7.42287650e-04  4.08626093e-04  1.23743268e-03 -4.39821839e-04
+ -4.21007511e-04 -9.47542123e-04 -4.81764644e-04 -1.36235472e-03
+ -1.47140967e-03 -1.83402238e-04  9.87068909e-04 -1.09090809e-03
+ -5.18039308e-04  3.72997783e-04  1.38318957e-03  2.94497784e-04
+  4.45032784e-04  1.43898316e-03 -1.33260577e-03 -1.36229741e-03
+  1.30227926e-03 -2.03838113e-03  9.69548950e-04  7.53806201e-04
+  8.81261360e-05  4.83470425e-04  1.47079235e-03  2.66924609e-04
+ -7.69394810e-04 -5.60591264e-04 -1.79252905e-03  3.28056494e-03
+ -3.24713626e-03  4.93089609e-03 -3.85336557e-03  3.40527584e-03
+ -9.54958704e-04  4.99929758e-04  4.21578354e-06  2.39513416e-03
+ -3.43638303e-04 -1.02788750e-03 -1.05857070e-03  4.54431527e-03
+ -1.09391014e-03 -1.75073356e-04 -1.41407896e-04  9.80403358e-04
+ -2.54192596e-04  4.04110491e-04 -5.90595837e-04 -5.22525867e-04
+ -7.14929847e-04  6.46960834e-03 -3.95923335e-03  2.11186163e-03
+ -1.26296733e-04 -1.34367500e-03 -1.35743482e-03  2.97560713e-03
+ -4.68617713e-04 -1.75840713e-03  6.21618040e-03 -8.65287454e-04
+  7.87548059e-03 -3.50113064e-03  5.63623279e-03 -1.04894747e-03
+  3.80541299e-03 -6.01942820e-04  1.64166905e-03 -4.43360444e-04
+  6.68440594e-03  4.51127011e-03  5.42291498e-03  4.21674754e-03
+ -5.34599746e-04  6.63350127e-03  4.52468250e-03  9.13647676e-03
+  9.13213062e-03  8.60519526e-03 -1.51472321e-03  2.73365615e-03
+  2.44821800e-03 -5.62275977e-04  3.54622128e-03  7.27887892e-04
+ -6.56160236e-04 -1.12224715e-03 -4.73797515e-04 -8.93426481e-04
+ -1.44537881e-03 -5.58311846e-04 -9.25246776e-04  1.91210236e-03
+  1.24709244e-03 -1.06987111e-04  5.41328880e-04 -1.57401394e-06
+  2.74256966e-03  1.22001275e-03  7.45481076e-03  1.00421348e-02
+  1.00272217e-02 -5.31592478e-04  7.56881389e-03 -2.66989353e-03
+  9.47268042e-03  6.17230586e-03 -7.45901576e-04  7.00390009e-03
+ -3.54167488e-03  8.50594664e-03  5.19177670e-03 -3.28170384e-04
+  5.15750762e-03 -3.82956959e-03  7.19712356e-03 -8.52972313e-04
+  6.20067261e-03  4.06606644e-03  3.12063974e-03 -8.54147870e-04
+  5.16691568e-03 -4.35702354e-04  4.81181255e-03  2.17354804e-03
+ -3.66028664e-03  5.38871390e-03  1.35414378e-03 -3.16545844e-04
+  3.09492818e-03 -3.98121488e-04  4.32115126e-03 -8.69437984e-05
+  3.41898906e-03 -5.36380296e-04  3.94633338e-03 -2.83422210e-03
+  3.78814908e-03 -7.26657310e-05  5.48932374e-04 -3.85218232e-04
+  1.39587064e-03 -2.82898708e-04  2.84529236e-03 -8.83837430e-06
+  2.83517383e-03 -7.27751164e-04 -1.14411374e-03 -1.63713486e-03
+  1.75018606e-03  3.08109905e-04  2.60978916e-03 -1.96176582e-04
+  1.88774002e-03 -7.67848312e-04 -1.27327529e-04 -5.61945765e-04
+  8.40895680e-04  9.15198781e-04  1.79386948e-03  1.18653920e-04
+  1.36273521e-04 -9.93141509e-04 -5.56065620e-04 -1.65557066e-03
+ -1.80405279e-03  4.32984998e-05  1.29313471e-03 -1.29689097e-03
+ -4.32587252e-04  4.97473245e-04 -2.26207699e-03  1.94009948e-03
+  8.00944420e-04  8.23641867e-04  1.89900455e-03 -1.46864461e-03
+ -1.53980095e-03  1.91108219e-03 -1.53427926e-03  1.39047600e-03
+  1.17522701e-03  3.34494492e-04  7.58234730e-04  1.92980166e-03
+  6.46196270e-04 -7.87981985e-04 -5.82256291e-04 -2.06379362e-03
+  3.93649848e-03 -2.79982008e-03  5.63229660e-03 -3.46586944e-03
+  4.05349764e-03 -5.60080924e-04  7.74041162e-04  2.50924066e-04
+  2.99974108e-03  1.08823058e-04 -1.11973326e-03 -1.15078736e-03
+  5.23207900e-03 -7.61666995e-04 -6.73705511e-05 -3.36057184e-05
+ -2.00439212e-03 -1.99913256e-03  1.28408291e-03 -2.84562820e-05
+  5.27952719e-04 -5.05712073e-04 -5.44083592e-04 -7.34035672e-04
+  7.21347435e-03 -3.64078607e-03  2.60598976e-03  2.06915120e-04
+ -1.51992492e-03 -1.49288131e-03  3.49720846e-03 -1.88098984e-04
+ -2.02955855e-03 -2.28817240e-03  6.96469705e-03 -6.74138854e-04
+  8.65176613e-03 -3.25898414e-03  6.35840308e-03 -7.85372647e-04
+  4.36474973e-03 -3.66479517e-04  1.95631275e-03 -2.59350091e-04
+  7.45292352e-03 -4.55666539e-04  5.08908674e-03 -2.88127671e-04
+  6.08199847e-03  4.78656806e-03 -3.57989468e-04  7.39242687e-03
+  5.07267897e-03  9.95448005e-03  9.95673611e-03  9.40453266e-03
+ -2.45390533e-03 -1.84741324e-03  3.07766772e-03 -3.99315983e-04
+  2.80536118e-03 -4.18144189e-04  3.98026843e-03  8.26027886e-04
+ -6.11233265e-04 -1.32848900e-03 -5.47528872e-04 -9.39194283e-04
+ -1.73885793e-03 -7.48996240e-04 -1.19198457e-03  2.10295236e-03
+  1.37299645e-03 -4.50649996e-04 -1.79439695e-04 -7.54307332e-04
+  5.17084786e-04 -1.30627518e-04  3.04219719e-03  1.28490258e-03]
+Tolerance: 0.00668462884780212
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='pressure', filename='output/cryer_refstate_tet-x_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 222 != 66 : 
+Expected values (not okay): [0.24998973 0.37639524 0.4969714  0.4542806  0.59965646 0.71393233
+ 0.44706604 0.79553436 0.88412532 0.67010854 0.4348232  0.44946161
+ 1.00384518 0.94185851 0.84009126 0.64507242 1.04023482 1.07971806
+ 0.44376248 0.66352354 0.97391224 0.85690098 0.97981171 1.10007423
+ 1.12324819 0.65002918 1.05684791 0.82779363 1.14586036 1.13343453
+ 0.44376248 1.05514662 1.1561255  1.14942151 1.15901647 1.1561255
+ 0.44376248 0.65948835 0.44376248 0.94511834 1.10736027 1.15029327
+ 0.65931555 1.00426449 1.13344739 0.82654631 1.09927373 1.14586036
+ 0.65087831 0.82766927 0.94509654 0.44376248 1.05444425 0.44937883
+ 1.10638757 1.13313345 0.43489737 0.66250938 0.45419015 0.37639524
+ 0.44714504 0.24998973 0.4969714  1.12324819 0.67027565 0.64504932
+ 0.59965646 0.85646752 1.05684791 0.97927072 1.10007423 1.04023482
+ 1.07971806 0.79553436 0.84010824 0.97391224 0.94185851 1.00384518
+ 0.71393233 0.88412532 0.3176391  0.28848635 0.39042085 0.47728788
+ 0.28361417 0.5446643  0.62519759 0.44309529 0.27538005 0.2852303
+ 0.75442649 0.68366159 0.5840158  0.42407806 0.80172575 0.86067837
+ 0.28138817 0.4380591  0.71898942 0.59944018 0.72576795 0.89581344
+ 0.94220127 0.42781553 0.82534724 0.57294256 0.99913037 0.96587456
+ 0.28138817 0.82285765 1.03254387 1.00993032 1.04353386 1.03254387
+ 0.28138817 0.43498529 0.28138817 0.68714797 0.90951577 1.01268705
+ 0.43485386 0.75494271 0.96590619 0.57182891 0.89434892 0.99913037
+ 0.42845713 0.57283145 0.68712458 0.28138817 0.82183482 0.28517443
+ 0.90764567 0.96513572 0.27542981 0.43728569 0.28842518 0.28366745
+ 0.3176391  0.94220127 0.44322342 0.42406068 0.39042085 0.59903805
+ 0.82534724 0.72514243 0.89581344 0.80172575 0.86067837 0.5446643
+ 0.5840312  0.71898942 0.68366159 0.75442649 0.47728788 0.62519759]
+Computed values (not okay): [-0.0488513  -0.06187736 -0.06911817 -0.0670582  -0.07183907 -0.07094508
+ -0.06637682 -0.06719092 -0.05888396 -0.07161183 -0.06383073 -0.06409913
+ -0.0361321  -0.0499566  -0.06325884 -0.07163569 -0.02548177 -0.00662361
+ -0.06297612 -0.07162642 -0.04531638 -0.06255402 -0.04453713  0.00615662
+  0.02919476 -0.07054928 -0.01942986 -0.06501078  0.06749352  0.04249768
+ -0.06287474 -0.02065139  0.10300283  0.07557105  0.11443142  0.10262014
+ -0.06321549 -0.07124281 -0.06314784 -0.05105253  0.01121348  0.07853596
+ -0.07105392 -0.03850909  0.04125147 -0.06500382  0.00448692  0.06714303
+ -0.0703235  -0.06491753 -0.05110561 -0.06405192 -0.02122332 -0.06485047
+  0.01022029  0.04221224 -0.06423351 -0.07120442 -0.06651701 -0.06089048
+ -0.06543323 -0.04929213 -0.06888251  0.02924243 -0.07147009 -0.07144232
+ -0.07129096 -0.06283507 -0.01901336 -0.04449898  0.00661456 -0.02564763
+ -0.00627442 -0.0669111  -0.06406906 -0.04497257 -0.05024824 -0.03639665
+ -0.07019954 -0.05835451 -0.03472835 -0.03252336 -0.03933967 -0.04295555
+ -0.03226255 -0.04423106 -0.04377392 -0.04173715 -0.03098844 -0.03173438
+ -0.03821956 -0.04190177 -0.04404849 -0.04095145 -0.03483577 -0.02820619
+ -0.03131906 -0.04169617 -0.04086005 -0.0442023  -0.0405374  -0.02342165
+ -0.01519167 -0.04066769 -0.03250437 -0.04437201 -0.00210274 -0.01033291
+ -0.03127692 -0.03267636  0.00790288  0.00051342  0.00989818  0.00770461
+ -0.03130401 -0.04140591 -0.03132634 -0.04211333 -0.02132497  0.00140898
+ -0.04120228 -0.03854904 -0.01051296 -0.04436279 -0.0236298  -0.0021851
+ -0.04062061 -0.04445769 -0.04212459 -0.03140672 -0.03287058 -0.0317348
+ -0.02168176 -0.01039322 -0.03102582 -0.04132225 -0.0322588  -0.03178452
+ -0.03456222 -0.01512415 -0.04158013 -0.04080354 -0.03910186 -0.04449607
+ -0.03232639 -0.04049774 -0.02320846 -0.03480949 -0.02804364 -0.04416799
+ -0.04449094 -0.04071857 -0.04212923 -0.03831835 -0.04270247 -0.04369346]
+Tolerance: 0.26650169205301205
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='displacement', filename='output/cryer_refstate_tet-y_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 666 != 337 : 
+Expected values (not okay): [-0.03923013 -0.04747109 -0.04724244 -0.00572436 -0.03985153 -0.03535023
+ -0.00926168 -0.04655884 -0.03213776 -0.00976215 -0.03897088 -0.01378061
+ -0.04542685 -0.00677877 -0.03262743 -0.01353492 -0.03782638 -0.01816682
+ -0.04385739 -0.02912818 -0.02617844 -0.00977693 -0.0320679  -0.00658731
+ -0.02658406 -0.01717735 -0.03631759 -0.02237809 -0.04186556 -0.02119223
+ -0.02365582 -0.01297113 -0.03127858 -0.02065436 -0.03445905 -0.02637384
+ -0.03947055 -0.01694201 -0.01904494 -0.01044044 -0.02606485 -0.01568832
+ -0.02954592 -0.02163543 -0.01318569 -0.01505051 -0.01712154 -0.02393245
+ -0.03226866 -0.0186758  -0.02794982 -0.01329762 -0.03011561 -0.03669543
+ -0.01385179 -0.02383943 -0.00944383 -0.01990726 -0.01144906 -0.00972516
+ -0.00896667 -0.01550984 -0.00878896 -0.01167896 -0.02698007 -0.02976751
+ -0.02132541 -0.0259847  -0.00979474 -0.03356734 -0.03356691 -0.01302879
+ -0.01885592 -0.01660012 -0.0224777  -0.01219033 -0.01478984 -0.02976786
+ -0.02697969 -0.01849623 -0.0205973  -0.02376965 -0.02376934 -0.03669582
+ -0.03011513 -0.01196816 -0.01196708 -0.01623154 -0.01623133 -0.03226897
+ -0.02393204 -0.01164248 -0.00878691 -0.0147909  -0.01218798 -0.03947089
+ -0.02637333 -0.02059388 -0.01850708 -0.02598498 -0.02132507 -0.01144906
+ -0.04186585 -0.02237755 -0.03445932 -0.02065391 -0.01885698 -0.01303071
+ -0.02795006 -0.01867544 -0.01329762 -0.04385762 -0.01816626 -0.03631781
+ -0.01717688 -0.03782655 -0.01353444 -0.03128398 -0.01296261 -0.03206429
+ -0.00977443 -0.0260659  -0.01044108 -0.02386071 -0.01387201 -0.02244149
+ -0.01660967 -0.02955151 -0.0156896  -0.01550797 -0.0089665  -0.01991942
+ -0.00946233 -0.01505051 -0.01318569 -0.0265871  -0.00658758 -0.02163512
+ -0.01712154 -0.03923013 -0.03213776 -0.03534348 -0.03897101 -0.00976164
+ -0.03262585 -0.00677887 -0.03987078 -0.04747109 -0.0472425  -0.04542703
+ -0.01378002 -0.01904494 -0.02912818 -0.01694201 -0.02617844 -0.02365582
+ -0.02119223 -0.04655896 -0.00926107 -0.04971362 -0.05806847 -0.00569241
+ -0.05778878 -0.00722125 -0.05027252 -0.04553432 -0.01132924 -0.05695257
+ -0.04199704 -0.01231954 -0.04918008 -0.01685697 -0.05556788 -0.00881451
+ -0.04242582 -0.01708067 -0.04773576 -0.02222236 -0.05364805 -0.03848983
+ -0.03496364 -0.01270222 -0.04166271 -0.00876425 -0.03536943 -0.02167731
+ -0.04583172 -0.02737374 -0.05121157 -0.02860543 -0.03178783 -0.01682799
+ -0.04057903 -0.02606519 -0.0434863  -0.0322615  -0.0482819  -0.02286814
+ -0.02573683 -0.01385811 -0.03459716 -0.02038859 -0.03839796 -0.00856186
+ -0.02914841 -0.01766385 -0.02026494 -0.00801334 -0.02313251 -0.03020204
+ -0.04072209 -0.02425437 -0.0362986  -0.01787316 -0.03683857 -0.04488726
+ -0.01841814 -0.03169828 -0.01273365 -0.02684209 -0.01527386 -0.0128858
+ -0.01211329 -0.02095262 -0.01181651 -0.01570203 -0.01065312 -0.03404805
+ -0.03756571 -0.02769544 -0.03374649 -0.01304607 -0.04106087 -0.04106034
+ -0.01754154 -0.02538701 -0.02204449 -0.02984976 -0.01647384 -0.0199868
+ -0.03756615 -0.03404756 -0.02458436 -0.02737701 -0.03086979 -0.03086939
+ -0.01106825 -0.01130214 -0.04488774 -0.03683799 -0.01615418 -0.01615273
+ -0.02185219 -0.02185191 -0.04072248 -0.03020152 -0.01565192 -0.01181294
+ -0.01998823 -0.01647067 -0.01287744 -0.04828232 -0.03226088 -0.02737203
+ -0.02459839 -0.03374685 -0.027695   -0.0128858  -0.01527386 -0.05121192
+ -0.02737308 -0.04348663 -0.02606462 -0.02538834 -0.01754407 -0.03629891
+ -0.0242539  -0.01787316 -0.05364834 -0.02222167 -0.045832   -0.02167672
+ -0.04773598 -0.01708005 -0.04058573 -0.01681682 -0.04165876 -0.0126992
+ -0.03459841 -0.0138589  -0.03172352 -0.01844325 -0.02980408 -0.02205896
+ -0.03840432 -0.02038977 -0.02095007 -0.01211306 -0.02685772 -0.01275824
+ -0.02026494 -0.01766385 -0.03537313 -0.00876452 -0.02914799 -0.00856298
+ -0.02313251 -0.00801334 -0.04971362 -0.04199704 -0.04552691 -0.04918025
+ -0.0123189  -0.04242404 -0.0088147  -0.05029231 -0.00723232 -0.05806847
+ -0.05778885 -0.0555681  -0.01685625 -0.02573683 -0.03848983 -0.02286814
+ -0.03496364 -0.03178783 -0.02860543 -0.05695271 -0.0113285 ]
+Computed values (not okay): [ 6.69371188e-03  9.21744562e-03  8.57146622e-03  1.31293677e-03
+  6.04559463e-03  5.08555726e-03  2.52924710e-03  7.74496530e-03
+  4.64181086e-03  1.83471672e-03  5.31959907e-03  3.05278567e-03
+  7.03822340e-03  8.91550845e-04  3.70706153e-03  2.16399820e-03
+  4.75185540e-03  3.44802372e-03  6.41900865e-03  3.19579257e-03
+  2.81999853e-03  1.13565584e-03  3.26514813e-03  3.42033186e-04
+  1.90436257e-03  2.40242724e-03  4.26405548e-03  3.78051239e-03
+  5.86663986e-03  1.28940479e-03  1.53288407e-03  1.33530604e-03
+  2.91424788e-03  2.59452049e-03  3.83603184e-03  4.08571075e-03
+  5.35312378e-03  5.66322848e-05  1.63016292e-04  4.83368100e-04
+  1.52830391e-03  1.36716143e-03  2.45867561e-03  4.69730329e-04
+ -8.77696900e-04 -9.37057232e-04 -7.62482402e-04  2.76404624e-03
+  3.44432842e-03  1.46256085e-03  2.17375647e-03 -1.67418513e-03
+  4.38101863e-03  4.85609633e-03  3.76231340e-04  9.87253462e-04
+ -4.49888149e-04 -1.04877524e-04 -1.74360767e-03 -1.47140967e-03
+ -1.23628318e-03 -1.13825183e-03 -2.07595602e-03 -1.77916932e-03
+  2.92016167e-03  3.07726694e-03  1.51349056e-03  1.90002855e-03
+ -2.22200406e-03  4.65525074e-03  4.36068106e-03 -5.27281210e-04
+ -1.72967271e-04  3.95132869e-04  8.36554710e-04 -1.38183172e-03
+ -9.80296961e-04  3.06639808e-03  2.72032555e-03  2.95306722e-04
+  6.24907013e-04  1.55814437e-03  1.65519575e-03  4.91740229e-03
+  3.86003096e-03 -2.03173676e-03 -1.34946230e-03 -7.59244802e-04
+ -3.11627031e-04  3.20181747e-03  2.36793104e-03 -2.80723312e-03
+ -1.51333166e-03 -1.74398710e-03 -9.33868833e-04  5.15571673e-03
+  3.34821438e-03  2.42173190e-04  4.88166810e-04  1.59906146e-03
+  1.42787664e-03 -3.97678276e-03  5.36577393e-03  2.82440507e-03
+  3.32463826e-03  2.01603700e-03 -9.75958352e-04 -3.43121975e-04
+  1.63884702e-03  1.21109912e-03 -3.25968184e-03  5.54912133e-03
+  2.29209415e-03  3.43244384e-03  1.66297811e-03  3.52743397e-03
+  1.30804816e-03  1.77406882e-03  8.26450728e-04  1.71016473e-03
+  5.96771051e-04  2.24163830e-04  2.30336083e-04  1.38603314e-04
+  2.81135867e-04  2.54695518e-04  4.24444372e-04  1.63355745e-03
+  9.74792737e-04 -2.30332085e-03 -9.39189065e-04 -1.35162116e-03
+ -3.90075064e-04 -3.29425336e-03 -3.82747780e-03  1.01785153e-05
+  9.90638044e-05 -1.32507769e-03 -2.48345500e-03  3.42582386e-03
+  1.36579776e-03  2.33333120e-03  3.60385087e-03  9.42637529e-04
+  1.67807869e-03  4.03579507e-04  3.69732419e-03  5.92584220e-03
+  5.89994365e-03  5.70402213e-03  1.74310444e-03 -2.28961891e-03
+  5.51344369e-04 -2.94787008e-03 -3.54439025e-04 -1.00699237e-03
+ -1.78452445e-03  5.81722459e-03  1.18119747e-03  7.45481076e-03
+  1.00421348e-02  1.76289840e-03  9.39435363e-03  1.41913534e-03
+  6.82104723e-03  5.74839959e-03  2.68142516e-03  8.56140869e-03
+  5.19177670e-03  2.01812024e-03  6.08314435e-03  3.28291112e-03
+  7.83992232e-03  1.00880811e-03  4.29174102e-03  2.42212646e-03
+  5.49827885e-03  3.75728671e-03  7.20056589e-03  3.63216790e-03
+  3.12063974e-03  1.30734923e-03  3.84524050e-03  4.25891808e-04
+  2.25148069e-03  2.73455030e-03  4.98440523e-03  4.17003838e-03
+  6.61665171e-03  1.35414378e-03  1.72419685e-03  1.56840627e-03
+  3.48776586e-03  2.99849629e-03  4.52143383e-03  4.55056179e-03
+  6.06043529e-03 -7.26657310e-05  1.38214104e-04  6.26499675e-04
+  1.89078294e-03  1.64833182e-03  2.99654187e-03 -1.54818118e-04
+  5.95657978e-04 -1.14411374e-03 -1.12801273e-03 -7.70807706e-04
+ -8.35860762e-04  3.23511039e-03  4.08707246e-03  1.80103066e-03
+  2.68636609e-03 -1.88084542e-03  4.91435167e-03  5.51410529e-03
+  5.60509812e-04  1.30757027e-03 -4.03295968e-04 -7.44509638e-06
+ -2.03657895e-03 -1.80405279e-03 -1.27703707e-03 -1.21351526e-03
+ -2.20424160e-03 -1.95629536e-03 -2.50596869e-03  3.45332394e-03
+  3.67000537e-03  1.90184786e-03  2.37716623e-03 -2.49307281e-03
+  5.25228205e-03  4.96128012e-03 -4.40616361e-04 -4.84806854e-05
+  6.23996869e-04  1.14870064e-03 -1.39753759e-03 -1.00331768e-03
+  3.65570092e-03  3.25677039e-03  5.46249796e-04  9.04887154e-04
+  1.99270187e-03  2.09125478e-03 -3.06268029e-03 -2.23935531e-03
+  5.57010475e-03  4.39825374e-03 -2.11979887e-03 -1.44197836e-03
+ -6.49493306e-04 -2.03742500e-04  3.84066387e-03  2.84325216e-03
+ -2.97977321e-03 -1.64763996e-03 -1.76348501e-03 -9.52813836e-04
+ -3.89376787e-03  5.85863828e-03  3.81889704e-03  5.22318737e-04
+  7.39639448e-04  2.07461295e-03  1.81895866e-03 -4.66341542e-03
+ -4.26436970e-03  6.11204161e-03  3.22220511e-03  4.00700666e-03
+  2.42549662e-03 -8.49866038e-04 -2.57268348e-04  2.15032742e-03
+  1.55316618e-03 -3.46157777e-03  6.33022340e-03  2.61173850e-03
+  4.15164033e-03  2.00238038e-03  4.27600213e-03  1.57377453e-03
+  2.34855354e-03  1.06468547e-03  2.29286767e-03  7.73928592e-04
+  5.88506419e-04  3.76140696e-04  4.60717376e-04  4.67925576e-04
+  5.65858873e-04  6.54472913e-04  2.17126833e-03  1.26066048e-03
+ -2.37499483e-03 -9.83095620e-04 -1.25129052e-03 -3.43754772e-04
+ -3.48133893e-03 -4.08916151e-03  3.60184509e-04  1.85797311e-04
+ -1.19661843e-03 -1.99214596e-04 -2.55373973e-03 -6.54539976e-04
+  4.19793224e-03  1.92267662e-03  3.00352968e-03  4.37315575e-03
+  1.13376708e-03  2.26718908e-03  5.25584818e-04  4.48292362e-03
+  6.69358986e-04  6.76444402e-03  6.73434170e-03  6.50910961e-03
+  1.98308641e-03 -2.31179282e-03  9.92516524e-04 -3.07450231e-03
+ -5.00363095e-05 -8.12769744e-04 -1.71698027e-03  6.64039421e-03
+  1.34253147e-03]
+Tolerance: 0.006684706561703125
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='pressure', filename='output/cryer_refstate_tet-y_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 222 != 66 : 
+Expected values (not okay): [0.24998973 0.37639259 0.4969714  0.45418768 0.59965646 0.71393233
+ 0.44698254 0.6702194  0.88412532 0.79553436 0.43496001 1.00384518
+ 0.94185851 0.64509888 0.44957861 0.84009887 1.07971806 1.04023482
+ 0.97391224 0.44376282 1.05684791 0.66354894 0.85708842 1.10007423
+ 1.12324819 0.97930506 1.05444546 1.14586036 1.13313345 0.44376281
+ 1.10638757 1.1561255  1.15029281 1.15901647 1.1561255  0.82773748
+ 0.65002435 0.94509771 1.13344827 0.65948677 0.44376281 1.09926392
+ 1.14943335 1.00426258 1.14586036 1.13344542 0.8265469  1.0550285
+ 0.94511698 1.10735935 0.65931548 0.44376281 1.12324819 1.10007423
+ 0.82767167 0.4437628  1.05684791 0.43489832 0.44713217 0.64505461
+ 0.66250985 0.6508787  0.44938019 0.97934961 0.85647076 1.04023482
+ 1.07971806 0.67010956 0.840101   0.97391224 0.24998973 0.4969714
+ 0.37662069 0.45424258 0.94185851 0.59965646 1.00384518 0.71393233
+ 0.79553436 0.88412532 0.3176391  0.28842351 0.39042085 0.47728788
+ 0.28355787 0.44318029 0.62519759 0.5446643  0.27547183 0.75442649
+ 0.68366159 0.42409798 0.28530928 0.5840227  0.86067837 0.80172575
+ 0.71898942 0.2813884  0.82534724 0.43807848 0.59961414 0.89581344
+ 0.94220127 0.72518211 0.82183658 0.99913037 0.96513572 0.28138839
+ 0.90764567 1.03254387 1.01268561 1.04353386 1.03254387 0.57289239
+ 0.42781188 0.68712582 0.96590836 0.43498409 0.28138839 0.89433102
+ 1.00996744 0.75494035 0.99913037 0.96590134 0.57182943 0.82268544
+ 0.6871465  0.90951399 0.43485382 0.28138839 0.94220127 0.89581344
+ 0.57283359 0.28138838 0.82534724 0.27543045 0.28365876 0.42406466
+ 0.43728605 0.42845742 0.28517535 0.72523359 0.59904106 0.80172575
+ 0.86067837 0.44309607 0.58402463 0.71898942 0.3176391  0.28846064
+ 0.68366159 0.39042085 0.75442649 0.47728788 0.5446643  0.62519759]
+Computed values (not okay): [-0.0488513  -0.0616961  -0.06911817 -0.06726981 -0.07212366 -0.07094508
+ -0.06760499 -0.07301769 -0.05888396 -0.06725918 -0.06711527 -0.0361321
+ -0.05008319 -0.0730172  -0.06814855 -0.06443083 -0.00662361 -0.02455313
+ -0.04427626 -0.06791162 -0.01861377 -0.07298942 -0.06291978  0.0070368
+  0.02919476 -0.04381718 -0.01910895  0.06749352  0.04236126 -0.06808971
+  0.01114669  0.10300283  0.07940192  0.11443142  0.10476654 -0.06552369
+ -0.07334772 -0.05023221  0.04253657 -0.07347363 -0.06799681  0.00638617
+  0.07515013 -0.03656312  0.06835404  0.04321682 -0.06532504 -0.01879898
+ -0.04996629  0.01283671 -0.07340608 -0.06777266  0.02925696  0.00658875
+ -0.06521283 -0.06765521 -0.01862038 -0.06698883 -0.0681264  -0.07314107
+ -0.07342452 -0.07334567 -0.06782109 -0.04363915 -0.06301268 -0.02439041
+ -0.00618968 -0.07310704 -0.06441928 -0.04430054 -0.04992592 -0.07028456
+ -0.06204328 -0.06826895 -0.05068583 -0.07261584 -0.03608505 -0.07146084
+ -0.06725939 -0.05920055 -0.03472835 -0.03243976 -0.03939129 -0.04295555
+ -0.03232584 -0.04232496 -0.04377392 -0.04426677 -0.03169413 -0.03821956
+ -0.04208856 -0.04141177 -0.0326731  -0.04473221 -0.02820619 -0.0344887
+ -0.0406792  -0.03239214 -0.03246683 -0.04209314 -0.04471473 -0.02318461
+ -0.01519167 -0.04067956 -0.03256932 -0.00210274 -0.01046646 -0.0324584
+ -0.02161927  0.00790288  0.00168644  0.00989818  0.0083368  -0.0448467
+ -0.04166353 -0.04232403 -0.01031537 -0.04224453 -0.03244455 -0.02336711
+  0.00026936 -0.03830265 -0.00181357 -0.0101518  -0.04476268 -0.03250504
+ -0.04224655 -0.0210257  -0.0421414  -0.03241439 -0.015124   -0.02338085
+ -0.04477628 -0.03232074 -0.03250371 -0.03172976 -0.03252118 -0.0416002
+ -0.0421964  -0.04175149 -0.03259606 -0.04069746 -0.04485551 -0.03447621
+ -0.02802469 -0.04245539 -0.04486612 -0.04082722 -0.03505737 -0.03278966
+ -0.04261845 -0.03962518 -0.03832733 -0.04324916 -0.04442432 -0.04402615]
+Tolerance: 0.26649854865067624
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='displacement', filename='output/cryer_refstate_tet-z_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 666 != 337 : 
+Expected values (not okay): [-0.03923013 -0.03535023 -0.03213776 -0.04747109 -0.00972516 -0.04724244
+ -0.01144906 -0.01318569 -0.01144906 -0.01505051 -0.01694201 -0.02617844
+ -0.02912818 -0.00572436 -0.03985153 -0.01318569 -0.00967058 -0.02365582
+ -0.01904494 -0.02119223 -0.00677862 -0.03262489 -0.03535015 -0.03923013
+ -0.03213776 -0.04747109 -0.01329762 -0.00926168 -0.04655884 -0.01505051
+ -0.01694201 -0.02912818 -0.02617844 -0.02365582 -0.02119223 -0.0472425
+ -0.03985162 -0.00658673 -0.02658533 -0.00976215 -0.03897088 -0.01904494
+ -0.01329762 -0.01712154 -0.0087867  -0.01163626 -0.01168074 -0.00878884
+ -0.03262484 -0.00677846 -0.0216351  -0.0097741  -0.0320629  -0.01378061
+ -0.04542685 -0.01712154 -0.01196724 -0.01196795 -0.0265871  -0.0065876
+ -0.04655896 -0.00926107 -0.00896504 -0.01548968 -0.02163512 -0.03897101
+ -0.00976164 -0.00946301 -0.01992552 -0.01044097 -0.02606614 -0.01353492
+ -0.03782638 -0.01551123 -0.00896673 -0.01479162 -0.01218857 -0.01218985
+ -0.01478906 -0.03206607 -0.00977493 -0.01991954 -0.00946233 -0.01816682
+ -0.04385739 -0.02606619 -0.01044113 -0.04542703 -0.01378002 -0.01297103
+ -0.03127879 -0.03782655 -0.01353444 -0.01303019 -0.01885611 -0.01568896
+ -0.02954812 -0.01717735 -0.03631759 -0.01885783 -0.01303073 -0.01623154
+ -0.01623133 -0.01387265 -0.02386058 -0.02237809 -0.04186556 -0.02065436
+ -0.03445905 -0.03128467 -0.01296643 -0.02386074 -0.01387218 -0.04385762
+ -0.01816626 -0.03631781 -0.01717688 -0.0186758  -0.02794982 -0.02637384
+ -0.03947055 -0.02955143 -0.0156897  -0.016601   -0.02247585 -0.0224768
+ -0.01660038 -0.01850406 -0.02059501 -0.02059749 -0.01849633 -0.04186585
+ -0.02237755 -0.02393245 -0.03226866 -0.02795006 -0.01867544 -0.02132541
+ -0.0259847  -0.03445932 -0.02065391 -0.03011561 -0.03669543 -0.02598498
+ -0.02132507 -0.02376965 -0.02376934 -0.03947089 -0.02637333 -0.02698007
+ -0.02976751 -0.03226897 -0.02393204 -0.03356734 -0.03356691 -0.02976786
+ -0.02697969 -0.03669582 -0.03011513 -0.01050038 -0.0128858  -0.04971362
+ -0.04553432 -0.04199704 -0.05806847 -0.0128858  -0.00569241 -0.05778878
+ -0.01527386 -0.01766385 -0.01527386 -0.02026494 -0.02286814 -0.03496364
+ -0.03848983 -0.00722125 -0.05027252 -0.01766385 -0.01287732 -0.03178783
+ -0.02573683 -0.02860543 -0.00881441 -0.04242297 -0.01304613 -0.04553423
+ -0.04971362 -0.04199704 -0.05806847 -0.01787316 -0.01132924 -0.05695257
+ -0.02026494 -0.02286814 -0.01133408 -0.01106045 -0.03848983 -0.03496364
+ -0.03178783 -0.02860543 -0.05778885 -0.05027264 -0.00722074 -0.00876345
+ -0.035371   -0.01231954 -0.04918008 -0.02573683 -0.01787316 -0.00801334
+ -0.02313251 -0.01181253 -0.01564337 -0.01570447 -0.01181638 -0.04242291
+ -0.00881421 -0.00856273 -0.02914797 -0.01269885 -0.0416572  -0.01685697
+ -0.05556788 -0.02313251 -0.00801334 -0.01615294 -0.0161539  -0.03537313
+ -0.00876455 -0.05695271 -0.0113285  -0.01211095 -0.02092515 -0.029148
+ -0.00856298 -0.04918025 -0.0123189  -0.01275904 -0.02686572 -0.01385874
+ -0.03459871 -0.01708067 -0.04773576 -0.02095452 -0.01211339 -0.0199892
+ -0.01647147 -0.0164732  -0.01998575 -0.04166074 -0.01269975 -0.02685789
+ -0.01275823 -0.02222236 -0.05364805 -0.03459876 -0.01385895 -0.0555681
+ -0.01685625 -0.01682786 -0.04057927 -0.04773598 -0.01708005 -0.01754339
+ -0.02538722 -0.02038922 -0.03840045 -0.02167731 -0.04583172 -0.02538945
+ -0.01754407 -0.02185219 -0.02185191 -0.01844408 -0.03172332 -0.02737374
+ -0.05121157 -0.02606519 -0.0434863  -0.04058626 -0.01682162 -0.03172355
+ -0.01844347 -0.05364834 -0.02222167 -0.045832   -0.02167672 -0.02425437
+ -0.0362986  -0.0322615  -0.0482819  -0.03840422 -0.0203899  -0.02204574
+ -0.0298474  -0.02984862 -0.02204489 -0.02459448 -0.02737364 -0.02737725
+ -0.02458448 -0.05121192 -0.02737308 -0.03020204 -0.04072209 -0.03629891
+ -0.0242539  -0.02769544 -0.03374649 -0.04348663 -0.02606462 -0.03683857
+ -0.04488726 -0.03374685 -0.027695   -0.03086979 -0.03086939 -0.04828232
+ -0.03226088 -0.03404805 -0.03756571 -0.04072248 -0.03020152 -0.04106087
+ -0.04106034 -0.03756615 -0.03404756 -0.04488774 -0.03683799]
+Computed values (not okay): [ 6.63350127e-03  4.99111681e-03  4.52468250e-03  9.13213062e-03
+ -1.51472321e-03  8.51254543e-03 -3.96793497e-03 -9.25246776e-04
+ -1.77037674e-03 -9.93533030e-04 -1.57401394e-06  2.74256966e-03
+  3.12005248e-03  1.28673025e-03  5.99375832e-03 -3.82747780e-03
+ -2.27003650e-03  1.47515999e-03  1.04890711e-04  1.22001275e-03
+  8.93337383e-04  3.66586482e-03  2.33319175e-03  3.42582386e-03
+  1.36579776e-03  5.92584220e-03 -1.69377998e-03  2.49992587e-03
+  7.70232912e-03 -3.28925998e-03 -2.94787008e-03  5.50682574e-04
+ -3.54439025e-04 -1.00468359e-03 -1.78452445e-03  5.89477861e-03
+  3.69175570e-03  3.57137310e-04  1.87425758e-03  1.82113163e-03
+  5.29010666e-03 -2.28970747e-03 -3.24955438e-03 -7.97896537e-04
+ -2.08471118e-03 -1.80530641e-03 -2.79570301e-03 -1.52231677e-03
+  1.67848721e-03  4.03655281e-04  4.30675405e-04  1.13778618e-03
+  3.24358372e-03  3.02481839e-03  7.01877324e-03 -2.47699578e-03
+ -2.02908034e-03 -1.36512409e-03  1.34294180e-05  1.01828970e-04
+  5.81923079e-03  1.18042377e-03 -1.23320867e-03 -1.16213203e-03
+ -1.32329799e-03  3.60746482e-03  9.42001820e-04 -4.30743685e-04
+ -1.18000339e-04  4.93329265e-04  1.51308325e-03  2.15379990e-03
+  4.73909047e-03 -2.29589247e-03 -9.48380125e-04 -1.73921796e-03
+ -9.44282635e-04 -1.37777621e-03 -9.95834358e-04  1.71537687e-03
+  5.97938298e-04 -1.34715335e-03 -3.91693850e-04  3.42715357e-03
+  6.41472836e-03  2.25368128e-04  2.34046692e-04  5.70363726e-03
+  1.74699410e-03  1.33990002e-03  2.90154919e-03  3.53026849e-03
+  1.30912426e-03 -5.18454425e-04 -1.83948619e-04  1.37255045e-03
+  2.45025109e-03  2.39978174e-03  4.25778439e-03 -9.72996898e-04
+ -3.47207403e-04 -7.53828844e-04 -3.20020546e-04  3.91686942e-04
+  9.88352333e-04  3.77813977e-03  5.86864496e-03  2.59745172e-03
+  3.83165896e-03  1.78007302e-03  8.28879726e-04  1.38838860e-04
+  2.82496513e-04  5.54745098e-03  2.29301331e-03  3.43604891e-03
+  1.66637082e-03  1.46953139e-03  2.16906359e-03  4.09461405e-03
+  5.35330598e-03  1.63909301e-03  9.79324983e-04  4.05345372e-04
+  8.29416426e-04  2.65583272e-04  4.25707814e-04  3.05046896e-04
+  6.19107941e-04  2.48724940e-04  4.83199820e-04  5.36946218e-03
+  2.82847709e-03  2.77044886e-03  3.44007834e-03  1.64273909e-03
+  1.21154516e-03  1.52071032e-03  1.89582860e-03  3.32671980e-03
+  2.01796344e-03  4.38732204e-03  4.85486791e-03  1.60445401e-03
+  1.42562544e-03  1.56404564e-03  1.65055935e-03  5.15731387e-03
+  3.35189908e-03  2.92535075e-03  3.07300852e-03  3.20562460e-03
+  2.36796058e-03  4.66458913e-03  4.35926776e-03  3.07118179e-03
+  2.71635183e-03  4.92170467e-03  3.85930378e-03 -2.59785912e-03
+ -4.66341542e-03  7.39242687e-03  5.65169034e-03  5.07267897e-03
+  9.95673611e-03 -1.84741324e-03  1.80656984e-03  9.33433420e-03
+ -4.25544011e-03 -1.19198457e-03 -2.06380049e-03 -1.18425653e-03
+ -1.30627518e-04  3.04219719e-03  3.55494862e-03  1.39254491e-03
+  6.76849209e-03 -4.08916151e-03 -2.54078170e-03  1.66598072e-03
+  8.03554487e-05  1.28490258e-03  1.01003000e-03  4.24813854e-03
+ -3.88735612e-03  3.00364934e-03  4.19793224e-03  1.92267662e-03
+  6.76444402e-03 -1.90035285e-03  2.65057295e-03  8.51786845e-03
+ -3.47647160e-03 -3.07450231e-03 -3.12594115e-03 -2.22077263e-03
+  9.91659218e-04 -5.00363095e-05 -8.10555036e-04 -1.71698027e-03
+  6.72884854e-03  4.47680551e-03  6.68128755e-04  4.40284450e-04
+  2.22025118e-03  2.00396778e-03  6.05298472e-03 -2.31179553e-03
+ -3.45128990e-03 -7.63387923e-04 -8.71167868e-04 -2.21436175e-03
+ -1.98278332e-03 -2.96714666e-03 -1.65575282e-03  2.26717386e-03
+  5.25712852e-04 -1.31305549e-04  5.56540193e-04  1.30868173e-03
+  3.82189334e-03  3.25566942e-03  7.82101188e-03 -2.54746240e-03
+ -6.54212490e-04 -2.11736829e-03 -1.45763869e-03  3.63016595e-04
+  1.88651665e-04  6.64168429e-03  1.34260278e-03 -1.27499869e-03
+ -1.23803157e-03 -1.19493035e-03 -1.99133856e-04  4.37622310e-03
+  1.13357720e-03 -3.84611488e-04 -1.99137891e-05  6.35042541e-04
+  1.87466485e-03  2.41260426e-03  5.48409945e-03 -2.36752917e-03
+ -9.92528406e-04 -1.75911251e-03 -9.63672568e-04 -1.39416900e-03
+ -1.01895045e-03  2.29763723e-03  7.75191588e-04 -1.24723227e-03
+ -3.45768448e-04  3.73899776e-03  7.19189659e-03  5.89131766e-04
+  3.79108763e-04  6.50725677e-03  1.98823894e-03  1.57225134e-03
+  3.47360542e-03  4.27777623e-03  1.57514545e-03 -4.32687976e-04
+ -6.00321409e-05  1.65286457e-03  2.98708419e-03  2.73202542e-03
+  4.97552758e-03 -8.47269902e-04 -2.61962925e-04 -6.44900869e-04
+ -2.12403781e-04  5.75549921e-04  1.30869054e-03  4.16581197e-03
+  6.61237508e-03  3.00000216e-03  4.51500556e-03  2.35422469e-03
+  1.06719054e-03  4.60039589e-04  4.68795120e-04  6.32646469e-03
+  2.61320455e-03  4.15394230e-03  2.00591228e-03  1.80699176e-03
+  2.68062928e-03  4.55472910e-03  6.05674055e-03  2.17666160e-03
+  1.26477952e-03  6.33353051e-04  1.14069753e-03  5.76787038e-04
+  6.55394101e-04  5.55237644e-04  8.98711097e-04  5.27978812e-04
+  7.33976250e-04  6.11254159e-03  3.22541819e-03  3.23950887e-03
+  4.08139260e-03  2.15358738e-03  1.55327507e-03  1.90820694e-03
+  2.37221839e-03  4.00853350e-03  2.42689753e-03  4.91741034e-03
+  5.51017091e-03  2.07907195e-03  1.81651179e-03  1.99729372e-03
+  2.08638177e-03  5.85903771e-03  3.82040948e-03  3.45708602e-03
+  3.66525534e-03  3.84401692e-03  2.84298497e-03  5.25768591e-03
+  4.95900318e-03  3.65907196e-03  3.25298465e-03  5.57307631e-03
+  4.39733790e-03]
+Tolerance: 0.006684871620601085
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='pressure', filename='output/cryer_refstate_tet-z_neg.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 222 != 66 : 
+Expected values (not okay): [1.15901647 1.1561255  1.1561255  1.1501778  1.14586036 1.14943788
+ 1.14586036 1.1335768  1.12324819 1.13313345 1.13340608 0.24998973
+ 0.37639259 0.4969714  1.12324819 1.10007423 1.07971806 1.10007423
+ 1.04023482 1.00384518 0.71393233 0.59965646 1.07971806 1.10736567
+ 0.79553436 0.94185851 0.88412532 0.45427808 1.10638711 0.37639551
+ 0.24998973 0.4969714  1.05684791 1.04023482 1.00384518 1.09909648
+ 0.59965646 0.71393233 0.79553436 0.88412532 0.67017942 0.94185851
+ 1.05684791 0.97391224 1.05512606 1.0544195  0.45428114 0.84010334
+ 0.44718346 0.97391224 1.00426352 0.67010944 0.97978281 0.84010086
+ 0.85628118 0.645048   0.97927254 0.94509051 0.94512341 0.44706614
+ 0.856467   0.64504414 0.43495444 0.82770554 0.44949834 0.82764767
+ 0.8265469  0.6625024  0.43482361 0.66250576 0.44376282 0.44938102
+ 0.65005934 0.650045   0.65935837 0.65947914 0.4437628  0.44376281
+ 0.44376281 0.44376281 1.04353386 1.03254387 1.03254387 1.01231914
+ 0.99913037 1.00998164 0.99913037 0.96622464 0.94220127 0.96513572
+ 0.96580463 0.3176391  0.94220127 0.89581344 0.86067837 0.89581344
+ 0.80172575 0.75442649 0.47728788 0.39042085 0.86067837 0.90952619
+ 0.5446643  0.68366159 0.62519759 0.28848465 0.9076448  0.3176391
+ 0.82534724 0.80172575 0.75442649 0.89402567 0.39042085 0.47728788
+ 0.5446643  0.62519759 0.44314964 0.68366159 0.82534724 0.71898942
+ 0.82282767 0.82179883 0.28848672 0.58402676 0.28369335 0.71898942
+ 0.75494151 0.44309598 0.72573452 0.5840245  0.59886526 0.42405969
+ 0.72514452 0.6871181  0.6871534  0.28361424 0.59903758 0.42405678
+ 0.2754681  0.57286385 0.28525509 0.57281215 0.57182943 0.43728037
+ 0.27538033 0.43728293 0.2813884  0.28517591 0.42783831 0.42782748
+ 0.43488643 0.43497828 0.28138838 0.28138839 0.28138839 0.28138839]
+Computed values (not okay): [ 0.11443142  0.10262014  0.10476654  0.07911683  0.06714303  0.07649461
+  0.06835404  0.04300593  0.02925696  0.04250404  0.04264061 -0.04929213
+ -0.06129113 -0.06888251  0.02924243  0.00740588 -0.00627442  0.00657771
+ -0.02467094 -0.03639665 -0.07019954 -0.07154346 -0.00618968  0.0124415
+ -0.06677228 -0.04985647 -0.05835451 -0.06805897  0.01165048 -0.06210395
+ -0.04992592 -0.07028456 -0.01870444 -0.02446305 -0.03608505  0.00632846
+ -0.0726733  -0.07146084 -0.06771792 -0.05920055 -0.07199051 -0.05040673
+ -0.01798308 -0.04460549 -0.01899867 -0.01927748 -0.06828482 -0.0638325
+ -0.06793674 -0.04429648 -0.03678591 -0.07230918 -0.04324794 -0.06389281
+ -0.06280718 -0.07285353 -0.04329691 -0.05000932 -0.04998876 -0.06858758
+ -0.06293016 -0.07305503 -0.06704441 -0.06553016 -0.06794665 -0.06544798
+ -0.06556817 -0.07313775 -0.06642698 -0.07327677 -0.06792829 -0.0676583
+ -0.07336731 -0.07303338 -0.07329164 -0.0732921  -0.06775753 -0.06781324
+ -0.06791238 -0.06779523  0.00989818  0.00770461  0.0083368   0.0015883
+ -0.0021851   0.00072676 -0.00181357 -0.01020123 -0.015124   -0.01040453
+ -0.01026595 -0.03456222 -0.01512415 -0.02306867 -0.02804364 -0.02335773
+ -0.03449592 -0.03831835 -0.04270247 -0.03914976 -0.02802469 -0.02111836
+ -0.04416387 -0.04202904 -0.04369346 -0.03276034 -0.0214754  -0.03505737
+ -0.03247836 -0.0344812  -0.03832733 -0.02337402 -0.0396419  -0.04324916
+ -0.04467403 -0.04402615 -0.04186714 -0.0423416  -0.03224138 -0.04082168
+ -0.03253099 -0.03265352 -0.03281337 -0.044445   -0.03252298 -0.04082653
+ -0.03845233 -0.04207262 -0.04047064 -0.04454958 -0.04467488 -0.04139907
+ -0.04052092 -0.04225553 -0.04218776 -0.03276059 -0.04483645 -0.04146089
+ -0.03160449 -0.04482559 -0.03267339 -0.04488856 -0.04486112 -0.04203512
+ -0.03151787 -0.04219884 -0.03236986 -0.03250167 -0.04169521 -0.04160238
+ -0.0421047  -0.04205759 -0.03242807 -0.03236573 -0.03243472 -0.03235497]
+Tolerance: 0.26649015636535867
+
+======================================================================
+FAIL: test_output (TestCryerRefState.TestTet) (vertex_field='displacement', filename='output/cryer_refstate_tet-surface_pressure.h5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 298, in check_data
+    checker.checkVertexField(field, mesh_entity, check.exact_soln, field_tolerance, field_zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 211, in checkVertexField
+    self._checkField(fieldE, field, mask, tolerance, zero_tolerance)
+  File "/opt/pylith/dest/debug/lib/python3.8/site-packages/pylith/testing/FullTestApp.py", line 253, in _checkField
+    self.testcase.assertEqual(nsteps*npts*ncomps, numpy.sum(okay), msg="\n".join(msg))
+AssertionError: 1272 != 308 : 
+Expected values (not okay): [-0.04747109 -0.04724244 -0.04734182 -0.0472425  -0.0468041  -0.0467949
+ -0.04655884 -0.04655894 -0.01141117 -0.04589641 -0.04591339 -0.04589714
+ -0.045427   -0.01378061 -0.04542685 -0.01816682 -0.04385739 -0.01586365
+ -0.0445521  -0.0181664  -0.04385757 -0.0158632  -0.04455226 -0.0133248
+ -0.04481488 -0.01345582 -0.04482207 -0.0119659  -0.04456343 -0.02015473
+ -0.04278167 -0.02237809 -0.04186556 -0.02015433 -0.04278186 -0.02237772
+ -0.04186576 -0.0121856  -0.01529569 -0.04325572 -0.01774173 -0.04325612
+ -0.01538933 -0.01222085 -0.04321254 -0.01774131 -0.04325629 -0.02637384
+ -0.03947055 -0.02424842 -0.04060135 -0.02810688 -0.03803215 -0.02637352
+ -0.03947077 -0.02424808 -0.04060155 -0.02189585 -0.04130693 -0.02810717
+ -0.03803194 -0.01937424 -0.01230724 -0.04155328 -0.02189549 -0.04130712
+ -0.01230717 -0.01937388 -0.04155347 -0.01642256 -0.01642296 -0.04140157
+ -0.02337139 -0.01229753 -0.03944684 -0.02585078 -0.03895321 -0.03011534
+ -0.03669565 -0.02585109 -0.038953   -0.03011561 -0.03669543 -0.02054503
+ -0.01647648 -0.03949597 -0.03356713 -0.03356713 -0.03169462 -0.03509831
+ -0.0122975  -0.02337106 -0.03944704 -0.01646484 -0.02055391 -0.03949621
+ -0.03499259 -0.03181129 -0.02953714 -0.03623715 -0.0295374  -0.03623694
+ -0.03169486 -0.03509809 -0.0271226  -0.01230838 -0.03696448 -0.01230835
+ -0.02712232 -0.03696469 -0.03356734 -0.03356691 -0.02439652 -0.01643807
+ -0.03725726 -0.02069603 -0.02069579 -0.03737463 -0.03669565 -0.03011534
+ -0.03294724 -0.03316847 -0.0164517  -0.02439963 -0.03724921 -0.03499278
+ -0.03181108 -0.03947077 -0.02637352 -0.04186576 -0.02237772 -0.04053136
+ -0.02436557 -0.03793919 -0.02823278 -0.01633738 -0.02802963 -0.0346545
+ -0.03669582 -0.03011513 -0.03294745 -0.03316826 -0.0280478  -0.01630463
+ -0.03465522 -0.02493965 -0.02047457 -0.03481824 -0.03061415 -0.01230439
+ -0.03413034 -0.03604083 -0.02977812 -0.01230436 -0.03061392 -0.03413055
+ -0.04273003 -0.02026371 -0.02066362 -0.02488919 -0.03474258 -0.04385757
+ -0.0181664  -0.03793933 -0.02823258 -0.01230053 -0.03382081 -0.0309573
+ -0.03879684 -0.02608819 -0.01629603 -0.03131182 -0.03174135 -0.04118014
+ -0.02213563 -0.03947089 -0.02637333 -0.036041   -0.02977792 -0.03382099
+ -0.01230056 -0.03095708 -0.03131202 -0.01629607 -0.03174114 -0.02514894
+ -0.02435598 -0.03205965 -0.045427   -0.04451214 -0.01597781 -0.0472425
+ -0.04747109 -0.04655894 -0.0458767  -0.02047183 -0.02835651 -0.03209855
+ -0.04053147 -0.02436539 -0.04186585 -0.02237755 -0.03879696 -0.026088
+ -0.02854113 -0.0202323  -0.03208679 -0.04316602 -0.01796081 -0.01228777
+ -0.03670149 -0.02748664 -0.04724244 -0.01628821 -0.03429651 -0.02849471
+ -0.03670163 -0.0122878  -0.02748644 -0.04385762 -0.01816626 -0.0427301
+ -0.02026355 -0.01228169 -0.03923649 -0.02373104 -0.04677289 -0.04682856
+ -0.02018639 -0.03160293 -0.02910788 -0.04475026 -0.01354635 -0.03429666
+ -0.01628824 -0.0284945  -0.04118023 -0.02213546 -0.03160309 -0.02018643
+ -0.02910767 -0.02845533 -0.02420064 -0.02929381 -0.02421189 -0.02834297
+ -0.02939327 -0.01626563 -0.03693754 -0.02499103 -0.01234314 -0.04139737
+ -0.0196827  -0.04451219 -0.01597768 -0.04747109 -0.0472425  -0.04542703
+ -0.01378002 -0.04655884 -0.04587727 -0.02017673 -0.03433782 -0.0258325
+ -0.01226666 -0.04314905 -0.01553038 -0.04316608 -0.01796066 -0.03923659
+ -0.01228171 -0.02373087 -0.04655896 -0.04586746 -0.01152382 -0.04677087
+ -0.0472425  -0.03433794 -0.02017677 -0.02583231 -0.0120437  -0.04447008
+ -0.03693765 -0.01626566 -0.02499085 -0.04682085 -0.0447354  -0.01370849
+ -0.02773501 -0.0279067  -0.02656104 -0.01664199 -0.03925014 -0.02088001
+ -0.01149178 -0.04587562 -0.01996053 -0.03671724 -0.02251501 -0.02384742
+ -0.03137736 -0.02646254 -0.04139285 -0.01234326 -0.01969213 -0.03134098
+ -0.02388268 -0.02647385 -0.01378061 -0.04542685 -0.0165242  -0.04134694
+ -0.01645861 -0.01555642 -0.04315056 -0.01222829 -0.03671255 -0.01997065
+ -0.02251368 -0.03925062 -0.01665641 -0.0208676  -0.04311109 -0.01227326
+ -0.01563026 -0.04586912 -0.04655896 -0.01363483 -0.0447598  -0.02372186
+ -0.03402176 -0.02309324 -0.02627389 -0.03163226 -0.02371891 -0.04446112
+ -0.01209506 -0.03401832 -0.02372496 -0.02309511 -0.0316017  -0.02628218
+ -0.02375044 -0.02200447 -0.03704701 -0.0199205  -0.04134702 -0.01652422
+ -0.01645838 -0.04589591 -0.03704628 -0.02201634 -0.01990873 -0.02073664
+ -0.0394181  -0.01642284 -0.01816682 -0.04385739 -0.015933   -0.04452834
+ -0.01959351 -0.04146977 -0.0122416  -0.02914544 -0.02912593 -0.02357388
+ -0.04319241 -0.01545435 -0.01220995 -0.04542703 -0.01378002 -0.02022079
+ -0.04275223 -0.01789457 -0.04320013 -0.02569707 -0.0345916  -0.01991446
+ -0.03941676 -0.02075585 -0.01640175 -0.04477296 -0.01347647 -0.03458374
+ -0.02570596 -0.01991663 -0.03187116 -0.02888599 -0.02008315 -0.0288864
+ -0.03187079 -0.02008315 -0.02479148 -0.03710242 -0.01619559 -0.02358427
+ -0.03934722 -0.01220995 -0.02237809 -0.04186556 -0.02204272 -0.04123815
+ -0.03710274 -0.024791   -0.01619559 -0.04147002 -0.019593   -0.01224158
+ -0.04452855 -0.01593243 -0.04385762 -0.01816626 -0.02431384 -0.04056441
+ -0.04320036 -0.01789401 -0.03449416 -0.0283083  -0.01619559 -0.02830875
+ -0.0344938  -0.01619559 -0.02637384 -0.03947055 -0.03155339 -0.03155298
+ -0.01619559 -0.03934752 -0.02358376 -0.01220995 -0.04275249 -0.02022023
+ -0.02732738 -0.03684611 -0.01220995 -0.0259786  -0.03887904 -0.04123844
+ -0.02204219 -0.04186585 -0.02237755 -0.03684646 -0.0273269  -0.01220995
+ -0.02817274 -0.03798593 -0.03080731 -0.03399016 -0.01220995 -0.04056472
+ -0.02431331 -0.03399056 -0.03080687 -0.01220995 -0.03011561 -0.03669543
+ -0.02966428 -0.0361455  -0.03887937 -0.02597809 -0.03947089 -0.02637333
+ -0.03614588 -0.02966382 -0.03176032 -0.03504163 -0.03306429 -0.03306387
+ -0.03798629 -0.02817224 -0.03356734 -0.03356691 -0.03669582 -0.03011513
+ -0.03504204 -0.03175987 -0.05806847 -0.05778878 -0.05791034 -0.05778885
+ -0.05725258 -0.05724133 -0.01132924 -0.05695257 -0.0569527  -0.01395859
+ -0.05614226 -0.01069655 -0.05616303 -0.01388887 -0.05614315 -0.01685639
+ -0.05556806 -0.01685697 -0.05556788 -0.02222236 -0.05364805 -0.01940503
+ -0.05449785 -0.02222184 -0.05364827 -0.01940448 -0.05449805 -0.01629942
+ -0.05481929 -0.01645968 -0.05482809 -0.01463715 -0.01364456 -0.05451171
+ -0.02465404 -0.05233219 -0.02737374 -0.05121157 -0.02465356 -0.05233242
+ -0.02737329 -0.05121181 -0.0149059  -0.01871028 -0.05291206 -0.02170237
+ -0.05291255 -0.01882482 -0.01494902 -0.05285924 -0.02170186 -0.05291277
+ -0.0322615  -0.0482819  -0.02966161 -0.04966513 -0.03438142 -0.0465224
+ -0.03226111 -0.04828216 -0.02966119 -0.04966539 -0.02678385 -0.05052823
+ -0.03438177 -0.04652213 -0.02369931 -0.01505469 -0.05082957 -0.0267834
+ -0.05052847 -0.0150546  -0.02369888 -0.0508298  -0.02008871 -0.0200892
+ -0.050644   -0.02858879 -0.01504281 -0.04825289 -0.03162167 -0.04764907
+ -0.03683824 -0.04488753 -0.03162205 -0.04764881 -0.03683857 -0.04488726
+ -0.02513148 -0.02015466 -0.04831299 -0.04106061 -0.04106061 -0.03877008
+ -0.04293361 -0.01504278 -0.02858838 -0.04825314 -0.02014042 -0.02514233
+ -0.04831328 -0.04280429 -0.0389128  -0.03613097 -0.04432668 -0.03613129
+ -0.04432642 -0.03877037 -0.04293334 -0.03317741 -0.01505608 -0.04521637
+ -0.01505604 -0.03317707 -0.04521664 -0.04106087 -0.04106034 -0.02984276
+ -0.02010769 -0.04557452 -0.02531618 -0.02531589 -0.04571808 -0.04488753
+ -0.03683824 -0.04030233 -0.04057295 -0.02012435 -0.02984657 -0.04556467
+ -0.04280452 -0.03891254 -0.04828216 -0.03226111 -0.05121181 -0.02737328
+ -0.04957953 -0.02980491 -0.04640868 -0.03453542 -0.01998451 -0.03428692
+ -0.04239072 -0.04488774 -0.03683799 -0.04030259 -0.04057269 -0.03430915
+ -0.01994446 -0.0423916  -0.03050714 -0.02504528 -0.04259102 -0.03744841
+ -0.0150512  -0.04174955 -0.04408654 -0.03642575 -0.01505117 -0.03744813
+ -0.04174981 -0.05226902 -0.02478735 -0.02527654 -0.03044542 -0.04249846
+ -0.05364827 -0.02222184 -0.04640886 -0.03453518 -0.01504648 -0.04137091
+ -0.03786816 -0.04745779 -0.03191208 -0.01993393 -0.03830183 -0.03882725
+ -0.05037314 -0.02707715 -0.04828232 -0.03226088 -0.04408674 -0.0364255
+ -0.04137114 -0.01504652 -0.0378679  -0.03830207 -0.01993398 -0.03882699
+ -0.03076315 -0.02979318 -0.0392166  -0.05556806 -0.01685639 -0.05444897
+ -0.01954467 -0.05778885 -0.05806847 -0.0569527  -0.05611815 -0.01399655
+ -0.02504193 -0.03468677 -0.03926418 -0.04957966 -0.02980469 -0.05121192
+ -0.02737308 -0.04745794 -0.03191185 -0.03491261 -0.02474893 -0.0392498
+ -0.05280235 -0.02197035 -0.01503088 -0.04489468 -0.03362272 -0.05778878
+ -0.01992436 -0.04195281 -0.03485582 -0.04489485 -0.01503091 -0.03362247
+ -0.05364834 -0.02222167 -0.05226911 -0.02478716 -0.01502343 -0.04799558
+ -0.02902873 -0.0572144  -0.0572825  -0.02469278 -0.03865792 -0.03560588
+ -0.05474025 -0.01657041 -0.041953   -0.0199244  -0.03485557 -0.05037325
+ -0.02707695 -0.03865812 -0.02469283 -0.03560563 -0.03480766 -0.02960316
+ -0.03583332 -0.02961692 -0.03467021 -0.03595499 -0.01989675 -0.04518342
+ -0.03056999 -0.0150986  -0.05063886 -0.02407664 -0.05444903 -0.01954452
+ -0.05806847 -0.05778885 -0.0555681  -0.01685625 -0.01132924 -0.05695257
+ -0.01086131 -0.05611885 -0.02468095 -0.04200334 -0.03159931 -0.01500505
+ -0.05278158 -0.01899736 -0.05280242 -0.02197017 -0.04799571 -0.01502346
+ -0.02902851 -0.05695271 -0.05610685 -0.01409639 -0.05721193 -0.05778885
+ -0.04200349 -0.024681   -0.03159907 -0.01473232 -0.05439752 -0.01399339
+ -0.04518356 -0.01989679 -0.03056977 -0.05727307 -0.05472207 -0.01676876
+ -0.03392654 -0.03413656 -0.03249049 -0.02035712 -0.04801229 -0.02554123
+ -0.01405719 -0.05611683 -0.02441649 -0.04491395 -0.02754122 -0.02917108
+ -0.038382   -0.03237    -0.05063333 -0.01509875 -0.02408818 -0.03833749
+ -0.02921422 -0.03238384 -0.01685697 -0.05556788 -0.02021304 -0.05057717
+ -0.02013281 -0.01902921 -0.05278343 -0.01495811 -0.04490821 -0.02442887
+ -0.0275396  -0.04801288 -0.02037476 -0.02552605 -0.05273515 -0.01501313
+ -0.01911954 -0.05610888 -0.05695271 -0.01667865 -0.05475192 -0.02901749
+ -0.04161672 -0.02824854 -0.03213924 -0.0386938  -0.02901389 -0.05438656
+ -0.01396971 -0.01479515 -0.04161252 -0.02902129 -0.02825083 -0.03865642
+ -0.03214938 -0.02905245 -0.02691672 -0.04531734 -0.02436752 -0.05057727
+ -0.02021306 -0.02013253 -0.05614165 -0.01388606 -0.04531644 -0.02693124
+ -0.02435313 -0.02536586 -0.04821774 -0.02008905 -0.02222236 -0.05364805
+ -0.01948986 -0.05446878 -0.02396754 -0.05072742 -0.0149744  -0.03565182
+ -0.03562796 -0.02883648 -0.05283462 -0.01890436 -0.01493568 -0.0555681
+ -0.01685625 -0.02473485 -0.05229618 -0.02188933 -0.05284407 -0.03143365
+ -0.04231378 -0.02436014 -0.0482161  -0.02538936 -0.02006325 -0.05476801
+ -0.01648494 -0.04230417 -0.03144453 -0.02436279 -0.03898604 -0.03533445
+ -0.02456648 -0.03533496 -0.03898558 -0.02456648 -0.03032589 -0.04538511
+ -0.01981107 -0.02884919 -0.04813103 -0.01493568 -0.02737374 -0.05121157
+ -0.02696351 -0.0504441  -0.0453855  -0.03032531 -0.01981107 -0.05072773
+ -0.02396691 -0.01497437 -0.05446904 -0.01948916 -0.05364834 -0.02222167
+ -0.02974162 -0.04961995 -0.05284435 -0.02188865 -0.04219459 -0.0346278
+ -0.01981107 -0.03462835 -0.04219414 -0.01981107 -0.0322615  -0.0482819
+ -0.03859732 -0.03859682 -0.01981107 -0.04813141 -0.02884856 -0.01493568
+ -0.0522965  -0.02473417 -0.0334279  -0.04507158 -0.01493568 -0.03177802
+ -0.04755834 -0.05044445 -0.02696286 -0.05121192 -0.02737308 -0.04507202
+ -0.03342732 -0.01493568 -0.03446198 -0.04646585 -0.03768469 -0.04157807
+ -0.01493568 -0.04962033 -0.02974098 -0.04157856 -0.03768415 -0.01493568
+ -0.03683857 -0.04488726 -0.0362865  -0.04421457 -0.04755875 -0.03177741
+ -0.04828232 -0.03226088 -0.04421504 -0.03628593 -0.03885045 -0.04286427
+ -0.04044552 -0.040445   -0.0464663  -0.03446138 -0.04106087 -0.04106034
+ -0.04488774 -0.03683799 -0.04286477 -0.03884989]
+Computed values (not okay): [ 9.21744562e-03  8.57146622e-03  9.05177789e-03  9.20672374e-03
+  8.10767029e-03  8.61460232e-03  7.74496530e-03  8.66768860e-03
+  2.74722982e-03  7.34005238e-03  7.57545153e-03  8.05211928e-03
+  7.72781084e-03  3.05278567e-03  7.03822340e-03  3.44802372e-03
+  6.41900865e-03  3.19812945e-03  6.68522295e-03 -4.14926741e-03
+  6.45374765e-03 -8.25808378e-04  7.38100601e-03  8.99209080e-04
+  7.23755808e-03  2.81615765e-03  6.88267118e-03  2.47957006e-03
+  6.89603779e-03  3.56211767e-03  6.11144183e-03  3.78051239e-03
+  5.86663986e-03 -5.16896124e-04  6.41868643e-03 -4.04792676e-03
+  4.68696310e-03  2.17885661e-03  1.67072425e-03  6.53050024e-03
+  3.22401207e-03  6.29742296e-03  2.77260907e-03  1.52717641e-03
+  6.38447795e-03  1.31899698e-03  6.68881087e-03  4.08571075e-03
+  5.35312378e-03  3.88653335e-03  5.58894258e-03  7.85488110e-04
+  4.11885072e-03 -3.28291010e-03  3.13205091e-03  4.96818982e-05
+  5.23948405e-03  3.58613094e-03  5.77517974e-03  4.19451368e-03
+  5.09133776e-03  3.17999328e-03  1.65838780e-03  5.89739467e-03
+  1.82270923e-03  6.01792160e-03  1.83117668e-03  2.19771364e-03
+  6.07785848e-03  2.60500547e-03  2.11201404e-03  5.94651643e-03
+  3.56222260e-03  1.70790245e-03  5.41929702e-03  2.39779829e-03
+  5.31250432e-03 -2.14241910e-03  1.14180557e-03  3.92637419e-03
+  5.28590516e-03  4.38101863e-03  4.85609633e-03  3.07266168e-03
+  2.23034547e-03  5.49285807e-03 -4.39821839e-04 -4.21007511e-04
+  1.82450384e-03  2.95443340e-03  1.48602319e-03  2.72767149e-03
+  5.56351438e-03  2.30240308e-03  2.66495857e-03  5.55229650e-03
+  2.92048115e-03  1.82497291e-03  3.05631291e-03  4.56376200e-03
+  4.23899955e-03  4.80355131e-03  4.48315099e-03  4.60090573e-03
+  3.91374432e-03  1.71881470e-03  4.95925151e-03  1.23588564e-03
+  3.27657340e-03  5.01745805e-03  4.65525074e-03  4.36068106e-03
+  3.48918552e-03  2.25898930e-03  5.06098000e-03  2.83947077e-03
+  2.80294593e-03  5.14172529e-03  1.30227926e-03 -2.03838113e-03
+  3.80063336e-03  3.83175365e-03  2.04049514e-03  3.17537889e-03
+  5.12828209e-03  4.75709063e-03  4.10433626e-03  3.28056494e-03
+ -3.24713626e-03  4.93089609e-03 -3.85336557e-03  5.19356780e-03
+  3.18475475e-06  4.37342495e-03  9.49566596e-04  1.86253006e-03
+  3.68014191e-03  4.67032632e-03  4.91740229e-03  3.86003096e-03
+  4.53199531e-03  4.32267264e-03  3.87661643e-03  2.24307828e-03
+  4.61835224e-03  3.39216728e-03  2.79917772e-03  4.69433540e-03
+  4.23817663e-03  1.70269835e-03  4.49840317e-03  4.54696662e-03
+  3.10925108e-03  1.10308050e-03  3.83736672e-03  4.44817028e-03
+  6.38803128e-03 -3.40623943e-04  2.62627693e-03  3.37859619e-03
+  4.72236333e-03  6.46960834e-03 -3.95923335e-03  5.00906153e-03
+  3.60452746e-03  1.10945151e-03  4.40900483e-03  3.87443802e-03
+  5.35348749e-03  2.46675447e-03  1.80578250e-03  4.15690429e-03
+  4.19648095e-03  6.01218404e-03  1.86932796e-03  5.15571673e-03
+  3.34821438e-03  4.80664084e-03  3.83564057e-03  4.54169208e-03
+  1.67610022e-03  4.02668352e-03  4.20830265e-03  2.22529511e-03
+  4.17205349e-03  3.29874713e-03  3.31232958e-03  4.30206061e-03
+  7.87548059e-03  7.38357515e-03 -6.82489606e-04  9.13647676e-03
+  9.13213062e-03  8.60519526e-03  8.08288632e-03  2.50098968e-03
+  3.84011188e-03  4.32198846e-03  5.23774112e-03  3.08562785e-03
+  5.36577393e-03  2.82440507e-03  5.05714979e-03  3.32967652e-03
+  3.81622029e-03  2.75541442e-03  4.26474555e-03  6.67671445e-03
+  1.37888839e-03  1.25213504e-03  4.97517537e-03  3.31501615e-03
+  8.51254543e-03  1.86916383e-03  4.62432265e-03  3.71458937e-03
+  4.81568966e-03  1.64794766e-03  3.54262747e-03  5.54912133e-03
+  2.29209415e-03  5.43476667e-03  2.55679813e-03  1.48709935e-03
+  5.53259849e-03  2.77139548e-03  8.47291181e-03  8.06650577e-03
+  2.46368066e-03  4.27464945e-03  3.89158180e-03  7.22967265e-03
+  9.52956683e-04  4.51736772e-03  2.19302024e-03  3.71150003e-03
+  5.27489027e-03  2.80801996e-03  4.16371696e-03  2.72518013e-03
+  3.83097968e-03  3.72592672e-03  3.26866862e-03  3.90028351e-03
+  3.07648195e-03  3.85765904e-03  3.94328534e-03  2.03200388e-03
+  5.07278625e-03  3.23265623e-03  1.82846570e-03  6.05223993e-03
+  2.23961570e-03  5.60754803e-03  2.01857173e-03  5.92584220e-03
+  5.89994365e-03  5.70402213e-03  1.74310444e-03  7.70232912e-03
+  7.51575909e-03  2.55409875e-03  4.66072423e-03  3.45136992e-03
+  2.18563841e-03  6.49969565e-03  1.70379086e-03  5.46379976e-03
+  2.27177957e-03  5.06250732e-03  1.60811359e-03  3.04584405e-03
+  5.81722459e-03  5.74110768e-03  1.46417217e-03  5.83324734e-03
+  5.89477861e-03  4.46873002e-03  2.69129140e-03  3.37665974e-03
+  2.47660144e-03  6.85458988e-03  4.78579029e-03  2.15901609e-03
+  3.24019232e-03  5.84385654e-03  5.61937227e-03  1.73748800e-03
+  3.59682185e-03  3.76450629e-03  3.54800301e-03  2.32838034e-03
+  5.51191337e-03  2.72282983e-03  2.73517164e-03  7.29857328e-03
+  2.68186427e-03  5.01705525e-03  3.02098194e-03  3.05197555e-03
+  4.23867168e-03  3.55725863e-03  5.28218652e-03  1.58253000e-03
+  2.51168588e-03  4.08419243e-03  3.19621864e-03  3.49839112e-03
+  3.02481839e-03  7.01877324e-03  2.62679684e-03  5.94451759e-03
+  2.10440652e-03  2.79194375e-03  6.36174294e-03  1.52473311e-03
+  4.72661033e-03  2.63555132e-03  2.93780503e-03  5.04118799e-03
+  2.16087049e-03  2.71658980e-03  5.45417874e-03  1.56575660e-03
+  1.98046027e-03  5.74323235e-03  5.81923079e-03  2.82396290e-03
+  6.84503043e-03  3.14380988e-03  4.57901238e-03  3.13287248e-03
+  3.42464040e-03  4.24220767e-03  3.20991136e-03  5.58442496e-03
+  1.55467568e-03  4.39774483e-03  3.14714056e-03  3.04747693e-03
+  4.11087919e-03  3.47808958e-03  3.16298749e-03  3.07495260e-03
+  5.04267689e-03  2.72697528e-03  5.27548606e-03  2.11631620e-03
+  2.10931882e-03  5.74895756e-03  4.76095756e-03  2.88827749e-03
+  2.62490729e-03  3.11990383e-03  5.47524403e-03  2.21990896e-03
+  3.42715357e-03  6.41472836e-03  3.18164896e-03  6.66530818e-03
+  3.21189394e-03  5.87544018e-03  1.64173701e-03  3.79596402e-03
+  3.87451296e-03  3.17751911e-03  5.46561392e-03  1.95625823e-03
+  1.56222630e-03  5.70363726e-03  1.74699410e-03  3.56162054e-03
+  6.10235584e-03  3.23302667e-03  6.27841029e-03  3.48114001e-03
+  4.64031067e-03  2.73809177e-03  5.05657137e-03  2.69235667e-03
+  2.12546424e-03  5.62746677e-03  1.71324062e-03  4.49081305e-03
+  3.36023725e-03  2.65778655e-03  4.17801505e-03  3.80084360e-03
+  2.71466699e-03  3.83895049e-03  4.22622014e-03  2.74438777e-03
+  3.54655694e-03  5.01710748e-03  2.24586141e-03  3.59315774e-03
+  5.39468177e-03  1.69086926e-03  3.77813977e-03  5.86864496e-03
+  3.60203195e-03  5.75552934e-03  4.80612779e-03  3.21284718e-03
+  2.14800515e-03  5.29180692e-03  2.50001722e-03  1.57544637e-03
+  5.60695518e-03  2.01351848e-03  5.54745098e-03  2.29301331e-03
+  3.89595717e-03  5.58112155e-03  5.46837083e-03  2.26419350e-03
+  4.53547563e-03  3.68331174e-03  2.18526456e-03  3.89865835e-03
+  4.58629288e-03  2.24211642e-03  4.09461405e-03  5.35330598e-03
+  4.22979008e-03  4.14098536e-03  2.21598976e-03  5.07496235e-03
+  3.02301428e-03  1.60232026e-03  5.43916261e-03  2.54996038e-03
+  3.93698085e-03  4.93319347e-03  1.70880441e-03  3.93910599e-03
+  5.26683850e-03  5.28393947e-03  2.79495730e-03  5.36946218e-03
+  2.82847709e-03  4.83173920e-03  3.51977172e-03  1.63759857e-03
+  4.20527148e-03  5.08106637e-03  4.25962256e-03  4.47224004e-03
+  1.69397094e-03  5.24109822e-03  3.08235423e-03  4.55792407e-03
+  4.00353367e-03  1.66787328e-03  4.38732204e-03  4.85486791e-03
+  4.25394021e-03  4.78626175e-03  5.06762836e-03  3.31425815e-03
+  5.15731387e-03  3.35189908e-03  4.81682854e-03  3.81563638e-03
+  4.49465507e-03  4.59088056e-03  4.54623955e-03  4.30516178e-03
+  5.01562730e-03  3.59412135e-03  4.66458913e-03  4.35926776e-03
+  4.92170467e-03  3.85930378e-03  4.76626406e-03  4.09622370e-03
+  1.00421348e-02  9.39435363e-03  9.87510152e-03  1.00272217e-02
+  8.92617877e-03  9.42890111e-03  2.68142516e-03  8.56140869e-03
+  9.47268042e-03  2.93756280e-03  8.14757899e-03  2.39583288e-03
+  8.38210386e-03 -5.56021824e-04  8.84762207e-03 -3.54167488e-03
+  8.50594664e-03  3.28291112e-03  7.83992232e-03  3.75728671e-03
+  7.20056589e-03  3.46398474e-03  7.47655504e-03 -3.82956959e-03
+  7.19712356e-03 -5.43768708e-04  8.14709330e-03  1.13839218e-03
+  8.02183748e-03  3.04078143e-03  7.67544179e-03  2.67779532e-03
+  1.37178262e-03  7.68234698e-03  3.90966925e-03  6.87817866e-03
+  4.17003838e-03  6.61665171e-03 -1.62545025e-04  7.14804103e-03
+ -3.66028664e-03  5.38871390e-03  2.37810567e-03  1.94352314e-03
+  7.29442268e-03  3.52564985e-03  7.06987066e-03  3.03028150e-03
+  1.74546602e-03  7.15268925e-03  1.63536073e-03  7.44226862e-03
+  4.55056179e-03  6.06043529e-03  4.31273776e-03  6.31736696e-03
+  1.26514926e-03  4.75882960e-03 -2.83422210e-03  3.78814908e-03
+  4.70081886e-04  5.92495812e-03  3.96769370e-03  6.51650371e-03
+  4.69147698e-03  5.77410639e-03  3.51315456e-03  1.87941929e-03
+  6.64211990e-03  2.21020061e-03  6.73404338e-03  2.02939451e-03
+  2.54425365e-03  6.81134678e-03  2.88167194e-03  2.40661490e-03
+  6.68454585e-03  3.97169567e-03  1.92904474e-03  6.12812830e-03
+  2.85120891e-03  5.98588205e-03 -1.63713486e-03  1.75018606e-03
+  4.38236992e-03  5.98562369e-03  4.91435167e-03  5.51410529e-03
+  3.42793085e-03  2.52746554e-03  6.20064853e-03  1.18653920e-04
+  1.36273521e-04  2.36151393e-03  3.54418666e-03  1.68093350e-03
+  3.14393014e-03  6.25942468e-03  2.57856513e-03  3.03355345e-03
+  6.25594910e-03  3.50916994e-03  2.36244102e-03  3.57063830e-03
+  5.18970776e-03  4.76297919e-03  5.45481432e-03  5.04681989e-03
+  5.23066889e-03  4.39365161e-03  1.94041772e-03  5.62320211e-03
+  1.42856443e-03  3.75854953e-03  5.66935267e-03  5.25228205e-03
+  4.96128012e-03  3.91798109e-03  2.55604311e-03  5.72939885e-03
+  3.19682244e-03  3.17478500e-03  5.81266848e-03  1.91108219e-03
+ -1.53427926e-03  4.37149166e-03  4.40564820e-03  2.31529455e-03
+  3.61222879e-03  5.79209762e-03  5.38039635e-03  4.67469484e-03
+  3.93649848e-03 -2.79982008e-03  5.63229660e-03 -3.46586944e-03
+  5.87643299e-03  4.24323028e-04  5.01110126e-03  1.42825514e-03
+  2.13386663e-03  4.18127100e-03  5.28870283e-03  5.57010475e-03
+  4.39825374e-03  5.11884056e-03  4.91836003e-03  4.37251038e-03
+  2.53770013e-03  5.23816876e-03  3.83185293e-03  3.16621677e-03
+  5.31769723e-03  4.78176430e-03  1.92497230e-03  5.11083576e-03
+  5.17028182e-03  3.62629625e-03  1.29425874e-03  4.37902654e-03
+  5.05040748e-03  7.11564317e-03  1.60355914e-05  2.98199333e-03
+  3.82656846e-03  5.34577963e-03  7.21347435e-03 -3.64078607e-03
+  5.68596233e-03  4.11007749e-03  1.30013398e-03  5.00648238e-03
+  4.42213719e-03  6.02319323e-03  2.92198603e-03  2.07563183e-03
+  4.71633064e-03  4.76413103e-03  6.72478821e-03  2.26083035e-03
+  5.85863828e-03  3.81889704e-03  5.44982581e-03  4.36961337e-03
+  5.14374032e-03  1.89774061e-03  4.58274381e-03  4.76200657e-03
+  2.51894346e-03  4.74079506e-03  3.74164878e-03  3.74828632e-03
+  4.87733403e-03  8.65176613e-03 -3.25898414e-03  8.14874674e-03
+ -4.00623805e-04  9.95448005e-03  9.95673611e-03  9.40453266e-03
+  8.87419719e-03 -4.48847395e-04  2.85320195e-03  4.34940011e-03
+  4.89891649e-03  5.96180604e-03  3.52138883e-03  6.11204161e-03
+  3.22220511e-03  5.74996530e-03  3.79722171e-03  4.31976611e-03
+  3.11705950e-03  4.83921994e-03  7.42857734e-03  1.69853274e-03
+  1.44303854e-03  5.62354656e-03  3.80176722e-03  9.33433420e-03
+  2.13909426e-03  5.23770246e-03  4.22518993e-03  5.47079513e-03
+  1.86832945e-03  4.03593888e-03  6.33022340e-03  2.61173850e-03
+  6.19854124e-03  2.91698745e-03  1.68002452e-03  6.22388007e-03
+  3.19329911e-03  9.28275573e-03  8.88252310e-03  2.81067288e-03
+  4.84257301e-03  4.41593012e-03  8.01266730e-03  1.19479152e-03
+  5.12742131e-03  2.48642615e-03  4.22310972e-03  6.01154675e-03
+  3.20368072e-03  4.72355756e-03  3.08692790e-03  4.35429269e-03
+  4.22927611e-03  3.70156164e-03  4.42704605e-03  3.50108063e-03
+  4.36724388e-03  4.47288082e-03  2.30173428e-03  5.73316628e-03
+  3.67930548e-03  2.02636172e-03  6.78280130e-03  2.59156758e-03
+  6.40152472e-03  2.29882291e-03  6.76444402e-03  6.73434170e-03
+  6.50910961e-03  1.98308641e-03  2.65057295e-03  8.51786845e-03
+  2.38478186e-03  8.32066168e-03  2.90129570e-03  5.27883620e-03
+  3.91631796e-03  2.38526174e-03  7.26266676e-03  1.98154840e-03
+  6.23580163e-03  2.59009359e-03  5.76388223e-03  1.82844289e-03
+  3.47063923e-03  6.64039421e-03  6.55424647e-03  1.66497488e-03
+  6.65990232e-03  6.72884854e-03  5.08043369e-03  3.05298784e-03
+  3.84049075e-03  2.67479419e-03  7.64137918e-03  1.41764982e-03
+  5.44448081e-03  2.45200165e-03  3.68737836e-03  6.67126119e-03
+  6.41733265e-03  1.97842697e-03  4.08838544e-03  4.26594606e-03
+  4.02502958e-03  2.60666930e-03  6.21198893e-03  3.09685500e-03
+  2.92414199e-03  8.10681153e-03  3.02434868e-03  5.67707159e-03
+  3.42504765e-03  3.47064535e-03  4.80359711e-03  4.03386950e-03
+  6.02220955e-03  1.80385128e-03  2.86280129e-03  4.64076027e-03
+  3.62517667e-03  3.97454372e-03  3.25566942e-03  7.82101188e-03
+  2.90569568e-03  6.68163356e-03  2.39942902e-03  3.05388591e-03
+  7.13030970e-03  1.74293486e-03  5.38142128e-03  2.99270896e-03
+  3.34072594e-03  5.74075268e-03  2.45943935e-03  3.08885161e-03
+  6.22429649e-03  1.78439269e-03  2.25698996e-03  6.55878901e-03
+  6.64168429e-03  3.05186547e-03  7.63920158e-03  3.56007329e-03
+  5.19162922e-03  3.54808295e-03  3.88860531e-03  4.81102759e-03
+  3.63702371e-03  6.37737150e-03  1.65321505e-03  1.76821261e-03
+  5.00395071e-03  3.57355783e-03  3.46177438e-03  4.67248031e-03
+  3.95012679e-03  3.58971665e-03  3.45777737e-03  5.70870131e-03
+  3.08459547e-03  6.01298521e-03  2.41205098e-03  2.40228061e-03
+  6.56218929e-03  1.64390932e-03  5.42225977e-03  3.28290024e-03
+  2.98149585e-03  3.47846790e-03  6.18230846e-03  2.51394528e-03
+  3.73899776e-03  7.19189659e-03  3.45341159e-03  7.45586415e-03
+  3.55023825e-03  6.61817195e-03  1.86073843e-03  4.31261643e-03
+  4.39710900e-03  3.60216704e-03  6.23606965e-03  2.23098258e-03
+  1.77843194e-03  6.50725677e-03  1.98823894e-03  3.91057163e-03
+  6.86288452e-03  3.53996154e-03  7.04934463e-03  3.93364378e-03
+  5.26332502e-03  3.09614198e-03  5.75983549e-03  3.06248339e-03
+  2.41814497e-03  6.42563763e-03  1.95185617e-03  5.10678696e-03
+  3.82131400e-03  3.01438546e-03  4.74582369e-03  4.31937455e-03
+  3.07501876e-03  4.35199360e-03  4.79988779e-03  3.10548835e-03
+  3.98218102e-03  5.68491025e-03  2.53617852e-03  4.00597988e-03
+  6.10115861e-03  1.90882012e-03  4.16581197e-03  6.61237508e-03
+  3.98602307e-03  6.49425882e-03  5.46809388e-03  3.65738997e-03
+  2.43875752e-03  6.03230444e-03  2.84914731e-03  1.79341992e-03
+  6.39843481e-03  2.29416835e-03  6.32646469e-03  2.61320455e-03
+  4.31935409e-03  6.30473943e-03  6.23913848e-03  2.58160741e-03
+  5.14984863e-03  4.19071169e-03  2.47579689e-03  4.40043238e-03
+  5.20729525e-03  2.53238286e-03  4.55472910e-03  6.05674055e-03
+  4.79131711e-03  4.70782142e-03  2.50654644e-03  5.77834327e-03
+  3.44462087e-03  1.82033341e-03  6.20112549e-03  2.90889345e-03
+  4.41950876e-03  5.59527268e-03  1.92623191e-03  4.39622160e-03
+  5.96467744e-03  6.02115959e-03  3.18830516e-03  6.11254159e-03
+  3.22541819e-03  5.48915830e-03  4.01046961e-03  1.85532187e-03
+  4.70058471e-03  5.76172780e-03  4.80685291e-03  5.08341495e-03
+  1.91159806e-03  5.96341796e-03  3.51482555e-03  5.16357248e-03
+  4.55661986e-03  1.88537389e-03  4.91741034e-03  5.51017091e-03
+  4.77916367e-03  5.43579066e-03  5.76221413e-03  3.77993446e-03
+  5.85903771e-03  3.82040948e-03  5.46097371e-03  4.34776640e-03
+  5.05653102e-03  5.21831835e-03  5.13434248e-03  4.89893631e-03
+  5.69261428e-03  4.09786891e-03  5.25768591e-03  4.95900318e-03
+  5.57307631e-03  4.39733790e-03  5.38881139e-03  4.66592492e-03]
+Tolerance: 0.01295080100307171
+
+----------------------------------------------------------------------
+Ran 2 tests in 28089.027s
+
+FAILED (failures=26)
+FAIL test_pylith.py (exit status: 1)
+

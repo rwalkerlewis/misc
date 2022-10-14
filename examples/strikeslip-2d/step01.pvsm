@@ -14704,13 +14704,13 @@
         <Element index="0" value="1"/>
       </Property>
       <Property name="Position" id="13244.Position" number_of_elements="2">
-        <Element index="0" value="0.6062953538291093"/>
-        <Element index="1" value="0.3275080839980875"/>
+        <Element index="0" value="0.5993988021049713"/>
+        <Element index="1" value="0.32623257379400583"/>
         <Domain name="range" id="13244.Position.range"/>
       </Property>
       <Property name="PositionInfo" id="13244.PositionInfo" number_of_elements="2">
-        <Element index="0" value="0.6062953538291093"/>
-        <Element index="1" value="0.3275080839980875"/>
+        <Element index="0" value="0.5993988021049713"/>
+        <Element index="1" value="0.32623257379400583"/>
       </Property>
       <Property name="RangeLabelFormat" id="13244.RangeLabelFormat" number_of_elements="1">
         <Element index="0" value="%-#6.1e"/>
@@ -14745,7 +14745,7 @@
         </Domain>
       </Property>
       <Property name="Title" id="13244.Title" number_of_elements="1">
-        <Element index="0" value="cauchy_stress_xy"/>
+        <Element index="0" value="cauchy_stress_xy (Pa)"/>
       </Property>
       <Property name="TitleBold" id="13244.TitleBold" number_of_elements="1">
         <Element index="0" value="0"/>
@@ -15937,8 +15937,8 @@
         <Domain name="bool" id="13728.UseToneMapping.bool"/>
       </Property>
       <Property name="ViewSize" id="13728.ViewSize" number_of_elements="2">
-        <Element index="0" value="2900"/>
-        <Element index="1" value="1622"/>
+        <Element index="0" value="1940"/>
+        <Element index="1" value="1082"/>
       </Property>
       <Property name="ViewTime" id="13728.ViewTime" number_of_elements="1">
         <Element index="0" value="31557600"/>
