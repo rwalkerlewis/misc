@@ -315,95 +315,95 @@ def stressCalc(locs, tsteps, x_n):
 # ==============================================================================
 
 # ==============================================================================
-f = h5py.File('./output/step00_hex-poroelastic.h5','r')
+# f = h5py.File('./output/step00_hex-poroelastic.h5','r')
 
 # Time steps
-ts = 0.0028666667  # sec
-nts = 2
+ts = 0.0005  # sec
+nts = 100
 tsteps = np.arange(0.0, ts * nts, ts) + ts  # sec
 
-t = f['time'][:]
-t = t.ravel()
+# t = f['time'][:]
+# t = t.ravel()
 
-U = f['vertex_fields/displacement'][:]
-P = f['vertex_fields/pressure'][:]
-E = f['vertex_fields/trace_strain'][:]
+# U = f['vertex_fields/displacement'][:]
+# P = f['vertex_fields/pressure'][:]
+# E = f['vertex_fields/trace_strain'][:]
 
-pos = f['geometry/vertices'][:]
-R = np.sqrt(pos[:,0]*pos[:,0] + pos[:,1]*pos[:,1] + pos[:,2]*pos[:,2])
-theta_sph = np.nan_to_num( np.arctan( np.nan_to_num( np.sqrt(pos[:,0]**2 + pos[:,1]**2) / pos[:,2] ) ) )
-phi_sph = np.nan_to_num( np.arctan( np.nan_to_num( pos[:,1] / pos[:,0] ) ) )
+# pos = f['geometry/vertices'][:]
+# R = np.sqrt(pos[:,0]*pos[:,0] + pos[:,1]*pos[:,1] + pos[:,2]*pos[:,2])
+# theta_sph = np.nan_to_num( np.arctan( np.nan_to_num( np.sqrt(pos[:,0]**2 + pos[:,1]**2) / pos[:,2] ) ) )
+# phi_sph = np.nan_to_num( np.arctan( np.nan_to_num( pos[:,1] / pos[:,0] ) ) )
 
-# Transform position to spherical coordinates
-pos_sph = np.zeros(pos.shape)
-#U_sph = np.zeros(U.shape)
-# (r, theta, phi)
-pos_sph[:,0] = (pos[:,0]**2 + pos[:,1]**2 + pos[:,2]**2)**0.5
-pos_sph[:,1] = np.nan_to_num( np.arctan( np.nan_to_num( np.sqrt(pos[:,0]**2 + pos[:,1]**2) / pos[:,2] ) ) )
-pos_sph[:,2] = np.nan_to_num( np.arctan( np.nan_to_num( pos[:,1] / pos[:,0] ) ) )
+# # Transform position to spherical coordinates
+# pos_sph = np.zeros(pos.shape)
+# #U_sph = np.zeros(U.shape)
+# # (r, theta, phi)
+# pos_sph[:,0] = (pos[:,0]**2 + pos[:,1]**2 + pos[:,2]**2)**0.5
+# pos_sph[:,1] = np.nan_to_num( np.arctan( np.nan_to_num( np.sqrt(pos[:,0]**2 + pos[:,1]**2) / pos[:,2] ) ) )
+# pos_sph[:,2] = np.nan_to_num( np.arctan( np.nan_to_num( pos[:,1] / pos[:,0] ) ) )
 
-#pos_sph = np.nan_to_num(pos_sph, nan=0.0)
-#U_sph = np.nan_to_num(U_sph, nan=0.0)
+# #pos_sph = np.nan_to_num(pos_sph, nan=0.0)
+# #U_sph = np.nan_to_num(U_sph, nan=0.0)
 
-t_N = (c*t) / R_0**2
-P_N = P / P_0
+# t_N = (c*t) / R_0**2
+# P_N = P / P_0
 
-U_R = -np.sqrt(U[:,:,0]*U[:,:,0] + U[:,:,1]*U[:,:,1] + U[:,:,2]*U[:,:,2])
+# U_R = -np.sqrt(U[:,:,0]*U[:,:,0] + U[:,:,1]*U[:,:,1] + U[:,:,2]*U[:,:,2])
 
-U_R_inf = -( (P_0*R_0*(1-2*nu))/(2*G*(1+nu)))
-U_R_N = U_R/U_R_inf
+# U_R_inf = -( (P_0*R_0*(1-2*nu))/(2*G*(1+nu)))
+# U_R_N = U_R/U_R_inf
 
 zeroArray = cryer_zeros_python(nu,nu_u,ITERATIONS)
-P_exact_N = np.reshape(pressure(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
-U_exact_R_N = np.reshape(displacement(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
-U_exact_R = U_exact_R_N * U_R_inf
-U_exact_R_N_ST = np.reshape(displacement_small_time(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
+# P_exact_N = np.reshape(pressure(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
+# U_exact_R_N = np.reshape(displacement(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
+# U_exact_R = U_exact_R_N * U_R_inf
+# U_exact_R_N_ST = np.reshape(displacement_small_time(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
 
-U_exact_R_ST = U_exact_R_N * U_R_zero
-U_exact_N_ST = (U_exact_R_N_ST * U_R_zero) / U_R_inf
+# U_exact_R_ST = U_exact_R_N * U_R_zero
+# U_exact_N_ST = (U_exact_R_N_ST * U_R_zero) / U_R_inf
 
-# Cartesian analytical data
-U_exact = np.zeros(U.shape)
-U_exact[:,:,0] = U_exact_R[:,:,0] * np.cos(pos_sph[:,2]) * np.sin(pos_sph[:,1])
-U_exact[:,:,1] = U_exact_R[:,:,0] * np.sin(pos_sph[:,2]) * np.sin(pos_sph[:,1])
-U_exact[:,:,2] = U_exact_R[:,:,0] * np.cos(pos_sph[:,1])
-
-
-# Select linear samples
-
-#x_slice = np.where(~pos[:,1:].any(axis=1))[0]
-
-x_slice = np.nonzero(np.logical_and(pos[:,1] == 0.0, pos[:,2] == 0.0))[0]
-x_arr1 = R[x_slice]
-x_arr1inds = x_arr1.argsort()
-x_slice = x_slice[x_arr1inds[::1]]
-
-y_slice = np.nonzero(np.logical_and(pos[:,0] == 0.0, pos[:,2] == 0.0))[0]
-y_arr1 = R[y_slice]
-y_arr1inds = y_arr1.argsort()
-y_slice = y_slice[y_arr1inds[::1]]
-
-#z_slice = np.where(~pos[:,:2].any(axis=1))[0]
-
-z_slice = np.nonzero(np.logical_and(pos[:,0] == 0.0, pos[:,1] == 0.0))[0]
-z_arr1 = R[z_slice]
-z_arr1inds = z_arr1.argsort()
-z_slice = z_slice[z_arr1inds[::1]]
-
-center = np.where(~pos.any(axis=1))[0]
+# # Cartesian analytical data
+# U_exact = np.zeros(U.shape)
+# U_exact[:,:,0] = U_exact_R[:,:,0] * np.cos(pos_sph[:,2]) * np.sin(pos_sph[:,1])
+# U_exact[:,:,1] = U_exact_R[:,:,0] * np.sin(pos_sph[:,2]) * np.sin(pos_sph[:,1])
+# U_exact[:,:,2] = U_exact_R[:,:,0] * np.cos(pos_sph[:,1])
 
 
-# Graph time snapshots
-t_steps = t.ravel()
-n_graph_steps = 10
-t_step_array = np.linspace(0,t_steps.size,n_graph_steps).astype(np.int)
-t_step_array[0] += 2
-t_step_array[-1] -= 1
-n_steps = t_N.size
+# # Select linear samples
+
+# #x_slice = np.where(~pos[:,1:].any(axis=1))[0]
+
+# x_slice = np.nonzero(np.logical_and(pos[:,1] == 0.0, pos[:,2] == 0.0))[0]
+# x_arr1 = R[x_slice]
+# x_arr1inds = x_arr1.argsort()
+# x_slice = x_slice[x_arr1inds[::1]]
+
+# y_slice = np.nonzero(np.logical_and(pos[:,0] == 0.0, pos[:,2] == 0.0))[0]
+# y_arr1 = R[y_slice]
+# y_arr1inds = y_arr1.argsort()
+# y_slice = y_slice[y_arr1inds[::1]]
+
+# #z_slice = np.where(~pos[:,:2].any(axis=1))[0]
+
+# z_slice = np.nonzero(np.logical_and(pos[:,0] == 0.0, pos[:,1] == 0.0))[0]
+# z_arr1 = R[z_slice]
+# z_arr1inds = z_arr1.argsort()
+# z_slice = z_slice[z_arr1inds[::1]]
+
+# center = np.where(~pos.any(axis=1))[0]
 
 
-cm_numeric = ['red','orange','green','blue','indigo', 'violet']
-cm_analytic = ['red','orange','green','blue','indigo', 'violet']
+# # Graph time snapshots
+# t_steps = t.ravel()
+# n_graph_steps = 10
+# t_step_array = np.linspace(0,t_steps.size,n_graph_steps).astype(np.int)
+# t_step_array[0] += 2
+# t_step_array[-1] -= 1
+# n_steps = t_N.size
+
+
+# cm_numeric = ['red','orange','green','blue','indigo', 'violet']
+# cm_analytic = ['red','orange','green','blue','indigo', 'violet']
 
 # ==============================================================================
 # Stress Calc
@@ -466,8 +466,8 @@ stress_crt_tensor = np.zeros([2,3,3,npts])
 stress_crt_tensor[:,:,:,:] = numpy.einsum('hijl,hjkl->hikl',np.einsum('hijl, hjkl->hikl',A_time,stress_sph_tensor[:,:,:,:]), B_time)
 
 displacement_sph = displacement(xyz, tsteps, zeroArray)
-displacement_sph[:,R_val > 1.0001,:] = 0
-displacement_sph = displacement.reshape(2,101,101,101,1)
+displacement_sph[:,R_val > 1.0001] = 0
+displacement_sph = displacement_sph.reshape(2,101,101,101)
 
 pressure_sph = pressure(xyz, tsteps, zeroArray)
 pressure_sph[:,R_val > 1.0001] = 0
