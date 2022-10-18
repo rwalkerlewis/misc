@@ -1,0 +1,130 @@
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+#
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+#
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+#
+# Copyright (c) 2010-2021 University of California, Davis
+#
+# See LICENSE.md for license information.
+#
+# ----------------------------------------------------------------------
+#
+# CUBIT journal file with geometry for 2-D strike-slip example.
+#
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+#
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+journal idless on
+
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+
+#
+${blockWidth=1.0*m}
+${blockLength=1.0*m}
+${blockHeight=1.0*m}
+
+${faultLength=1.0*m}
+
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+
+# surface 1 name "surf_front"
+surface ( at 0 0 {blockHeight}/2 ordinal 1 ordered ) name "surf_front"
+
+# surface 2 name "surf_back"
+surface ( at 0 0 -{blockHeight}/2 ordinal 1 ordered ) name "surf_back"
+
+create midsurface volume {idV} surface surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV}
+
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+
+# Create fault (yz plane) at y = 0.0
+split surface {idS} across location position {-blockWidth/2.0} 0 0 location position {blockWidth/2.0} 0 0
+
+# curve 17 name "fault_surface"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault_surface"
+
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface  ( at 0 {blockLength}/4 0 ordinal 1 ordered )  name "surface_ypos"
+
+# surface 9 name "surface_xneg"
+surface  ( at 0 -{blockLength}/4 0 ordinal 1 ordered )  name "surface_yneg"
+
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+
+# curve 19 name "edge_xpos_ypos"
+curve ( at {blockWidth}/2 {blockLength}/4  0 ordinal 1 ordered ) name "edge_xpos_ypos"
+
+# curve 20 name "edge_xpos_yneg"
+curve ( at {blockWidth}/2 -{blockLength}/4 0 ordinal 1 ordered ) name "edge_xpos_yneg"
+
+# curve 18 name "edge_xneg_ypos"
+curve ( at -{blockWidth}/2 {blockLength}/4 0 ordinal 1 ordered ) name "edge_xneg_ypos"
+
+# curve 21 name "edge_xneg_yneg"
+curve ( at -{blockWidth}/2 -{blockLength}/4 0 ordinal 1 ordered ) name "edge_xneg_yneg"
+
+# curve 14 name "edge_ypos"
+curve ( at 0 {blockLength}/2 0 ordinal 1 ordered ) name "edge_ypos"
+
+# curve 16 name "edge_yneg"
+curve ( at 0 -{blockLength}/2 0 ordinal 1 ordered ) name "edge_yneg"
+
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+#
+# vertex 14 name "vertex_fault_xpos"
+vertex ( at {blockWidth}/2 0 0 ordinal 1 ordered ) name "vertex_fault_xpos"
+
+# vertex 13 name "vertex_fault_xneg"
+vertex ( at -{blockWidth}/2 0 0 ordinal 1 ordered ) name "vertex_fault_xneg"
+
+# vertex 11 name "vertex_xpos_ypos"
+vertex ( at {blockWidth}/2 {blockLength}/2  0 ordinal 1 ordered ) name "vertex_xpos_ypos"
+
+# vertex 12 name "vertex_xpos_yneg"
+vertex ( at {blockWidth}/2 -{blockLength}/2 0 ordinal 1 ordered ) name "vertex_xpos_yneg"
+
+# vertex 9 name "vertex_xneg_ypos"
+vertex ( at -{blockWidth}/2 {blockLength}/2  0 ordinal 1 ordered ) name "vertex_xneg_ypos"
+
+# vertex 10 name "vertex_xneg_yneg"
+vertex ( at -{blockWidth}/2 -{blockLength}/2  0 ordinal 1 ordered ) name "vertex_xneg_yneg"
+
+
+# End of file
+
+
+
+
