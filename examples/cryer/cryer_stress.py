@@ -318,8 +318,8 @@ def stressCalc(locs, tsteps, x_n):
 # f = h5py.File('./output/step00_hex-poroelastic.h5','r')
 
 # Time steps
-ts = 0.0005  # sec
-nts = 100
+ts = 0.005  # sec
+nts = 20
 tsteps = np.arange(0.0, ts * nts, ts) + ts  # sec
 
 # t = f['time'][:]
@@ -415,12 +415,13 @@ zeroArray = cryer_zeros_python(nu,nu_u,ITERATIONS)
 # stress_sph_tensor[:,:,:,:,2,2] = stress_sph[:, :,:,:, 2]    # szz
 
 (npts, dim) = xyz.shape
+ntpts = tsteps.size
 R_val = np.sqrt(np.sqrt(xyz[:,0]**2 + xyz[:,1]**2 + xyz[:,2]**2))
 
 stress_sph = stressCalc(xyz, tsteps, zeroArray)
 stress_sph[0,R_val > 1.0001,:] = 0
 
-stress_sph_tensor = np.zeros([2,3,3,npts])
+stress_sph_tensor = np.zeros([ntpts,3,3,npts])
 stress_sph_tensor[:,0,0,:] = stress_sph[:, :, 0]    # sxx
 stress_sph_tensor[:,1,1,:] = stress_sph[:, :, 1]    # syy
 stress_sph_tensor[:,2,2,:] = stress_sph[:, :, 2]    # szz
@@ -453,27 +454,26 @@ sigma_car = numpy.einsum('ij...,jk...->ik...',np.einsum('ij...,jk...->ik...',A,s
 A_tensor = B.T
 B_tensor = A.T
 
-A_time = np.zeros([2,3,3,npts])
-A_time[0,:,:,:] = A[:,:,:]
-A_time[1,:,:,:] = A[:,:,:]
+A_time = np.zeros([ntpts,3,3,npts])
+B_time = np.zeros([ntpts,3,3,npts])
 
-B_time = np.zeros([2,3,3,npts])
-B_time[0,:,:,:] = B[:,:,:]
-B_time[1,:,:,:] = B[:,:,:]
+for i in np.arange(ntpts):
+    A_time[i,:,:,:] = A[:,:,:]
+    B_time[i,:,:,:] = B[:,:,:]
 
-stress_crt_tensor = np.zeros([2,3,3,npts])
+stress_crt_tensor = np.zeros([ntpts,3,3,npts])
 
 stress_crt_tensor[:,:,:,:] = numpy.einsum('hijl,hjkl->hikl',np.einsum('hijl, hjkl->hikl',A_time,stress_sph_tensor[:,:,:,:]), B_time)
 
 displacement_sph = displacement(xyz, tsteps, zeroArray)
 displacement_sph[:,R_val > 1.0001] = 0
-displacement_sph = displacement_sph.reshape(2,101,101,101)
+displacement_sph = displacement_sph.reshape(ntpts,101,101,101)
 
 pressure_sph = pressure(xyz, tsteps, zeroArray)
 pressure_sph[:,R_val > 1.0001] = 0
-pressure_sph = pressure_sph.reshape(2,101,101,101)
+pressure_sph = pressure_sph.reshape(ntpts,101,101,101)
 
-
+stress_sph_R = stress_sph[:,:,0].reshape(ntpts,101,101,101)
 
 
 
