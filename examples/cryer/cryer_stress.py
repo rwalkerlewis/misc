@@ -318,9 +318,9 @@ def stressCalc(locs, tsteps, x_n):
 # f = h5py.File('./output/step00_hex-poroelastic.h5','r')
 
 # Time steps
-ts = 0.005  # sec
-nts = 20
-tsteps = np.arange(0.0, ts * nts, ts) + ts  # sec
+ts = 0.00286667  # sec
+nts = 5
+tsteps = np.arange(0.0, ts * nts, ts)  # sec
 
 # t = f['time'][:]
 # t = t.ravel()
@@ -418,8 +418,9 @@ zeroArray = cryer_zeros_python(nu,nu_u,ITERATIONS)
 ntpts = tsteps.size
 R_val = np.sqrt(np.sqrt(xyz[:,0]**2 + xyz[:,1]**2 + xyz[:,2]**2))
 
-stress_sph = stressCalc(xyz, tsteps, zeroArray)
-stress_sph[0,R_val > 1.0001,:] = 0
+stress_sph = stressCalc(xyz, tsteps,  zeroArray)
+for i in np.arange(ntpts):
+    stress_sph[i,R_val > 1.0001,:] = 0
 
 stress_sph_tensor = np.zeros([ntpts,3,3,npts])
 stress_sph_tensor[:,0,0,:] = stress_sph[:, :, 0]    # sxx
