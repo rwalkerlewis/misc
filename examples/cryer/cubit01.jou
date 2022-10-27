@@ -1,0 +1,1440 @@
+## /opt/Trelis-16.1/bin/trelis
+## Trelis Version 16.1.1
+## Trelis Build 1b15f60
+## Revised Tue Aug 23 16:17:41 2016 -0600
+## Running 10/26/2022 08:23:52 PM
+## Command Options:
+undo on
+cd "/home/dockimble/pylith-dev/misc/examples/SS2D_Poroelastic_Fault_4_Elem"
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 4 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+# Block is 150.0 km x 100.0 km
+# -50.0 km <= x <= 50.0 km
+# -75.0 km <= y <= 75.0 km
+${blockWidth=100*km}
+${blockLength=150*km}
+${blockHeight=10*km}
+${faultLength=150.0*km}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 5000 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -5000 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at x = 0.0
+split surface {idS}  across location position 0 {-blockLength/2.0} 0 location position 0 {blockLength/2.0} 0
+# curve 17 name "c_fault"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 25000 0 0 ordinal 1 ordered ) name "surface_xpos"
+# surface 9 name "surface_xneg"
+surface ( at -25000 0 0 ordinal 1 ordered ) name "surface_xneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "c_ypos_xpos"
+curve ( at 25000 75000 0 ordinal 1 ordered ) name "c_ypos_xpos"
+# curve 20 name "c_ypos_xneg"
+curve ( at -25000 75000 0 ordinal 1 ordered ) name "c_ypos_xneg"
+# curve 18 name "c_yneg_xpos"
+curve ( at 25000 -75000 0 ordinal 1 ordered ) name "c_yneg_xpos"
+# curve 21 name "c_yneg_xneg"
+curve ( at -25000 -75000 0 ordinal 1 ordered ) name "c_yneg_xneg"
+# curve 14 name "c_xpos"
+curve ( at 50000 0 0 ordinal 1 ordered ) name "c_xpos"
+# curve 16 name "c_xneg"
+curve ( at -50000 0 0 ordinal 1 ordered ) name "c_xneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "v_fault_ypos"
+vertex ( at 0 75000 0 ordinal 1 ordered ) name "v_fault_ypos"
+# vertex 13 name "v_fault_yneg"
+vertex ( at 0 -75000 0 ordinal 1 ordered ) name "v_fault_yneg"
+# vertex 11 name "v_ypos_xpos"
+vertex ( at 50000 75000 0 ordinal 1 ordered ) name "v_ypos_xpos"
+# vertex 12 name "v_ypos_xneg"
+vertex ( at -50000 75000 0 ordinal 1 ordered ) name "v_ypos_xneg"
+# vertex 9 name "v_yneg_xpos"
+vertex ( at 50000 -75000 0 ordinal 1 ordered ) name "v_yneg_xpos"
+# vertex 10 name "v_yneg_xneg"
+vertex ( at -50000 -75000 0 ordinal 1 ordered ) name "v_yneg_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=40.0*km}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.05}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at v_ypos_xpos, v_ypos_xneg, v_yneg_xpos, v_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("c_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+# Fault to edge
+curve c_ypos_xneg scheme bias fine size {dx} factor {bias_factor} start v_fault_ypos
+curve c_ypos_xpos scheme bias fine size {dx} factor {bias_factor} start v_fault_ypos
+curve c_yneg_xneg scheme bias fine size {dx} factor {bias_factor} start v_fault_yneg
+curve c_yneg_xpos scheme bias fine size {dx} factor {bias_factor} start v_fault_yneg
+# Mesh edges
+curve c_xneg size {dxA}
+curve c_xpos size {dxA}
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_xneg
+block  ( at -25000 0 0 ordinal 1 ordered )  name "elastic_xneg"
+block 2 surface_xpos
+block  ( at 25000 0 0 ordinal 1 ordered )  name "elastic_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in c_xpos
+nodeset 21 boundary_xpos
+nodeset  ( at 50000 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in c_xneg
+nodeset 22 boundary_xneg
+nodeset  ( at -50000 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+group "boundary_ypos" add node in c_ypos_xneg
+group "boundary_ypos" add node in c_ypos_xpos
+nodeset 23 boundary_ypos
+nodeset  ( at 0 75000 0 ordinal 1 ordered )  name "boundary_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+group "boundary_yneg" add node in c_yneg_xneg
+group "boundary_yneg" add node in c_yneg_xpos
+nodeset 24 boundary_yneg
+nodeset  ( at 0 -75000 0 ordinal 1 ordered )  name "boundary_yneg"
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 4 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+# Block is 150.0 km x 100.0 km
+# -50.0 km <= x <= 50.0 km
+# -75.0 km <= y <= 75.0 km
+${blockWidth=100*km}
+${blockLength=150*km}
+${blockHeight=10*km}
+${faultLength=150.0*km}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 5000 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -5000 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at x = 0.0
+split surface {idS}  across location position 0 {-blockLength/2.0} 0 location position 0 {blockLength/2.0} 0
+# curve 17 name "c_fault"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 25000 0 0 ordinal 1 ordered ) name "surface_xpos"
+# surface 9 name "surface_xneg"
+surface ( at -25000 0 0 ordinal 1 ordered ) name "surface_xneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "c_ypos_xpos"
+curve ( at 25000 75000 0 ordinal 1 ordered ) name "c_ypos_xpos"
+# curve 20 name "c_ypos_xneg"
+curve ( at -25000 75000 0 ordinal 1 ordered ) name "c_ypos_xneg"
+# curve 18 name "c_yneg_xpos"
+curve ( at 25000 -75000 0 ordinal 1 ordered ) name "c_yneg_xpos"
+# curve 21 name "c_yneg_xneg"
+curve ( at -25000 -75000 0 ordinal 1 ordered ) name "c_yneg_xneg"
+# curve 14 name "c_xpos"
+curve ( at 50000 0 0 ordinal 1 ordered ) name "c_xpos"
+# curve 16 name "c_xneg"
+curve ( at -50000 0 0 ordinal 1 ordered ) name "c_xneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "v_fault_ypos"
+vertex ( at 0 75000 0 ordinal 1 ordered ) name "v_fault_ypos"
+# vertex 13 name "v_fault_yneg"
+vertex ( at 0 -75000 0 ordinal 1 ordered ) name "v_fault_yneg"
+# vertex 11 name "v_ypos_xpos"
+vertex ( at 50000 75000 0 ordinal 1 ordered ) name "v_ypos_xpos"
+# vertex 12 name "v_ypos_xneg"
+vertex ( at -50000 75000 0 ordinal 1 ordered ) name "v_ypos_xneg"
+# vertex 9 name "v_yneg_xpos"
+vertex ( at 50000 -75000 0 ordinal 1 ordered ) name "v_yneg_xpos"
+# vertex 10 name "v_yneg_xneg"
+vertex ( at -50000 -75000 0 ordinal 1 ordered ) name "v_yneg_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=50.0*km}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.05}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at v_ypos_xpos, v_ypos_xneg, v_yneg_xpos, v_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("c_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+# Fault to edge
+curve c_ypos_xneg scheme bias fine size {dx} factor {bias_factor} start v_fault_ypos
+curve c_ypos_xpos scheme bias fine size {dx} factor {bias_factor} start v_fault_ypos
+curve c_yneg_xneg scheme bias fine size {dx} factor {bias_factor} start v_fault_yneg
+curve c_yneg_xpos scheme bias fine size {dx} factor {bias_factor} start v_fault_yneg
+# Mesh edges
+curve c_xneg size {dxA}
+curve c_xpos size {dxA}
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_xneg
+block  ( at -25000 0 0 ordinal 1 ordered )  name "elastic_xneg"
+block 2 surface_xpos
+block  ( at 25000 0 0 ordinal 1 ordered )  name "elastic_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in c_xpos
+nodeset 21 boundary_xpos
+nodeset  ( at 50000 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in c_xneg
+nodeset 22 boundary_xneg
+nodeset  ( at -50000 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+group "boundary_ypos" add node in c_ypos_xneg
+group "boundary_ypos" add node in c_ypos_xpos
+nodeset 23 boundary_ypos
+nodeset  ( at 0 75000 0 ordinal 1 ordered )  name "boundary_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+group "boundary_yneg" add node in c_yneg_xneg
+group "boundary_yneg" add node in c_yneg_xpos
+nodeset 24 boundary_yneg
+nodeset  ( at 0 -75000 0 ordinal 1 ordered )  name "boundary_yneg"
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 4 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+# Block is 100.0 km x 100.0 km
+# -50.0 km <= x <= 50.0 km
+# -50.0 km <= y <= 50.0 km
+${blockWidth=100*km}
+${blockLength=100*km}
+${blockHeight=10*km}
+${faultLength=100.0*km}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 5000 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -5000 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at x = 0.0
+split surface {idS}  across location position 0 {-blockLength/2.0} 0 location position 0 {blockLength/2.0} 0
+# curve 17 name "c_fault"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 25000 0 0 ordinal 1 ordered ) name "surface_xpos"
+# surface 9 name "surface_xneg"
+surface ( at -25000 0 0 ordinal 1 ordered ) name "surface_xneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "c_ypos_xpos"
+# curve 20 name "c_ypos_xneg"
+# curve 18 name "c_yneg_xpos"
+# curve 21 name "c_yneg_xneg"
+# curve 14 name "c_xpos"
+curve ( at 50000 0 0 ordinal 1 ordered ) name "c_xpos"
+# curve 16 name "c_xneg"
+curve ( at -50000 0 0 ordinal 1 ordered ) name "c_xneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "v_fault_ypos"
+# vertex 13 name "v_fault_yneg"
+# vertex 11 name "v_ypos_xpos"
+# vertex 12 name "v_ypos_xneg"
+# vertex 9 name "v_yneg_xpos"
+# vertex 10 name "v_yneg_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=50.0*km}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.05}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at v_ypos_xpos, v_ypos_xneg, v_yneg_xpos, v_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("c_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+# Fault to edge
+# Mesh edges
+curve c_xneg size {dxA}
+curve c_xpos size {dxA}
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_xneg
+block  ( at -25000 0 0 ordinal 1 ordered )  name "elastic_xneg"
+block 2 surface_xpos
+block  ( at 25000 0 0 ordinal 1 ordered )  name "elastic_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in c_xpos
+nodeset 21 boundary_xpos
+nodeset  ( at 50000 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in c_xneg
+nodeset 22 boundary_xneg
+nodeset  ( at -50000 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 4 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+# Block is 100.0 km x 100.0 km
+# -50.0 km <= x <= 50.0 km
+# -50.0 km <= y <= 50.0 km
+${blockWidth=100*km}
+${blockLength=100*km}
+${blockHeight=10*km}
+${faultLength=100.0*km}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 5000 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -5000 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at x = 0.0
+split surface {idS}  across location position 0 {-blockLength/2.0} 0 location position 0 {blockLength/2.0} 0
+# curve 17 name "c_fault"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 25000 0 0 ordinal 1 ordered ) name "surface_xpos"
+# surface 9 name "surface_xneg"
+surface ( at -25000 0 0 ordinal 1 ordered ) name "surface_xneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "c_ypos_xpos"
+# curve 20 name "c_ypos_xneg"
+# curve 18 name "c_yneg_xpos"
+# curve 21 name "c_yneg_xneg"
+# curve 14 name "c_xpos"
+curve ( at 50000 0 0 ordinal 1 ordered ) name "c_xpos"
+# curve 16 name "c_xneg"
+curve ( at -50000 0 0 ordinal 1 ordered ) name "c_xneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "v_fault_ypos"
+# vertex 13 name "v_fault_yneg"
+# vertex 11 name "v_ypos_xpos"
+# vertex 12 name "v_ypos_xneg"
+# vertex 9 name "v_yneg_xpos"
+# vertex 10 name "v_yneg_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=50.0*km}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.05}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at v_ypos_xpos, v_ypos_xneg, v_yneg_xpos, v_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("c_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+# Fault to edge
+# Mesh edges
+curve c_xneg size {dxA}
+curve c_xpos size {dxA}
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_xneg
+block  ( at -25000 0 0 ordinal 1 ordered )  name "elastic_xneg"
+block 2 surface_xpos
+block  ( at 25000 0 0 ordinal 1 ordered )  name "elastic_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in c_xpos
+nodeset 21 boundary_xpos
+nodeset  ( at 50000 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in c_xneg
+nodeset 22 boundary_xneg
+nodeset  ( at -50000 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 4 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+# Block is 150.0 km x 100.0 km
+# -50.0 km <= x <= 50.0 km
+# -75.0 km <= y <= 75.0 km
+${blockWidth=100*km}
+${blockLength=150*km}
+${blockHeight=10*km}
+${faultLength=150.0*km}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 5000 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -5000 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at x = 0.0
+split surface {idS}  across location position 0 {-blockLength/2.0} 0 location position 0 {blockLength/2.0} 0
+# curve 17 name "c_fault"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 25000 0 0 ordinal 1 ordered ) name "surface_xpos"
+# surface 9 name "surface_xneg"
+surface ( at -25000 0 0 ordinal 1 ordered ) name "surface_xneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "c_ypos_xpos"
+curve ( at 25000 75000 0 ordinal 1 ordered ) name "c_ypos_xpos"
+# curve 20 name "c_ypos_xneg"
+curve ( at -25000 75000 0 ordinal 1 ordered ) name "c_ypos_xneg"
+# curve 18 name "c_yneg_xpos"
+curve ( at 25000 -75000 0 ordinal 1 ordered ) name "c_yneg_xpos"
+# curve 21 name "c_yneg_xneg"
+curve ( at -25000 -75000 0 ordinal 1 ordered ) name "c_yneg_xneg"
+# curve 14 name "c_xpos"
+curve ( at 50000 0 0 ordinal 1 ordered ) name "c_xpos"
+# curve 16 name "c_xneg"
+curve ( at -50000 0 0 ordinal 1 ordered ) name "c_xneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "v_fault_ypos"
+vertex ( at 0 75000 0 ordinal 1 ordered ) name "v_fault_ypos"
+# vertex 13 name "v_fault_yneg"
+vertex ( at 0 -75000 0 ordinal 1 ordered ) name "v_fault_yneg"
+# vertex 11 name "v_ypos_xpos"
+vertex ( at 50000 75000 0 ordinal 1 ordered ) name "v_ypos_xpos"
+# vertex 12 name "v_ypos_xneg"
+vertex ( at -50000 75000 0 ordinal 1 ordered ) name "v_ypos_xneg"
+# vertex 9 name "v_yneg_xpos"
+vertex ( at 50000 -75000 0 ordinal 1 ordered ) name "v_yneg_xpos"
+# vertex 10 name "v_yneg_xneg"
+vertex ( at -50000 -75000 0 ordinal 1 ordered ) name "v_yneg_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=4.0*km}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.05}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at v_ypos_xpos, v_ypos_xneg, v_yneg_xpos, v_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("c_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+# Fault to edge
+curve c_ypos_xneg scheme bias fine size {dx} factor {bias_factor} start v_fault_ypos
+curve c_ypos_xpos scheme bias fine size {dx} factor {bias_factor} start v_fault_ypos
+curve c_yneg_xneg scheme bias fine size {dx} factor {bias_factor} start v_fault_yneg
+curve c_yneg_xpos scheme bias fine size {dx} factor {bias_factor} start v_fault_yneg
+# Mesh edges
+curve c_xneg size {dxA}
+curve c_xpos size {dxA}
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2022 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_xneg
+block  ( at -25000 0 0 ordinal 1 ordered )  name "elastic_xneg"
+block 2 surface_xpos
+block  ( at 25000 0 0 ordinal 1 ordered )  name "elastic_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in c_xpos
+nodeset 21 boundary_xpos
+nodeset  ( at 50000 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in c_xneg
+nodeset 22 boundary_xneg
+nodeset  ( at -50000 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+group "boundary_ypos" add node in c_ypos_xneg
+group "boundary_ypos" add node in c_ypos_xpos
+nodeset 23 boundary_ypos
+nodeset  ( at 0 75000 0 ordinal 1 ordered )  name "boundary_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+group "boundary_yneg" add node in c_yneg_xneg
+group "boundary_yneg" add node in c_yneg_xpos
+nodeset 24 boundary_yneg
+nodeset  ( at 0 -75000 0 ordinal 1 ordered )  name "boundary_yneg"
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file
+reset
+cd "/home/dockimble/pylith-dev/misc/examples/poro_fault_ss-2d"
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 5 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+${blockWidth=1.0*m}
+${blockLength=1.0*m}
+${blockHeight=1.0*m}
+${faultLength=1.0*m}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 {blockHeight} / 2 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -1 / 2 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at y = 0.0
+split surface {idS}  across location position {-blockWidth/2.0} 0 0 location position {blockWidth/2.0} 0 0
+# curve 17 name "fault_surface"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault_surface"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 0 {blockLength} / 4 0 ordinal 1 ordered ) name "surface_ypos"
+# surface 9 name "surface_xneg"
+surface ( at 0 -1 / 4 0 ordinal 1 ordered ) name "surface_yneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "edge_xpos_ypos"
+curve ( at {blockWidth} / 2 1 / 4 0 ordinal 1 ordered ) name "edge_xpos_ypos"
+# curve 20 name "edge_xpos_yneg"
+curve ( at {blockWidth} / 2 -1 / 4 0 ordinal 1 ordered ) name "edge_xpos_yneg"
+# curve 18 name "edge_xneg_ypos"
+curve ( at -1 / 2 1 / 4 0 ordinal 1 ordered ) name "edge_xneg_ypos"
+# curve 21 name "edge_xneg_yneg"
+curve ( at -1 / 2 -1 / 4 0 ordinal 1 ordered ) name "edge_xneg_yneg"
+# curve 14 name "edge_ypos"
+curve ( at 0 {blockLength} / 2 0 ordinal 1 ordered ) name "edge_ypos"
+# curve 16 name "edge_yneg"
+curve ( at 0 -1 / 2 0 ordinal 1 ordered ) name "edge_yneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "vertex_fault_xpos"
+vertex ( at {blockWidth} / 2 0 0 ordinal 1 ordered ) name "vertex_fault_xpos"
+# vertex 13 name "vertex_fault_xneg"
+vertex ( at -1 / 2 0 0 ordinal 1 ordered ) name "vertex_fault_xneg"
+# vertex 11 name "vertex_xpos_ypos"
+vertex ( at {blockWidth} / 2 1 / 2 0 ordinal 1 ordered ) name "vertex_xpos_ypos"
+# vertex 12 name "vertex_xpos_yneg"
+vertex ( at {blockWidth} / 2 -1 / 2 0 ordinal 1 ordered ) name "vertex_xpos_yneg"
+# vertex 9 name "vertex_xneg_ypos"
+vertex ( at -1 / 2 1 / 2 0 ordinal 1 ordered ) name "vertex_xneg_ypos"
+# vertex 10 name "vertex_xneg_yneg"
+vertex ( at -1 / 2 -1 / 2 0 ordinal 1 ordered ) name "vertex_xneg_yneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=0.1*m}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.0}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at vertex_ypos_xpos, vertex_ypos_xneg, vertex_yneg_xpos, vertex_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("edge_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+curve fault_surface size {dx}
+# Fault to edge
+# Mesh edges
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+surface all sizing function type bias start fault_surface factor {bias_factor}
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_yneg
+block  ( at 0 -0.25 0 ordinal 1 ordered )  name "poroelastic_yneg"
+block 2 surface_ypos
+block  ( at 0 0.25 0 ordinal 1 ordered )  name "poroelastic_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault_surface
+nodeset 10 fault
+nodeset  ( at 0 0 0 ordinal 1 ordered )  name "fault"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+group "boundary_ypos" add node in edge_ypos
+nodeset 21 boundary_ypos
+nodeset  ( at 0 0.5 0 ordinal 1 ordered )  name "boundary_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+group "boundary_yneg" add node in edge_yneg
+nodeset 22 boundary_yneg
+nodeset  ( at 0 -0.5 0 ordinal 1 ordered )  name "boundary_yneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in edge_xpos_yneg
+group "boundary_xpos" add node in edge_xpos_ypos
+nodeset 23 boundary_xpos
+nodeset  ( at 0.5 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in edge_xneg_yneg
+group "boundary_xneg" add node in edge_xneg_ypos
+nodeset 24 boundary_xneg
+nodeset  ( at -0.5 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create quad mesh at 5 km resolution.
+# ----------------------------------------------------------------------
+# Generate geometry
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# CUBIT journal file with geometry for 2-D strike-slip example.
+# ----------------------------------------------------------------------
+# Set units to SI.
+# ----------------------------------------------------------------------
+${Units('si')}
+# ----------------------------------------------------------------------
+# Reset geometry.
+# ----------------------------------------------------------------------
+reset
+# Make sure undo is off to prevent errors in stitching volumes.
+undo off
+# Turn on IDless journal files for maximum compatibility.
+# The commands echoed to the log will replace the object ID with a
+# geometric specification of the object. Note that this means changing
+# the geometry will require changes to subsequent journal commands.
+# ----------------------------------------------------------------------
+# Create block
+# ----------------------------------------------------------------------
+${blockWidth=1.0*m}
+${blockLength=1.0*m}
+${blockHeight=1.0*m}
+${faultLength=1.0*m}
+brick x {blockWidth} y {blockLength} z {blockHeight}
+${idV=Id("volume")}
+# surface 1 name "surf_front"
+surface ( at 0 0 {blockHeight} / 2 ordinal 1 ordered ) name "surf_front"
+# surface 2 name "surf_back"
+surface ( at 0 0 -1 / 2 ordinal 1 ordered ) name "surf_back"
+create midsurface volume {idV}  surf_front surf_back
+${idS=Id("surface")}
+delete volume {idV} 
+# ----------------------------------------------------------------------
+# Create interface surfaces
+# ----------------------------------------------------------------------
+# Create fault (yz plane) at y = 0.0
+split surface {idS}  across location position {-blockWidth/2.0} 0 0 location position {blockWidth/2.0} 0 0
+# curve 17 name "fault_surface"
+curve ( at 0 0 0 ordinal 1 ordered ) name "fault_surface"
+# ----------------------------------------------------------------------
+# Name surfaces
+# ----------------------------------------------------------------------
+# surface 8 name "surface_xpos"
+surface ( at 0 {blockLength} / 4 0 ordinal 1 ordered ) name "surface_ypos"
+# surface 9 name "surface_xneg"
+surface ( at 0 -1 / 4 0 ordinal 1 ordered ) name "surface_yneg"
+# ----------------------------------------------------------------------
+# Name curves
+# ----------------------------------------------------------------------
+# curve 19 name "edge_xpos_ypos"
+curve ( at {blockWidth} / 2 1 / 4 0 ordinal 1 ordered ) name "edge_xpos_ypos"
+# curve 20 name "edge_xpos_yneg"
+curve ( at {blockWidth} / 2 -1 / 4 0 ordinal 1 ordered ) name "edge_xpos_yneg"
+# curve 18 name "edge_xneg_ypos"
+curve ( at -1 / 2 1 / 4 0 ordinal 1 ordered ) name "edge_xneg_ypos"
+# curve 21 name "edge_xneg_yneg"
+curve ( at -1 / 2 -1 / 4 0 ordinal 1 ordered ) name "edge_xneg_yneg"
+# curve 14 name "edge_ypos"
+curve ( at 0 {blockLength} / 2 0 ordinal 1 ordered ) name "edge_ypos"
+# curve 16 name "edge_yneg"
+curve ( at 0 -1 / 2 0 ordinal 1 ordered ) name "edge_yneg"
+# ----------------------------------------------------------------------
+# Name vertices
+# ----------------------------------------------------------------------
+# vertex 14 name "vertex_fault_xpos"
+vertex ( at {blockWidth} / 2 0 0 ordinal 1 ordered ) name "vertex_fault_xpos"
+# vertex 13 name "vertex_fault_xneg"
+vertex ( at -1 / 2 0 0 ordinal 1 ordered ) name "vertex_fault_xneg"
+# vertex 11 name "vertex_xpos_ypos"
+vertex ( at {blockWidth} / 2 1 / 2 0 ordinal 1 ordered ) name "vertex_xpos_ypos"
+# vertex 12 name "vertex_xpos_yneg"
+vertex ( at {blockWidth} / 2 -1 / 2 0 ordinal 1 ordered ) name "vertex_xpos_yneg"
+# vertex 9 name "vertex_xneg_ypos"
+vertex ( at -1 / 2 1 / 2 0 ordinal 1 ordered ) name "vertex_xneg_ypos"
+# vertex 10 name "vertex_xneg_yneg"
+vertex ( at -1 / 2 -1 / 2 0 ordinal 1 ordered ) name "vertex_xneg_yneg"
+# End of file
+# ----------------------------------------------------------------------
+# Set discretization size and scheme
+# The "pave" scheme is an unstructured 2-D quad meshing scheme.
+# ----------------------------------------------------------------------
+${dx=0.5*m}
+surface all scheme pave
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Set vertex spacing with increasing spacing away from fault
+# ----------------------------------------------------------------------
+${bias_factor=1.0}
+# Function for computing discretization size at end of curve with bias
+${fun_dx='dxStart*bias_factor**ceil( ln(1-curveL/dxStart*(1-bias_factor))/ln(bias_factor))'}
+# ----------------------------------------------------------------------
+# Compute sizes at curve endpoints
+# ----------------------------------------------------------------------
+# dxA - size at vertex_ypos_xpos, vertex_ypos_xneg, vertex_yneg_xpos, vertex_yneg_xneg
+${dxStart=dx}{curveL=Length(Id("edge_ypos_xneg"))}{execute("dxA="//fun_dx)}
+# ----------------------------------------------------------------------
+# Reset sizes
+# ----------------------------------------------------------------------
+curve all scheme default
+surface all sizing function none
+# Set size on faults
+curve fault_surface size {dx}
+# Fault to edge
+# Mesh edges
+# For CUBIT 15.4
+set trimesher surface gradation {bias_factor}
+# For earlier versions of CUBIT
+surface all sizing function type bias start fault_surface factor {bias_factor}
+# End of file
+# ----------------------------------------------------------------------
+# Generate the mesh
+# ----------------------------------------------------------------------
+# preview mesh surface all
+mesh surface all
+# ----------------------------------------------------------------------
+# Smooth mesh to improve quality
+# ----------------------------------------------------------------------
+surface all smooth scheme condition number beta 1.1 cpu 10
+smooth surface all
+# ----------------------------------------------------------------------
+# Setup boundary conditions.
+# ----------------------------------------------------------------------
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+# Brad T. Aagaard, U.S. Geological Survey
+# Charles A. Williams, GNS Science
+# Matthew G. Knepley, University at Buffalo
+# This code was developed as part of the Computational Infrastructure
+# for Geodynamics (http://geodynamics.org).
+# Copyright (c) 2010-2021 University of California, Davis
+# See LICENSE.md for license information.
+# ----------------------------------------------------------------------
+# Create blocks for materials
+# ----------------------------------------------------------------------
+block 1 surface_yneg
+block  ( at 0 -0.25 0 ordinal 1 ordered )  name "poroelastic_yneg"
+block 2 surface_ypos
+block  ( at 0 0.25 0 ordinal 1 ordered )  name "poroelastic_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for fault
+# ----------------------------------------------------------------------
+group "fault" add node in fault_surface
+nodeset 10 fault
+nodeset  ( at 0 0 0 ordinal 1 ordered )  name "fault"
+# ----------------------------------------------------------------------
+# Create nodeset for +y face
+# ----------------------------------------------------------------------
+group "boundary_ypos" add node in edge_ypos
+nodeset 21 boundary_ypos
+nodeset  ( at 0 0.5 0 ordinal 1 ordered )  name "boundary_ypos"
+# ----------------------------------------------------------------------
+# Create nodeset for -y face
+# ----------------------------------------------------------------------
+group "boundary_yneg" add node in edge_yneg
+nodeset 22 boundary_yneg
+nodeset  ( at 0 -0.5 0 ordinal 1 ordered )  name "boundary_yneg"
+# ----------------------------------------------------------------------
+# Create nodeset for +x face
+# ----------------------------------------------------------------------
+group "boundary_xpos" add node in edge_xpos_yneg
+group "boundary_xpos" add node in edge_xpos_ypos
+nodeset 23 boundary_xpos
+nodeset  ( at 0.5 0 0 ordinal 1 ordered )  name "boundary_xpos"
+# ----------------------------------------------------------------------
+# Create nodeset for -x face
+# ----------------------------------------------------------------------
+group "boundary_xneg" add node in edge_xneg_yneg
+group "boundary_xneg" add node in edge_xneg_ypos
+nodeset 24 boundary_xneg
+nodeset  ( at -0.5 0 0 ordinal 1 ordered )  name "boundary_xneg"
+# End of file
+# ----------------------------------------------------------------------
+# Export exodus file
+# ----------------------------------------------------------------------
+export mesh "mesh_quad.exo" dimension 2 overwrite
+# End of file

@@ -180,9 +180,9 @@ def pressure(locs, tsteps, x_n):
 
     return pressure
     
-def displacement(locs, tsteps, x_n):
+def displacement_sph(locs, tsteps, x_n):
     """
-    Compute displacement field at locations.
+    Compute displacement field at locations, spherical coordinates.
     """
     (npts, dim) = locs.shape
     ntpts = tsteps.shape[0]
@@ -207,6 +207,37 @@ def displacement(locs, tsteps, x_n):
                                         
         t_track += 1
     
+    return disp
+
+def displacement_crt(locs, tsteps, x_n):
+    """
+    Compute displacement field at locations, cartesian coordinates.
+    """
+    (npts, dim) = locs.shape
+    ntpts = tsteps.shape[0]
+    disp = np.zeros((ntpts, npts), dtype=np.float64)    
+    
+    center = np.where(~locs.any(axis=1))[0]
+    R = np.sqrt(locs[:,0]*locs[:,0] + locs[:,1]*locs[:,1] + locs[:,2]*locs[:,2])
+    R_star = R.reshape([R.size,1]) / R_0
+    x_n.reshape([1,x_n.size])
+    
+    E = np.square(1-nu)*np.square(1+nu_u)*x_n - 18*(1+nu)*(nu_u-nu)*(1-nu_u)
+    
+    t_track = 0
+    
+    for t in tsteps:
+        t_star = (c*t)/(R_0**2)
+        r_exact_N = R_star.ravel() - np.nan_to_num(np.sum(((12*(1 + nu)*(nu_u - nu)) / \
+                                           ((1 - 2*nu)*E*R_star*R_star*x_n*np.sin(np.sqrt(x_n))) ) * \
+                                    (3*(nu_u - nu) * (np.sin(R_star*np.sqrt(x_n)) - R_star*np.sqrt(x_n)*np.cos(R_star*np.sqrt(x_n))) + \
+                                    (1 - nu)*(1 - 2*nu)*R_star*R_star*R_star*x_n*np.sin(np.sqrt(x_n))) * \
+                                    np.exp(-x_n*t_star),axis=1))
+                                    
+        disp[t_track, :, 0] = (r_exact_N*U_R_inf)*numpy.cos(phi)*numpy.sin(theta)
+        disp[t_track, :, 1] = (r_exact_N*U_R_inf)*numpy.sin(phi)*numpy.sin(theta)
+        disp[t_track, :, 2] = (r_exact_N*U_R_inf)*numpy.cos(theta)
+        t_track += 1    
     return disp
 
 def displacement_small_time(locs, tsteps, x_n):
@@ -318,8 +349,8 @@ def stressCalc(locs, tsteps, x_n):
 # f = h5py.File('./output/step00_hex-poroelastic.h5','r')
 
 # Time steps
-ts = 0.00286667  # sec
-nts = 5
+ts = 0.00002  # sec
+nts = 3
 tsteps = np.arange(0.0, ts * nts, ts)  # sec
 
 # t = f['time'][:]
@@ -357,7 +388,7 @@ zeroArray = cryer_zeros_python(nu,nu_u,ITERATIONS)
 # P_exact_N = np.reshape(pressure(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
 # U_exact_R_N = np.reshape(displacement(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
 # U_exact_R = U_exact_R_N * U_R_inf
-# U_exact_R_N_ST = np.reshape(displacement_small_time(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
+# U_exact_R_N_ST = np.reshdisplacement_sph = displacement_sph.reshape(ntpts,101,101,101)ape(displacement_small_time(pos, t, zeroArray),[t.shape[0],pos.shape[0],1])
 
 # U_exact_R_ST = U_exact_R_N * U_R_zero
 # U_exact_N_ST = (U_exact_R_N_ST * U_R_zero) / U_R_inf
@@ -419,6 +450,10 @@ ntpts = tsteps.size
 R_val = np.sqrt(np.sqrt(xyz[:,0]**2 + xyz[:,1]**2 + xyz[:,2]**2))
 
 stress_sph = stressCalc(xyz, tsteps,  zeroArray)
+pressure_sph = pressure(xyz, tsteps, zeroArray)
+disp_sph = displacement_sph(xyz, tsteps, zeroArray)
+
+
 for i in np.arange(ntpts):
     stress_sph[i,R_val > 1.0001,:] = 0
 
@@ -466,17 +501,19 @@ stress_crt_tensor = np.zeros([ntpts,3,3,npts])
 
 stress_crt_tensor[:,:,:,:] = numpy.einsum('hijl,hjkl->hikl',np.einsum('hijl, hjkl->hikl',A_time,stress_sph_tensor[:,:,:,:]), B_time)
 
-displacement_sph = displacement(xyz, tsteps, zeroArray)
-displacement_sph[:,R_val > 1.0001] = 0
-displacement_sph = displacement_sph.reshape(ntpts,101,101,101)
+disp_sph[:,R_val > 1.0001] = 0
 
-pressure_sph = pressure(xyz, tsteps, zeroArray)
+
+disp_sph = displacement_sph.reshape(ntpts,101,101,101)
+
 pressure_sph[:,R_val > 1.0001] = 0
 pressure_sph = pressure_sph.reshape(ntpts,101,101,101)
 
 stress_sph_R = stress_sph[:,:,0].reshape(ntpts,101,101,101)
 
 
-
+# Plot Cartesian Slice
+#plt.imshow(stress_crt_tensor[1,0,0,:].reshape([101,101,101])[0,:,:])
+#plt.show()
 
 
