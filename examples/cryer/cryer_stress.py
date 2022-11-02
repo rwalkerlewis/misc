@@ -215,10 +215,12 @@ def displacement_crt(locs, tsteps, x_n):
     """
     (npts, dim) = locs.shape
     ntpts = tsteps.shape[0]
-    disp = np.zeros((ntpts, npts), dtype=np.float64)    
+    disp = np.zeros((ntpts, npts, dim), dtype=np.float64)    
     
     center = np.where(~locs.any(axis=1))[0]
     R = np.sqrt(locs[:,0]*locs[:,0] + locs[:,1]*locs[:,1] + locs[:,2]*locs[:,2])
+    theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(locs[:,0]**2 + locs[:,1]**2) / locs[:,2] ) ) )
+    phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( locs[:,1] / locs[:,0] ) ) )    
     R_star = R.reshape([R.size,1]) / R_0
     x_n.reshape([1,x_n.size])
     
@@ -346,12 +348,24 @@ def stressCalc(locs, tsteps, x_n):
 # ==============================================================================
 
 # ==============================================================================
-# f = h5py.File('./output/step00_hex-poroelastic.h5','r')
+f = h5py.File('./output/step00_hex-poroelastic.h5','r')
 
+t = f['time'][:]
+t = t.ravel()
+
+U = f['vertex_fields/displacement'][:]
+P = f['vertex_fields/pressure'][:]
+E = f['vertex_fields/trace_strain'][:]
+C_S = f['vertex_fields/cauchy_stress'][:]
+
+pos = f['geometry/vertices'][:]
+R = np.sqrt(pos[:,0]*pos[:,0] + pos[:,1]*pos[:,1] + pos[:,2]*pos[:,2])
 # Time steps
-ts = 0.00002  # sec
-nts = 3
-tsteps = np.arange(0.0, ts * nts, ts)  # sec
+# ts = 0.0028666667  # sec
+# ts = 0.028666667  # sec
+# nts = 2
+# tsteps = np.arange(0.0, ts * nts, ts) + ts # sec
+
 
 # t = f['time'][:]
 # t = t.ravel()
@@ -445,17 +459,29 @@ zeroArray = cryer_zeros_python(nu,nu_u,ITERATIONS)
 # stress_sph_tensor[:,:,:,:,1,1] = stress_sph[:, :,:,:, 1]    # syy
 # stress_sph_tensor[:,:,:,:,2,2] = stress_sph[:, :,:,:, 2]    # szz
 
-(npts, dim) = xyz.shape
+(npts, dim) = pos.shape
 ntpts = tsteps.size
-R_val = np.sqrt(np.sqrt(xyz[:,0]**2 + xyz[:,1]**2 + xyz[:,2]**2))
+# R_val = np.sqrt(np.sqrt(xyz[:,0]**2 + xyz[:,1]**2 + xyz[:,2]**2))
 
-stress_sph = stressCalc(xyz, tsteps,  zeroArray)
-pressure_sph = pressure(xyz, tsteps, zeroArray)
-disp_sph = displacement_sph(xyz, tsteps, zeroArray)
+C_S_tensor = np.zeros([ntpts,3,3,npts])
+C_S_tensor[:,0,0,:] = C_S[:,:,0]
+C_S_tensor[:,0,1,:] = C_S[:,:,3]
+C_S_tensor[:,0,2,:] = C_S[:,:,5]
+C_S_tensor[:,1,0,:] = C_S[:,:,3]
+C_S_tensor[:,1,1,:] = C_S[:,:,1]
+C_S_tensor[:,1,2,:] = C_S[:,:,4]
+C_S_tensor[:,2,0,:] = C_S[:,:,5]
+C_S_tensor[:,2,1,:] = C_S[:,:,4]
+C_S_tensor[:,2,2,:] = C_S[:,:,2]
 
 
-for i in np.arange(ntpts):
-    stress_sph[i,R_val > 1.0001,:] = 0
+stress_sph = stressCalc(pos, tsteps,  zeroArray)
+pressure_sph = pressure(pos, tsteps, zeroArray)
+disp_sph = displacement_sph(pos, tsteps, zeroArray)
+disp_crt = displacement_crt(pos, tsteps, zeroArray)
+
+# for i in np.arange(ntpts):
+    # stress_sph[i,R_val > 1.0001,:] = 0
 
 stress_sph_tensor = np.zeros([ntpts,3,3,npts])
 stress_sph_tensor[:,0,0,:] = stress_sph[:, :, 0]    # sxx
@@ -472,8 +498,8 @@ sigma_sph = numpy.array([ [     sigma_RR*P_0, numpy.zeros(npts), numpy.zeros(npt
                        	  [numpy.zeros(npts),      sigma_TT*P_0, numpy.zeros(npts)],
                           [numpy.zeros(npts), numpy.zeros(npts),      sigma_PP*P_0] ])
 
-theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(xyz[:,0]**2 + xyz[:,1]**2) / xyz[:,2] ) ) )
-phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( xyz[:,1] / xyz[:,0] ) ) )
+theta = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( numpy.sqrt(pos[:,0]**2 + pos[:,1]**2) / pos[:,2] ) ) )
+phi = numpy.nan_to_num( numpy.arctan( numpy.nan_to_num( pos[:,1] / pos[:,0] ) ) )
 
 A = numpy.array( [ [numpy.sin(theta)*numpy.cos(phi), numpy.cos(theta)*numpy.cos(phi),   -numpy.sin(phi)],
                    [numpy.sin(theta)*numpy.sin(phi), numpy.cos(theta)*numpy.sin(phi),    numpy.cos(phi)],
@@ -501,19 +527,116 @@ stress_crt_tensor = np.zeros([ntpts,3,3,npts])
 
 stress_crt_tensor[:,:,:,:] = numpy.einsum('hijl,hjkl->hikl',np.einsum('hijl, hjkl->hikl',A_time,stress_sph_tensor[:,:,:,:]), B_time)
 
-disp_sph[:,R_val > 1.0001] = 0
+# disp_sph[:,R_val > 1.0001] = 0
 
 
-disp_sph = displacement_sph.reshape(ntpts,101,101,101)
+# disp_sph = disp_sph.reshape(ntpts,101,101,101)
 
-pressure_sph[:,R_val > 1.0001] = 0
-pressure_sph = pressure_sph.reshape(ntpts,101,101,101)
+# pressure_sph[:,R_val > 1.0001] = 0
+# pressure_sph = pressure_sph.reshape(ntpts,101,101,101)
 
-stress_sph_R = stress_sph[:,:,0].reshape(ntpts,101,101,101)
+# stress_sph_R = stress_sph[:,:,0].reshape(ntpts,101,101,101)
 
 
 # Plot Cartesian Slice
 #plt.imshow(stress_crt_tensor[1,0,0,:].reshape([101,101,101])[0,:,:])
 #plt.show()
 
+# ====================================================================
+# Generate graph of stress
 
+# Select linear samples
+t_N = (c*t) / R_0**2
+
+#x_slice = np.where(~pos[:,1:].any(axis=1))[0]
+
+x_slice = np.nonzero(np.logical_and(pos[:,1] == 0.0, pos[:,2] == 0.0))[0]
+x_arr1 = R[x_slice]
+x_arr1inds = x_arr1.argsort()
+x_slice = x_slice[x_arr1inds[::1]]
+
+y_slice = np.nonzero(np.logical_and(pos[:,0] == 0.0, pos[:,2] == 0.0))[0]
+y_arr1 = R[y_slice]
+y_arr1inds = y_arr1.argsort()
+y_slice = y_slice[y_arr1inds[::1]]
+
+#z_slice = np.where(~pos[:,:2].any(axis=1))[0]
+
+z_slice = np.nonzero(np.logical_and(pos[:,0] == 0.0, pos[:,1] == 0.0))[0]
+z_arr1 = R[z_slice]
+z_arr1inds = z_arr1.argsort()
+z_slice = z_slice[z_arr1inds[::1]]
+
+center = np.where(~pos.any(axis=1))[0]
+
+
+# Define snapshots as per Cheng and Detournay paper
+t_N_step_array = np.array([0.001, 0.01, 0.1, 0.5, 1.0, 2.0])
+t_step_array_exact = (t_N_step_array*R_0*R_0) / c
+
+t_step_array = np.zeros(t_step_array_exact.size)
+
+for item in np.arange(0,t_step_array_exact.size):
+    t_step_array[item] = np.abs(t - t_step_array_exact[item]).argmin()
+
+t_step_array[0] = 0
+t_step_array = t_step_array.astype(np.int)    
+
+
+cm_numeric = ['red','black','green','blue','indigo', 'violet']
+cm_analytic = ['red','black','green','blue','indigo', 'violet']
+
+# Pore Pressure at Center
+fig, ax = plt.subplots()
+fig.set_size_inches(15,10)
+ax.semilogx(t_N[:], P_N[:,center,0], color=cm_numeric[0], label='Numerical')
+ax.semilogx(t_N[::50], P_exact_N[::50,center,0], color=cm_analytic[0],marker='^', linestyle=' ', label='Analytical')
+
+ax.grid()
+ax.legend(loc='lower left')
+ax.set(xlabel='Normalized Time, t*', ylabel='Normalized Pressure, P*', title="Cryer's Problem: Normalized Pressure at Center")
+fig.tight_layout()
+fig.savefig('output/cryer_pressure_at_center_hex.png',dpi = 300)
+fig.show()
+
+# ==============================================================================
+# Normalized Pore Pressure along x axis
+fig, ax = plt.subplots()
+fig.set_size_inches(15,10)
+
+
+tstep = 71
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[-1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[-1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+#t0 t_N = 0.01
+tstep = 179
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[0], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[0], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+
+#t2 t_N = 0.10
+tstep = 716 # np.int(n_steps/5 * 1)
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[1], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[1], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+
+#t5 t_N = 0.25
+tstep = 1791 # np.int(n_steps/5 * 2)
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[2], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[2], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+
+#t50 t_N = 0.5
+tstep = 3583 # np.int(n_steps/5 * 4)
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[4], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[4], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+
+#t70 t_N = 1.0
+tstep = 7166
+ax.plot(R[x_slice], P_N[tstep, x_slice,0], color=cm_numeric[5], label='Numerical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+ax.plot(R[x_slice], P_exact_N[tstep, x_slice,0], color=cm_analytic[5], marker='^', linestyle=' ',  label='Analytical, t* = ' + np.str(np.around(t_N[tstep],3) ) )
+
+
+ax.grid()
+ax.legend(loc='lower left')
+ax.set(xlabel='Normalized Radial Distance, R*', ylabel='Normalized Pressure, P*', title="Cryer's Problem: Normalized Pressure Along Radial Axis")
+fig.tight_layout()
+fig.savefig('output/cryer_pressure_along_x_axis_norm_hex.png',dpi = 300)
+fig.show()
