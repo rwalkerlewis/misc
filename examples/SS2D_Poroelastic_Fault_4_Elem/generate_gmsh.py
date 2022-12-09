@@ -35,15 +35,15 @@ class App(GenerateMesh):
     The fault surface runs along the y-axis through the entire domain.
 
     p4-----p6-----p3
-    |       |      |
-    |       |      |
-    |       |      |
-    |       |      |
-    |       |      |
+    |              |
+    |              |
+    |--------------|
+    |              |
+    |              |
     p1-----p5-----p2
     """
-    DOMAIN_X = 100.0e+3
-    DOMAIN_Y = 100.0e+3
+    DOMAIN_X = 2.0
+    DOMAIN_Y = 2.0
 
     def __init__(self):
         """Constructor.
@@ -132,11 +132,15 @@ class App(GenerateMesh):
         # The dimension and entities specify the geometric entities to include in the physical
         # group.
         vertex_groups = (
-            VertexGroup(name="boundary_xneg", tag=10, dim=1, entities=[self.c_xneg1, self.c_xneg2]),
-            VertexGroup(name="boundary_xpos", tag=11, dim=1, entities=[self.c_xpos1, self.c_xpos2]),
-            VertexGroup(name="boundary_yneg", tag=12, dim=1, entities=[self.c_yneg1, self.c_yneg2]),
-            VertexGroup(name="boundary_ypos", tag=13, dim=1, entities=[self.c_ypos1, self.c_ypos2]),
-            VertexGroup(name="fault", tag=20, dim=1, entities=[self.c_fault]),
+            # VertexGroup(name="boundary_xneg", tag=10, dim=1, entities=[self.c_xneg1, self.c_xneg2]),
+            VertexGroup(name="boundary_xneg1", tag=10, dim=1, entities=[self.c_xneg1]),
+            VertexGroup(name="boundary_xneg2", tag=11, dim=1, entities=[self.c_xneg2]),            
+            # VertexGroup(name="boundary_xpos", tag=11, dim=1, entities=[self.c_xpos1, self.c_xpos2]),
+            VertexGroup(name="boundary_xpos1", tag=12, dim=1, entities=[self.c_xpos1]),
+            VertexGroup(name="boundary_xpos2", tag=13, dim=1, entities=[self.c_xpos2]),            
+            VertexGroup(name="boundary_yneg", tag=14, dim=1, entities=[self.c_yneg1, self.c_yneg2]),
+            VertexGroup(name="boundary_ypos", tag=15, dim=1, entities=[self.c_ypos1, self.c_ypos2]),           
+            VertexGroup(name="fault", tag=20, dim=1, entities=[self.c_fault]),          
             VertexGroup(name="patch_ypos", tag=30, dim=2, entities=[self.s_ypos]),
             VertexGroup(name="patch_yneg", tag=31, dim=2, entities=[self.s_yneg]),
         )
@@ -166,7 +170,7 @@ class App(GenerateMesh):
         # The `GenerateMesh` class includes a special function `get_math_progression` 
         # for creating the string with the mathematical function.
         field_size = gmsh.model.mesh.field.add("MathEval")
-        math_exp = GenerateMesh.get_math_progression(field_distance, min_dx=50.0e+3, bias=1.05)
+        math_exp = GenerateMesh.get_math_progression(field_distance, min_dx=1.0, bias=1.05)
         gmsh.model.mesh.field.setString(field_size, "F", math_exp)
 
         # Finally, we use the field `field_size` for the cell size of the mesh.
