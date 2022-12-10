@@ -1,0 +1,216 @@
+[pylithapp.metadata]
+#  y
+#  ^
+#  |
+#   --> x
+#
+#
+#             -----------
+#             |    |    |
+# Ux, Uy= 0   |    |    | Ux, Uy= 0
+#             |    |    |
+#             |    |    |
+#             -----------
+#
+# Dirichlet boundary conditions
+#
+# boundary_xneg: Ux = Uy = 0
+# boundary_xpos: Ux = Uy = 0
+#
+# Fault has uniform slip of 2 m.
+base = [pylithapp.cfg]
+description = Coseismic prescribed slip with zero displacement Dirichlet boundary conditions.
+authors = [Brad Aagaard]
+keywords = [prescribed slip]
+arguments = [step01_slip.cfg]
+version = 1.0.0
+pylith_version = [>=3.0, <4.0]
+
+features = [
+    Static simulation
+    ]
+
+# ----------------------------------------------------------------------
+# Monitoring and parameter viewing.
+# ----------------------------------------------------------------------
+[pylithapp]
+# You can view this file using the pylith_parameters application or
+# online at https://geodynamics.github.io/pylith_parameters/.
+dump_parameters.filename = output/step01_slip-parameters.json
+problem.progress_monitor.filename = output/step01_slip-progress.txt
+
+# Set the name of the problem that will be used to construct the
+# output filenames. The default directory for output is 'output'.
+problem.defaults.name = step01_slip
+
+# ----------------------------------------------------------------------
+# problem
+# ----------------------------------------------------------------------
+[pylithapp.problem]
+# For time-dependent problems, we specify start and end times and an initial
+# time step. With an initial time step of 10 years, we use a start time of
+# -10 years so that the first solution occurs at 0 years.
+initial_dt = 1.0*s
+start_time = -1.0*s
+end_time = 5.0*s
+
+[pylithapp.problem]
+# Scales for nondimensionalization
+# We specify a time scale using a fake relaxation time that cooresponds
+# to the time scale of the quasi-static simulations.
+normalizer = spatialdata.units.NondimElasticQuasistatic
+normalizer.length_scale = 100.0*m
+normalizer.relaxation_time = 1.0*s
+normalizer.shear_modulus = 1000.0*Pa
+
+# ----------------------------------------------------------------------
+# boundary conditions
+# ----------------------------------------------------------------------
+# Create an array of 2 boundary conditions for the +x and -x boundaries.
+[pylithapp.problem]
+# bc = [bc_xneg, bc_xpos, bc_yneg1, bc_yneg2, bc_ypos1, bc_ypos2]
+bc = [bc_xneg, bc_xpos]
+bc.bc_xneg = pylith.bc.DirichletTimeDependent
+bc.bc_xpos = pylith.bc.DirichletTimeDependent
+
+# bc.bc_yneg1 = pylith.bc.DirichletTimeDependent
+# bc.bc_ypos1 = pylith.bc.DirichletTimeDependent
+# bc.bc_yneg2 = pylith.bc.DirichletTimeDependent
+# bc.bc_ypos2 = pylith.bc.DirichletTimeDependent
+
+# The `label` and `label_value` correspond to the name and tag of the
+# physical group in the Gmsh Python script.
+#
+# We constrain both the x and y displacement components on the +x and -x
+# boundaries, so we set `constrained_dof=[0,1]`.
+# We use the specialized `ZeroDB` to specify zero values for the Dirichlet
+# BC. We will override this parameter in some of the .cfg files to specify
+# nonzero values.
+
+[pylithapp.problem.bc.bc_xneg]
+label = boundary_xneg
+label_value = 10
+field = displacement
+constrained_dof = [0, 1]
+db_auxiliary_field = pylith.bc.ZeroDB
+db_auxiliary_field.description = Dirichlet BC -x boundary
+
+[pylithapp.problem.bc.bc_xpos]
+label = boundary_xpos
+label_value = 11
+field = displacement
+constrained_dof = [0, 1]
+db_auxiliary_field = pylith.bc.ZeroDB
+db_auxiliary_field.description = Dirichlet BC +x boundary
+
+# [pylithapp.problem.bc.bc_yneg1]
+# label = boundary_yneg1
+# label_value = 14
+# field = pressure
+# constrained_dof = [0]
+# db_auxiliary_field = spatialdata.spatialdb.UniformDB
+# db_auxiliary_field.values = [initial_amplitude]
+# db_auxiliary_field.data = [0.0*MPa]
+# db_auxiliary_field.description = Dirichlet BC -y1 boundary
+
+# [pylithapp.problem.bc.bc_ypos1]
+# label = boundary_ypos1
+# label_value = 15
+# field = pressure
+# constrained_dof = [0]
+# db_auxiliary_field = spatialdata.spatialdb.UniformDB
+# db_auxiliary_field.values = [initial_amplitude]
+# db_auxiliary_field.data = [0.0*MPa]
+# db_auxiliary_field.description = Dirichlet BC +y1 boundary
+
+# [pylithapp.problem.bc.bc_yneg2]
+# label = boundary_yneg2
+# label_value = 16
+# field = pressure
+# constrained_dof = [0]
+# db_auxiliary_field = spatialdata.spatialdb.UniformDB
+# db_auxiliary_field.values = [initial_amplitude]
+# db_auxiliary_field.data = [0.0*MPa]
+# db_auxiliary_field.description = Dirichlet BC -y2 boundary
+
+# [pylithapp.problem.bc.bc_ypos2]
+# label = boundary_ypos2
+# label_value = 17
+# field = pressure
+# constrained_dof = [0]
+# db_auxiliary_field = spatialdata.spatialdb.UniformDB
+# db_auxiliary_field.values = [initial_amplitude]
+# db_auxiliary_field.data = [0.0*MPa]
+# db_auxiliary_field.description = Dirichlet BC +y2 boundary
+
+
+# ----------------------------------------------------------------------
+# initial conditions
+# ----------------------------------------------------------------------
+[pylithapp.problem]
+ic = [xneg,xpos]
+ic.xneg = pylith.problems.InitialConditionPatch
+ic.xpos = pylith.problems.InitialConditionPatch
+
+[pylithapp.problem.ic.xneg]
+label_value = 1
+db = spatialdata.spatialdb.UniformDB
+db.description = Initial conditions for xneg
+db.values = [displacement_x, displacement_y, pressure, trace_strain]
+db.data = [0.0*m, 0.0*m, 1.0*MPa, 0.0]
+
+
+[pylithapp.problem.ic.xpos]
+label_value = 2
+db = spatialdata.spatialdb.UniformDB
+db.description = Initial conditions for xpos
+db.values = [displacement_x, displacement_y, pressure, trace_strain]
+db.data = [0.0*m, 0.0*m, 1.0*MPa, 0.0]
+
+# ----------------------------------------------------------------------
+# # initial conditions
+# # ----------------------------------------------------------------------
+# [pylithapp.problem]
+# ic = [domain]
+# ic.domain = pylith.problems.InitialConditionDomain
+
+# [pylithapp.problem.ic.domain]
+# db = spatialdata.spatialdb.SimpleGridDB
+# db.description = Initial conditions over domain
+# db.filename = slip_ic.spatialdb
+# ----------------------------------------------------------------------
+# fault
+# ----------------------------------------------------------------------
+[pylithapp.problem]
+interfaces = [fault]
+interfaces.fault = pylith.faults.FaultCohesiveKinPoro
+
+[pylithapp.problem.interfaces.fault]
+# The `label` and `label_value` correspond to the name and tag of the
+# physical group in the Gmsh Python script.
+label = fault
+label_value = 20
+# Output `slip` on the fault.
+observers.observer.data_fields = [slip]
+# We will use uniform material properties, so we use the UniformDB
+# spatial database.
+db_auxiliary_field = spatialdata.spatialdb.UniformDB
+db_auxiliary_field.description = Poroelastic fault properties
+db_auxiliary_field.values = [thickness, porosity, beta_p, beta_sigma, fault_permeability_xx, fault_permeability_yy, fault_permeability_zz, fault_permeability_xy, fluid_viscosity]
+db_auxiliary_field.data   = [ 0.002*m,     0.08,   1.0*Pa**-1, 1.0*Pa**-1,            1e-13*m**2,            1e-13*m**2,            1e-13*m**2,            1e-13*m**2,      0.001*Pa*s]
+# observers.observer.field_filter.basis_order = 1
+#observers.observer.data_fields = [slip, lagrange_fault]
+#auxiliary_subfields.body_force.basis_order = 0
+#observers.observer.data_fields = [slip]
+
+# ----------------------------------------------------------------------
+# fault
+# ----------------------------------------------------------------------
+[pylithapp.problem.interfaces.fault.eq_ruptures.rupture]
+db_auxiliary_field = spatialdata.spatialdb.UniformDB
+db_auxiliary_field.description = Fault rupture auxiliary field spatial database
+db_auxiliary_field.values = [initiation_time, final_slip_left_lateral, final_slip_opening]
+db_auxiliary_field.data = [0.0*s, 0.02*m, 0.0*m]
+
+
+# End of file

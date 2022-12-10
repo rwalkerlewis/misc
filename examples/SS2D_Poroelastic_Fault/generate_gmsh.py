@@ -1,4 +1,4 @@
-#!/usr/bin/env nemesis
+#!/usr/bin/env python
 """Generate a tri or quad mesh of a strike-slip fault using Gmsh, making use of the
 built-in geometry engine.
 
@@ -17,7 +17,7 @@ Run `generate_gmsh.py --write` to generate the mesh.
 import gmsh
 
 # Import the gmsh_utils Python module supplied with PyLith.
-from pylith.meshio.gmsh_utils import (VertexGroup, MaterialGroup, GenerateMesh)
+from gmsh_utils import (VertexGroup, MaterialGroup, GenerateMesh)
 
 class App(GenerateMesh):
     """
@@ -80,6 +80,10 @@ class App(GenerateMesh):
         p5 = gmsh.model.geo.add_point(x1+0.5*lx, y1, 0.0)
         p6 = gmsh.model.geo.add_point(x1+0.5*lx, y1+ly, 0.0)
 
+        # Save fault points
+        self.p5 = p5
+        self.p6 = p6
+
         # Create curves. We store the curve tag as a data member
         # so that we can refer to them later.
         self.c_yneg1 = gmsh.model.geo.add_line(p1, p5)
@@ -127,7 +131,13 @@ class App(GenerateMesh):
             VertexGroup(name="boundary_xpos", tag=11, dim=1, entities=[self.c_xpos]),
             VertexGroup(name="boundary_yneg", tag=12, dim=1, entities=[self.c_yneg1, self.c_yneg2]),
             VertexGroup(name="boundary_ypos", tag=13, dim=1, entities=[self.c_ypos1, self.c_ypos2]),
+            VertexGroup(name="boundary_yneg1", tag=14, dim=1, entities=[self.c_yneg1]),
+            VertexGroup(name="boundary_ypos1", tag=15, dim=1, entities=[self.c_ypos1]),
+            VertexGroup(name="boundary_yneg2", tag=16, dim=1, entities=[self.c_yneg2]),
+            VertexGroup(name="boundary_ypos2", tag=17, dim=1, entities=[self.c_ypos2]),            
             VertexGroup(name="fault", tag=20, dim=1, entities=[self.c_fault]),
+            VertexGroup(name="fault_ypos", tag=21, dim=1, entities=[self.p6]),
+            VertexGroup(name="fault_ypos", tag=22, dim=1, entities=[self.p5]),
         )
         for group in vertex_groups:
             group.create_physical_group()

@@ -68,6 +68,14 @@ lagrange_fault.basis_order = 2
 fault_pressure.basis_order = 2
 
 
+[pylithapp.problem]
+# Scales for nondimensionalization
+# We specify a time scale using a fake relaxation time that cooresponds
+# to the time scale of the quasi-static simulations.
+normalizer = spatialdata.units.NondimElasticQuasistatic
+normalizer.length_scale = 50.0*km
+normalizer.relaxation_time = 1.0*s
+normalizer.shear_modulus = 1000.0*Pa
 
 [pylithapp.problem]
 # Output the solution over the domain and on the +y and -y boundaries.
@@ -176,7 +184,7 @@ observers.observer.data_fields = [slip]
 db_auxiliary_field = spatialdata.spatialdb.UniformDB
 db_auxiliary_field.description = Poroelastic fault properties
 db_auxiliary_field.values = [thickness, porosity,       beta_p, beta_sigma, fault_permeability_xx, fault_permeability_yy, fault_permeability_zz, fault_permeability_xy, fluid_viscosity]
-db_auxiliary_field.data   = [ 0.002*m,     0.068,   1.0*Pa**-1, 1.0*Pa**-1,            1e-13*m**2,            1e-13*m**2,            1e-13*m**2,            1e-13*m**2,      0.001*Pa*s]
+db_auxiliary_field.data   = [ 0.0002*m,     0.068,   1.0*Pa**-1, 1.0*Pa**-1,            1e-12*m**2,            1e-13*m**2,            1e-13*m**2,            1e-13*m**2,      0.001*Pa*s]
 # observers.observer.field_filter.basis_order = 1
 #observers.observer.data_fields = [slip, lagrange_fault]
 #auxiliary_subfields.body_force.basis_order = 0
@@ -241,7 +249,8 @@ fieldsplit_1_pc_type  = svd
 
 ksp_rtol = 1.0e-10
 ksp_atol = 1.0e-12
-ksp_max_it = 100
+ksp_max_it = 50
+snes_max_it = 50
 ksp_gmres_restart = 50
 ksp_error_if_not_converged = true
 
@@ -251,9 +260,9 @@ snes_error_if_not_converged = true
 
 # Monitors for debugging
 ts_monitor = true
-fieldsplit_0_ksp_monitor_true_residual = true
-fieldsplit_1_ksp_monitor_true_residual = true
-fieldsplit_1_pc_svd_monitor = true
+# fieldsplit_0_ksp_monitor_true_residual = true
+# fieldsplit_1_ksp_monitor_true_residual = true
+# fieldsplit_1_pc_svd_monitor = true
 ksp_monitor_true_residual = true
 ksp_converged_reason = true
 snes_monitor = true
@@ -265,4 +274,5 @@ snes_linesearch_monitor = true
 #Tests
 
 # End of file
+
 
