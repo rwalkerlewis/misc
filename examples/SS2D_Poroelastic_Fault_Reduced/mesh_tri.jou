@@ -8,12 +8,12 @@
 # This code was developed as part of the Computational Infrastructure
 # for Geodynamics (http://geodynamics.org).
 #
-# Copyright (c) 2010-2021 University of California, Davis
+# Copyright (c) 2010-2022 University of California, Davis
 #
 # See LICENSE.md for license information.
 #
 # ----------------------------------------------------------------------
-# Create quad mesh at 5 km resolution.
+# Create tri mesh at 4 km resolution.
 
 # ----------------------------------------------------------------------
 # Generate geometry
@@ -22,11 +22,9 @@ playback 'geometry.jou'
 
 # ----------------------------------------------------------------------
 # Set discretization size and scheme
-#
-# The "pave" scheme is an unstructured 2-D quad meshing scheme.
 # ----------------------------------------------------------------------
-${dx=0.5*m}
-surface all scheme pave
+${dx=4.0*km}
+surface all scheme trimesh
 playback 'gradient.jou'
 
 # ----------------------------------------------------------------------
@@ -49,13 +47,7 @@ playback 'createbc.jou'
 # ----------------------------------------------------------------------
 # Export exodus file
 # ----------------------------------------------------------------------
-export mesh "mesh_quad.exo" dimension 2 overwrite
+export mesh "mesh_tri.exo" dimension 2 overwrite
 
 
 # End of file
-
-
-
-
-
-

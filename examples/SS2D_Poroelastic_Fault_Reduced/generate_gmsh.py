@@ -1,4 +1,4 @@
-#!/usr/bin/env nemesis
+#!/usr/bin/env python
 """Generate a tri or quad mesh of a strike-slip fault using Gmsh, making use of the
 built-in geometry engine.
 
@@ -14,11 +14,9 @@ Run `generate_gmsh.py --write` to generate the mesh.
 """
 
 # Import Gmsh Python interface
-from html import entities
 import gmsh
 
 # Import the gmsh_utils Python module supplied with PyLith.
-# from pylith.meshio.gmsh_utils import (VertexGroup, MaterialGroup, GenerateMesh)
 from gmsh_utils import (VertexGroup, MaterialGroup, GenerateMesh)
 
 class App(GenerateMesh):
@@ -28,22 +26,26 @@ class App(GenerateMesh):
     App uses `GenerateMesh` from `gmsh_utils` for common functionality that we avoid
     duplicating in each of our examples.
 
-    Domain is 100km by 100km.
-    -50.0 km <= x <= 50.0 km
-    -50.0 km <= y <= 50.0 km
+    Domain is 1m by 1m.
+    -0.5 km <= x <= 0.5 km
+    -0.5 km <= y <= 0.5 km
 
     The fault surface runs along the y-axis through the entire domain.
 
     p4-----p6-----p3
-    |              |
-    |              |
-    |--------------|
-    |              |
-    |              |
+    |       |      |
+    |       |      |
+    |       |      |
+    |       |      |
+    |       |      |
+    |       |      |
+    |       |      |
+    |       |      |
+    |       |      |
     p1-----p5-----p2
     """
-    DOMAIN_X = 2.0
-    DOMAIN_Y = 2.0
+    DOMAIN_X = 1.0
+    DOMAIN_Y = 1.0
 
     def __init__(self):
         """Constructor.
@@ -77,35 +79,24 @@ class App(GenerateMesh):
 
         p5 = gmsh.model.geo.add_point(x1+0.5*lx, y1, 0.0)
         p6 = gmsh.model.geo.add_point(x1+0.5*lx, y1+ly, 0.0)
-        
-        p7 = gmsh.model.geo.add_point(x1, y1+0.5*ly, 0.0)
-        p8 = gmsh.model.geo.add_point(x1+lx, y1+0.5*ly, 0.0)
 
         # Create curves. We store the curve tag as a data member
         # so that we can refer to them later.
         self.c_yneg1 = gmsh.model.geo.add_line(p1, p5)
         self.c_yneg2 = gmsh.model.geo.add_line(p5, p2)
-        
-        self.c_xpos2 = gmsh.model.geo.add_line(p2, p8)
-        self.c_xpos1 = gmsh.model.geo.add_line(p8, p3)
-
+        self.c_xpos = gmsh.model.geo.add_line(p2, p3)
         self.c_ypos2 = gmsh.model.geo.add_line(p3, p6)
         self.c_ypos1 = gmsh.model.geo.add_line(p6, p4)
-        
-        self.c_xneg1 = gmsh.model.geo.add_line(p4, p7)
-        self.c_xneg2 = gmsh.model.geo.add_line(p7, p1)
-        
-        self.c_fault = gmsh.model.geo.add_line(p7, p8)
+        self.c_xneg = gmsh.model.geo.add_line(p4, p1)
+        self.c_fault = gmsh.model.geo.add_line(p5, p6)
 
         # Create curve loops and surfaces from the curves.
         # We traverse the curves in a counter clock-wise direction.
         # If the curve is in the opporite direction, we use the negative tag.
-
-        c0 = gmsh.model.geo.add_curve_loop([self.c_yneg1,self.c_yneg2, self.c_xpos2, -self.c_fault, self.c_xneg2])
-        self.s_yneg = gmsh.model.geo.add_plane_surface([c0])                
-
-        c1 = gmsh.model.geo.add_curve_loop([self.c_fault, self.c_xpos1, self.c_ypos2, self.c_ypos1, self.c_xneg1])
-        self.s_ypos = gmsh.model.geo.add_plane_surface([c1])
+        c0 = gmsh.model.geo.add_curve_loop([self.c_yneg1, self.c_fault, self.c_ypos1, self.c_xneg])
+        self.s_xneg = gmsh.model.geo.add_plane_surface([c0])
+        c1 = gmsh.model.geo.add_curve_loop([self.c_yneg2, self.c_xpos, self.c_ypos2, -self.c_fault])
+        self.s_xpos = gmsh.model.geo.add_plane_surface([c1])
 
         gmsh.model.geo.synchronize()
 
@@ -120,8 +111,8 @@ class App(GenerateMesh):
         # The tag argument specifies the integer tag for the physical group.
         # The entities argument specifies the array of surfaces for the material.
         materials = (
-            MaterialGroup(tag=1, entities=[self.s_yneg]),
-            MaterialGroup(tag=2, entities=[self.s_ypos]),
+            MaterialGroup(tag=1, entities=[self.s_xneg]),
+            MaterialGroup(tag=2, entities=[self.s_xpos]),
         )
         for material in materials:
             material.create_physical_group()
@@ -132,17 +123,11 @@ class App(GenerateMesh):
         # The dimension and entities specify the geometric entities to include in the physical
         # group.
         vertex_groups = (
-            # VertexGroup(name="boundary_xneg", tag=10, dim=1, entities=[self.c_xneg1, self.c_xneg2]),
-            VertexGroup(name="boundary_xneg1", tag=10, dim=1, entities=[self.c_xneg1]),
-            VertexGroup(name="boundary_xneg2", tag=11, dim=1, entities=[self.c_xneg2]),            
-            # VertexGroup(name="boundary_xpos", tag=11, dim=1, entities=[self.c_xpos1, self.c_xpos2]),
-            VertexGroup(name="boundary_xpos1", tag=12, dim=1, entities=[self.c_xpos1]),
-            VertexGroup(name="boundary_xpos2", tag=13, dim=1, entities=[self.c_xpos2]),            
-            VertexGroup(name="boundary_yneg", tag=14, dim=1, entities=[self.c_yneg1, self.c_yneg2]),
-            VertexGroup(name="boundary_ypos", tag=15, dim=1, entities=[self.c_ypos1, self.c_ypos2]),           
-            VertexGroup(name="fault", tag=20, dim=1, entities=[self.c_fault]),          
-            VertexGroup(name="patch_ypos", tag=30, dim=2, entities=[self.s_ypos]),
-            VertexGroup(name="patch_yneg", tag=31, dim=2, entities=[self.s_yneg]),
+            VertexGroup(name="boundary_xneg", tag=10, dim=1, entities=[self.c_xneg]),
+            VertexGroup(name="boundary_xpos", tag=11, dim=1, entities=[self.c_xpos]),
+            VertexGroup(name="boundary_yneg", tag=12, dim=1, entities=[self.c_yneg1, self.c_yneg2]),
+            VertexGroup(name="boundary_ypos", tag=13, dim=1, entities=[self.c_ypos1, self.c_ypos2]),
+            VertexGroup(name="fault", tag=20, dim=1, entities=[self.c_fault]),
         )
         for group in vertex_groups:
             group.create_physical_group()
@@ -170,7 +155,7 @@ class App(GenerateMesh):
         # The `GenerateMesh` class includes a special function `get_math_progression` 
         # for creating the string with the mathematical function.
         field_size = gmsh.model.mesh.field.add("MathEval")
-        math_exp = GenerateMesh.get_math_progression(field_distance, min_dx=1.0, bias=1.05)
+        math_exp = GenerateMesh.get_math_progression(field_distance, min_dx=0.5, bias=1.05)
         gmsh.model.mesh.field.setString(field_size, "F", math_exp)
 
         # Finally, we use the field `field_size` for the cell size of the mesh.
